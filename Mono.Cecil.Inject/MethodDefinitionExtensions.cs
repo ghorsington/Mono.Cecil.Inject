@@ -14,7 +14,7 @@ namespace Mono.Cecil.Inject
                                       FieldDefinition[] typeFields = null)
         {
             InjectionDefinition id = new InjectionDefinition(method, injectionMethod, flags, localsID, typeFields);
-            id.Inject(codeOffset, tag, dir);
+            id.Inject(0, tag, dir);
         }
 
         public static InjectionDefinition GetInjector(this MethodDefinition target,
