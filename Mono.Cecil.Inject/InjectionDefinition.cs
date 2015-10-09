@@ -1,15 +1,34 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Mono.Cecil;
 using Mono.Cecil.Cil;
 
 namespace Mono.Cecil.Inject
 {
+    /// <summary>
+    ///     The core class containing all the injector methods.
+    /// </summary>
     public class InjectionDefinition
     {
         internal InjectionDefinition() {}
 
+        /// <summary>
+        ///     Attempts to construct an instance of <see cref="InjectionDefinition" /> by linking the injection method with the
+        ///     injection target (the method to be injected).
+        ///     The way how the method is injected is specified by the injection flags. If the injection method does not match the
+        ///     criteria set by the injection flags, an exception will be thrown.
+        /// </summary>
+        /// <param name="injectTarget">The method that will be injected.</param>
+        /// <param name="injectMethod">The method which to inject.</param>
+        /// <param name="flags">Injection flags that specify what values to pass to the injection method and how to inject it.</param>
+        /// <param name="localVarIDs">
+        ///     An array of indicies of local variables to pass to the injection method. Used only if
+        ///     <see cref="InjectFlags.PassLocals" /> is specified, otherwise ignored.
+        /// </param>
+        /// <param name="memberReferences">
+        ///     An array of class fields from the type the target lies in to pass to the injection
+        ///     method. Used only if <see cref="InjectFlags.PassFields" /> is specified, otherwise ignored.
+        /// </param>
         public InjectionDefinition(MethodDefinition injectTarget,
                                    MethodDefinition injectMethod,
                                    InjectFlags flags,
@@ -173,24 +192,69 @@ Injection has {injectMethod.Parameters.Count
         internal int _MemeberRefCount { get; set; }
         internal int _ParameterCount { get; set; }
         internal int _PrefixCount { get; set; }
+
+        /// <summary>
+        ///     Flags that specify how the injection will be performed and which parameters are to be passed to the injection
+        ///     method.
+        /// </summary>
         public InjectFlags Flags { get; internal set; }
+
+        /// <summary>
+        ///     The injection method; the method the call of which will be injected into the target.
+        /// </summary>
         public MethodDefinition InjectMethod { get; internal set; }
+
+        /// <summary>
+        ///     The injection target-
+        /// </summary>
         public MethodDefinition InjectTarget { get; internal set; }
+
+        /// <summary>
+        ///     An array of indicies of local variables to pass to the injection method. Used only if
+        ///     <see cref="InjectFlags.PassLocals" /> is specified, otherwise null.
+        /// </summary>
         public int[] LocalVarIDs { get; internal set; }
+
+        /// <summary>
+        ///     An array of class fields from the type the target lies in to pass to the injection method. Used only if
+        ///     <see cref="InjectFlags.PassFields" /> is specified, otherwise null.
+        /// </summary>
         public FieldDefinition[] MemberReferences { get; internal set; }
 
         internal void Assert(bool val, string message)
         {
             if (!val)
-                throw new HookDefinitionException(message);
+                throw new InjectionDefinitionException(message);
         }
 
+        /// <summary>
+        ///     Inject the call of the injection method into the target.
+        /// </summary>
+        /// <param name="startCode">
+        ///     The index of the instruction from which to start injecting. If positive, will count from the
+        ///     beginning of the method. If negative, will count from the end. For instance, -1 is the method's last instruction
+        ///     and 0 is the first.
+        /// </param>
+        /// <param name="token">
+        ///     If <see cref="InjectFlags.PassTag" /> is specified, the value of this parameter will be passed as a
+        ///     parameter to the injection method.
+        /// </param>
+        /// <param name="direction">The direction in which to insert the call: either above the start code or below it.</param>
         public void Inject(int startCode = 0, int token = 0, InjectDirection direction = InjectDirection.Before)
         {
             startCode = startCode < 0 ? InjectTarget.Body.Instructions.Count + startCode : startCode;
             Inject(InjectTarget.Body.Instructions[startCode], token, direction);
         }
 
+        /// <summary>
+        ///     Inject the call of the injection method into the target.
+        /// </summary>
+        /// <param name="startCode">The instruction from which to start injecting.</param>
+        /// <param name="token">
+        ///     If <see cref="InjectFlags.PassTag" /> is specified, the value of this parameter will be passed as a
+        ///     parameter to the injection method.
+        /// </param>
+        /// <param name="direction">The direction in which to insert the call: either above the start code or below it.</param>
         public void Inject(Instruction startCode, int token = 0, InjectDirection direction = InjectDirection.Before)
         {
             InjectValues flags = Flags.ToValues();

@@ -1,11 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace Mono.Cecil.Inject
 {
+    /// <summary>
+    ///     Extensions for <see cref="TypeDefinition" />
+    /// </summary>
     public static class TypeDefinitionExtensions
     {
+        /// <summary>
+        ///     Changes accessibility of a type member (target or a field).
+        /// </summary>
+        /// <param name="type">Type (class, struct) that contains the member to alter.</param>
+        /// <param name="member">Name of the member as a regular expression.</param>
+        /// <param name="makePublic">If true, will make the member public.</param>
+        /// <param name="makeVirtual">If true and the member is a target, will make it public.</param>
+        /// <param name="makeAssignable">
+        ///     If true, turns read-only members into assignable ones. NOTE: Will not for for constant
+        ///     (marked with "const" prefix) -- only for "readonly".
+        /// </param>
+        /// <param name="recursive">If true, will recusively call this method on nested types as well.</param>
         public static void ChangeAccess(this TypeDefinition type,
                                         string member,
                                         bool makePublic = true,
@@ -20,14 +36,8 @@ namespace Mono.Cecil.Inject
             Logger.LogLine(LogMask.ChangeAccess, $"Make assignable: {makeAssignable}");
             Logger.LogLine(LogMask.ChangeAccess, $"Recurse on nested types: {recursive}");
 
-            int i = member.IndexOf('*');
-            bool wildcard = i >= 0;
-            bool passAll = member == "*";
-            if (wildcard && !passAll)
-                member = member.Remove(i);
-            Logger.LogLine(LogMask.ChangeAccess, $"Change everything: {passAll}");
-            type.Methods.Where(
-            m => passAll || ((!wildcard && m.Name == member) || (wildcard && m.Name.StartsWith(member)))).ForEach(
+            Regex pattern = new Regex($"^{member}$");
+            type.Methods.Where(m => pattern.IsMatch(m.Name)).ForEach(
             m =>
             {
                 Logger.LogLine(LogMask.ChangeAccess, $"Changing access for method {m.Name}");
@@ -35,7 +45,8 @@ namespace Mono.Cecil.Inject
                 LogMask.ChangeAccess,
                 $"Flags before: {(m.IsVirtual ? "VIRTUAL" : string.Empty)} {(m.IsPublic ? "PUBLIC" : string.Empty)} {(m.IsPrivate ? "PRIVATE" : string.Empty)}");
 
-                m.IsVirtual = makeVirtual;
+                if (m.Name != ".ctor")
+                    m.IsVirtual = makeVirtual;
                 m.IsPublic = makePublic;
                 m.IsPrivate = !makePublic;
 
@@ -44,8 +55,7 @@ namespace Mono.Cecil.Inject
                 $"Flags now: {(m.IsVirtual ? "VIRTUAL" : string.Empty)} {(m.IsPublic ? "PUBLIC" : string.Empty)} {(m.IsPrivate ? "PRIVATE" : string.Empty)}");
             });
 
-            type.Fields.Where(
-            f => passAll || ((!wildcard && f.Name == member) || (wildcard && f.Name.StartsWith(member)))).ForEach(
+            type.Fields.Where(f => pattern.IsMatch(f.Name)).ForEach(
             f =>
             {
                 Logger.LogLine(LogMask.ChangeAccess, $"Changing access for field {f.Name}");
@@ -62,8 +72,7 @@ namespace Mono.Cecil.Inject
                 $"Flags now: {(f.IsInitOnly ? "READONLY" : string.Empty)} {(f.IsPublic ? "PUBLIC" : string.Empty)} {(f.IsPrivate ? "PRIVATE" : string.Empty)}");
             });
 
-            type.NestedTypes.Where(
-            f => passAll || ((!wildcard && f.Name == member) || (wildcard && f.Name.StartsWith(member)))).ForEach(
+            type.NestedTypes.Where(f => pattern.IsMatch(f.Name)).ForEach(
             f =>
             {
                 Logger.LogLine(LogMask.ChangeAccess, $"Changing access for nested type {f.Name}");
@@ -74,16 +83,44 @@ namespace Mono.Cecil.Inject
                 f.IsPublic = makePublic;
                 f.IsNestedPublic = makePublic;
                 f.IsNestedPrivate = !makePublic;
-                if (recursive && passAll)
-                    f.ChangeAccess(member, makePublic, makeVirtual, makeAssignable, recursive);
+                if (recursive)
+                    f.ChangeAccess(member, makePublic, makeVirtual, makeAssignable, true);
             });
         }
 
+        /// <summary>
+        ///     Gets a field by its name.
+        /// </summary>
+        /// <param name="self">Reference to type definition that owns the method/member.</param>
+        /// <param name="memberName">Name of the field.</param>
+        /// <returns>Field definiton of the said field. Null, if none found.</returns>
         public static FieldDefinition GetField(this TypeDefinition self, string memberName)
         {
             return self.Fields.FirstOrDefault(f => f.Name == memberName);
         }
 
+        /// <summary>
+        ///     Searches for a method that can be used to inject into the specified target.
+        /// </summary>
+        /// <param name="type">This type in which the possible injection method lies.</param>
+        /// <param name="name">Name of the injection method.</param>
+        /// <param name="target">The target method which to inject.</param>
+        /// <param name="flags">
+        ///     Injection flags that specify what values to pass to the injection method and how to inject it. This
+        ///     method attempts to find the hook method that satisfies all the specified flags.
+        /// </param>
+        /// <param name="localVarIDs">
+        ///     An array of indicies of local variables to pass to the injection method. Used only if
+        ///     <see cref="InjectFlags.PassLocals" /> is specified, otherwise ignored.
+        /// </param>
+        /// <param name="memberReferences">
+        ///     An array of class fields from the type the target lies in to pass to the injection
+        ///     method. Used only if <see cref="InjectFlags.PassFields" /> is specified, otherwise ignored.
+        /// </param>
+        /// <returns>
+        ///     An instance of <see cref="InjectionDefinition" />, if a suitable injection method with the given name has been
+        ///     found. Otherwise, null.
+        /// </returns>
         public static InjectionDefinition GetInjectionMethod(this TypeDefinition type,
                                                              string name,
                                                              MethodDefinition target,
@@ -94,7 +131,7 @@ namespace Mono.Cecil.Inject
             Logger.LogLine(LogMask.GetInjectionMethod, "##### GET INJECTION METHOD BEGIN #####");
             Logger.LogLine(
             LogMask.GetInjectionMethod,
-            $"Attempting to get a suitable injection method for {type.Name}.{target.Name}");
+            $"Attempting to get a suitable injection method for {type.Name}.{target?.Name}");
 
             if (string.IsNullOrEmpty(name))
             {
@@ -229,11 +266,29 @@ namespace Mono.Cecil.Inject
             };
         }
 
+        /// <summary>
+        ///     Gets the method by its name. If more overloads exist, only the first one defined is chosen.
+        /// </summary>
+        /// <param name="self">Reference to type definition that owns the method/member.</param>
+        /// <param name="methodName">Name of the method.</param>
+        /// <returns>Method definition for the given method name. If no methods with such names are found, returns null.</returns>
         public static MethodDefinition GetMethod(this TypeDefinition self, string methodName)
         {
             return self.Methods.FirstOrDefault(m => m.Name == methodName);
         }
 
+        /// <summary>
+        ///     Gets the method by its name. If more overloads exist, only the one that has the same specified parameters is
+        ///     chosen.
+        ///     To easily obtain parameter types, refer to <see cref="ParamHelper" /> class.
+        /// </summary>
+        /// <param name="self">Reference to type definition that owns the method/member.</param>
+        /// <param name="methodName">Name of the method.</param>
+        /// <param name="paramTypes">Parameter types in the order they are declared in the method.</param>
+        /// <returns>
+        ///     Method definition for the given method name and overload. If no methods with such names and parameters are
+        ///     found, returns null.
+        /// </returns>
         public static MethodDefinition GetMethod(this TypeDefinition self,
                                                  string methodName,
                                                  params TypeReference[] paramTypes)
@@ -245,6 +300,17 @@ namespace Mono.Cecil.Inject
             && paramTypes.SequenceEqual(m.Parameters.Select(p => p.ParameterType), new TypeComparer()));
         }
 
+        /// <summary>
+        ///     Gets the method by its name. If more overloads exist, only the one that has the same specified parameters is
+        ///     chosen.
+        /// </summary>
+        /// <param name="self">Reference to type definition that owns the method/member.</param>
+        /// <param name="methodName">Name of the method.</param>
+        /// <param name="types">Parameter types in the order they are declared in the method.</param>
+        /// <returns>
+        ///     Method definition for the given method name and overload. If no methods with such names and parameters are
+        ///     found, returns null.
+        /// </returns>
         public static MethodDefinition GetMethod(this TypeDefinition self, string methodName, params Type[] types)
         {
             TypeReference[] trs = new TypeReference[types.Length];
@@ -256,6 +322,20 @@ namespace Mono.Cecil.Inject
             return GetMethod(self, methodName, trs);
         }
 
+        /// <summary>
+        ///     Gets the method by its name. If more overloads exist, only the one that has the same specified parameters is
+        ///     chosen.
+        /// </summary>
+        /// <param name="self">Reference to type definition that owns the method/member.</param>
+        /// <param name="methodName">Name of the method.</param>
+        /// <param name="types">
+        ///     Full name of the parameter types in the order they are declared in the method. The full name is
+        ///     specified by <see cref="Type" /> specification.
+        /// </param>
+        /// <returns>
+        ///     Method definition for the given method name and overload. If no methods with such names and parameters are
+        ///     found, returns null.
+        /// </returns>
         public static MethodDefinition GetMethod(this TypeDefinition self, string methodName, params string[] types)
         {
             return
@@ -265,6 +345,14 @@ namespace Mono.Cecil.Inject
             && types.SequenceEqual(m.Parameters.Select(p => p.ParameterType.FullName), StringComparer.InvariantCulture));
         }
 
+        /// <summary>
+        ///     Gets the all the method overloads with the given name.
+        /// </summary>
+        /// <param name="self">Reference to type definition that owns the method/member.</param>
+        /// <param name="methodName">Name of the method.</param>
+        /// <returns>
+        ///     An array of all the method overloads with the specified name.
+        /// </returns>
         public static MethodDefinition[] GetMethods(this TypeDefinition self, string methodName)
         {
             return self.Methods.Where(m => m.Name == methodName).ToArray();

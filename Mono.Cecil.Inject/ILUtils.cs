@@ -2,8 +2,16 @@
 
 namespace Mono.Cecil.Inject
 {
+    /// <summary>
+    ///     Miscellaneous utilities used by the injector.
+    /// </summary>
     public static class ILUtils
     {
+        /// <summary>
+        ///     Creates a new IL instruction that is a copy of the provided one. Does not link the new instruction to a method.
+        /// </summary>
+        /// <param name="ins">Instruction to copy.</param>
+        /// <returns>A copy of the provided IL instruction.</returns>
         public static Instruction CopyInstruction(Instruction ins)
         {
             Instruction result;

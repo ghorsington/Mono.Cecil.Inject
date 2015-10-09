@@ -1,12 +1,18 @@
 ﻿using System;
 using System.IO;
-using System.Reflection;
-using Mono.Cecil;
 
 namespace Mono.Cecil.Inject
 {
+    /// <summary>
+    ///     Class for assembly loading methods.
+    /// </summary>
     public static class AssemblyLoader
     {
+        /// <summary>
+        ///     Loads an assembly from the specified path.
+        /// </summary>
+        /// <param name="path">Path to the assembly. Can be either relative (to the executing assembly directory) or absolute.</param>
+        /// <returns>An instance of <see cref="AssemblyDefinition" /> of the loaded assembly.</returns>
         public static AssemblyDefinition LoadAssembly(string path)
         {
             AssemblyDefinition result;
