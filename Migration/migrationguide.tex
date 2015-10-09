@@ -40,16 +40,16 @@ subtitle style={colback=vsblue, boxrule=0pt,fontupper=\sc}
 }
 \maketitle
 \section{Abstract}
-ReiPatcherPlus is an extension library to ReiPatcher that provides simple injection methods for Mono.Cecil. The initial versions (1.x) provided very basic means of hooking and redirecting methods. The updated versions (2.x) also allowed to explicitly search for methods and hooks based on method name, parameters and additional flags. 
+ReiPatcherPlus is an extension library to ReiPatcher that provides simple injection methods for Mono.Cecil. The initial versions (1.x) provide very basic means of hooking and redirecting IL instruction execution. The updated versions (2.x) also allow to explicitly search for methods and hooks based on a method's name, parameters and additional flags. 
 However, ReiPatcherPlus is lacking in several ways:
 \begin{itemize}
 \item Lack of additional methods, like method search by \texttt{System.Type} parameters and more advanced access changing methods
 \item Poor method hierarchy and old methods left for the sake of compatibility
 \item Dependency on ReiPatcher even though almost no methods use it
 \end{itemize}
-To address these issues, nearly every method in ReiPatcherPlus was revised, rewritten and fixed where needed. Moreover, the dependency on ReiPatcher was removed and all functionality moved to separate classes to extend Mono.Cecil. Thus, being a massive update and an extension to Mono.Cecil instead of ReiPatcher, the library was renamed to Mono.Cecil.Inject (hereafter \CecilInject{}) to better represent the purpose the library.
+To address these issues, nearly every method in ReiPatcherPlus was revised, rewritten and fixed where needed. Moreover, the dependency on ReiPatcher was removed and all functionality moved to separate classes to extend Mono.Cecil. Thus, being a massive update and an extension to Mono.Cecil rather than ReiPatcher, the library was renamed to Mono.Cecil.Inject (hereafter \CecilInject{}) to better represent the purpose the library.
 
-This document is a quick reference guide for those who come from ReiPatcherPlus and wish to port their code to \CecilInject{}. Only the most crucial changes are outlined and only the basic set of new methods are shown. Old methods from ReiPatcherPlus and new ones from \CecilInject{} are shown side-by-side for easier comparison. The exact definitions of \emph{some} new methods are picked from the official documentation of \CecilInject{} and are displayed in framed boxes. For the complete list of all methods in \CecilInject{}, refer to the official documentation.
+This document is a quick reference guide for those who come from ReiPatcherPlus and wish to port their code to \CecilInject{}. Only the most crucial changes are outlined and only a basic set of new methods are shown. Old methods from ReiPatcherPlus and new ones from \CecilInject{} are shown side-by-side for easier comparison. The exact definitions of \emph{some} new methods are picked from the official documentation of \CecilInject{} and are displayed in framed boxes. For the complete list of all methods in \CecilInject{}, refer to the official documentation.
 \newpage
 \section{Importing the library}
 The easiest way to begin migration is to remove the reference to ReiPatcherPlus, add the reference to \CecilInject{} and replace the old namespace import with the new one:
@@ -59,7 +59,7 @@ using Mono.Cecil.Inject;
 Attempting to compile the project will cause numerous errors; use them to find the code that requires migration.
 
 \section{Loading assemblies}
-ReiPatcherPlus provided the following method to load assemblies into Mono.Cecil:
+ReiPatcherPlus provides the following method to load assemblies into Mono.Cecil:
 \begin{cs}
 AssemblyDefinition LoadAssembly(this PatchBase patch, string name);
 \end{cs}
@@ -84,24 +84,24 @@ An instance of \texttt{AssemblyDefinition} of the loaded assembly.
 	
 	// NOTE: This is equivalent of ReiPatcherPlus' method call:
 	// this.LoadAssembly("CM3D2.HelloWorld.Hook.dll");
-	AssemblyDefinition ad2= AssemblyLoader.LoadAssembly(Path.Combine(AssembliesDir, "CM3D2.HelloWorld.Hook.dll"));
+	AssemblyDefinition ad2 = AssemblyLoader.LoadAssembly(Path.Combine(AssembliesDir, "CM3D2.HelloWorld.Hook.dll"));
 \end{cs}
 \end{mdef}
 \newpage
 Note especially that
 \begin{itemize}
 \item This method is not an extension any more and therefore must be referred to with the class name (\texttt{AssemblyLoader})
-\item The root of the relative path is now the directory of the executing assembly (in case of ReiPatcher it is the directory ReiPatcher.exe lies in) instead of the game assembly directory. Remember to use \texttt{Path.Combine} with property \texttt{AssembliesDir} provided by \texttt{PatchBase} in order to achieve the same functionality as before.
+\item The root of the relative path is now the directory of the executing assembly (in case of ReiPatcher it is the directory ReiPatcher.exe lies in) instead of the game assembly directory. Remember to use \texttt{Path.Combine} with the property \texttt{AssembliesDir} provided by \texttt{PatchBase} in order to achieve the same functionality as before.
 \end{itemize}
 
 \section{Checking patch flags}
-ReiPatcherPlus provided the following method to check for patch attributes:
+ReiPatcherPlus provides the following method to check for patch attributes:
 \begin{cs}
 bool HasAttribute(this PatchBase patch, 
                   AssemblyDefinition assembly, 
                   string attribute);
 \end{cs}
-In \CecilInject{} the method \textbf{has been removed} because it was only usable for ReiPatcher. As of this moment no features to add similar functionality is planned. Instead, you can use the following method to replicate the behaviour of \texttt{HasAttribute} found in ReiPatcherPlus:
+In \CecilInject{} the method \textbf{has been removed} because it was only usable for ReiPatcher. As of this moment no features to add similar functionality are planned. Instead, you can use the following method to replicate the behaviour of \texttt{HasAttribute} found in ReiPatcherPlus:
 \begin{cs}
 public static bool HasAttribute(PatchBase patch, 
                                 AssemblyDefinition assembly, 
@@ -122,7 +122,7 @@ MethodDefinition GetMethod(this TypeDefinition self,
                            params TypeReference[] paramTypes);
 FieldDefinition GetField(this TypeDefinition self, string memberName);
 \end{cs}
-In addition, \texttt{ChangeAccess} has been moved, fixed and has some new parameters. Because of this, we shall take a closer look at this function.
+In addition, \texttt{ChangeAccess} has been moved, fixed and has some new parameters. Because of this, we shall take a closer look at it
 \begin{mdef}
 Extension to \texttt{TypeDefinition} (in \texttt{TypeDefinitionExtensions}):
 \begin{cs}
@@ -149,7 +149,7 @@ A method to quickly make any class member public and writeable.
 \\ \textit{Default:} \texttt{false}
 \end{itemize}
 \tcbsubtitle{Remarks}
-Note that you can now select the members with regular expressions.
+Note that you can now select the members with regular expressions. Therefore, if your \texttt{name} contains some special characters used by RegEx (like dots), they are treated as a regular expression. To avoid that, remember to escape those special characters.
 \newline
 
 The method does not make the base type (specified in \texttt{type} parameter) public, since it can be done easily by using Mono.Cecil itself.
@@ -163,13 +163,15 @@ myType.ChangeAccess("someMember1");
 // This also works, but is not advised
 TypeDefinitionExtensions.ChangeAccess(myType, "someMember1");
 
+
+
 // You can use RegEx to match multiple members
 // You can also set one or many optional parameter(s) by either referencing them by name in any order or by assigning them values in the order they appear in the signature
 myType.ChangeAccess("someMember.*", makeAssignable: false);
 \end{cs}
 \end{mdef}
 
-To make \CecilInject{} more compatible with System.Reflection, new methods were added. Here are some the definitions
+To make \CecilInject{} more compatible with System.Reflection, new methods were added. Here are some of them
 
 \begin{mdef}
 Extension to \texttt{TypeDefinition} (in \texttt{TypeDefinitionExtensions}):
@@ -203,8 +205,8 @@ TypeDefinition myType = myAssembly.MainModule.GetType("MyType");
 
 // Searches for method signature: MyMethod1(int, ref bool) (or MyMethod1(int, out bool))
 MethodDefiniton md1 = myType.GetMethod("MyMethod1", 
-                                       typeof(int), 
-                                       typeof(bool).MakeByReferenceType());
+                            typeof(int), 
+                            typeof(bool).MakeByReferenceType());
 
 // Searches for method signature: MyMethod2<T>(List<T>);
 MethodDefinition md2 = 
@@ -244,7 +246,7 @@ MethodDefinition[] mds = myType.GetMethods("MyMethod");
 \end{mdef}
 
 \section{\texttt{Parameter} is now \texttt{ParamHelper}}
-To create generic types for \texttt{GetMethod}, ReiPatcherPlus had a helper class \texttt{Parameter}. In \CecilInject{}, such class is still left, but some of the methods have been removed so as to force the developers to prefer the newer version of \texttt{GetMethod} described in the previous section.
+To create generic types for \texttt{GetMethod}, ReiPatcherPlus has a helper class \texttt{Parameter}. In \CecilInject{}, such class still exists, albeit with some of the methods having been removed so as to force the developers to prefer the newer version of \texttt{GetMethod} described in the previous section.
 
 More exactly, the following methods were ported from ReiPatcherPlus:
 \begin{cs}
@@ -263,7 +265,7 @@ which allows to create a generic type with a custom name.
 Just like in ReiPatcherPlus, method injection is the main feature of \CecilInject{}. Therefore, more care was put into reorganising the injection methods. The main differences and updates are found in the following subsections.
 
 \subsection{\texttt{MethodFeatures} is \texttt{InjectFlags}}
-\texttt{MethodFeatures} -- the enumeration containing flags that specify how to inject method -- has been renamed into \texttt{InjectFlags} to better represent its meaning. Additionally, the flags have been renamed to better represent their nature. To summarise, below is the table that shows how the names have been changed.
+\texttt{MethodFeatures} -- the enumeration containing flags that specify how to inject method -- has been renamed into \texttt{InjectFlags} to better represent its meaning. Additionally, the flags have been renamed to show their effect on the injection process more clearly. To summarise, below is the table that shows how the names have been changed.
 \begin{center}
 \begin{tabular}{|l|l|}
 \hline
@@ -280,7 +282,7 @@ Old flag name in \texttt{MethodFeatures} & New flag name in \texttt{InjectFlags}
 \texttt{All\_ByReference} & \texttt{All\_Ref} \\ \hline
 \end{tabular}
 \end{center}
-Other than changed names, they produce the identical injection results.
+Other than changed names the flags are fully identical.
 
 \subsection{Extensions to \texttt{InjectFlags}}
 One of the new additions to \CecilInject{} is the ability ease the construction and manipulation of \texttt{InjectFlags}. Namely, the following extension methods were added to \texttt{InjectFlags}:
@@ -301,14 +303,14 @@ To get an instance of \texttt{InjectionDefinition}, you can do one of the follow
 \item Use the extension method to \texttt{TypeDefintion} which is \texttt{GetInjectionMethod} (equivalent to ReiPatcherPlus' \texttt{GetHookMethod}).
 \item Use \texttt{GetInjector} (extension method to \texttt{MethodDefinition}) to get an instance of \\ \texttt{InjectionDefinition}. Like \texttt{GetInjectionMethod}, the method searches for a fitting hook in the provided \texttt{type}.
 \end{itemize}
-The exact method signatures are the same as in ReiPatcherPlus and therefore they shall be omitted. It shall be noted, however, that the behaviour of \texttt{GetInjectionMethod} differes a little bit from that of \texttt{GetHookMethod}. Namely
+The exact method signatures are the same as in ReiPatcherPlus and therefore they shall be omitted. It must be noted, however, that the behaviour of \texttt{GetInjectionMethod} differes a little bit from that of \texttt{GetHookMethod}. Namely
 \begin{enumerate}
 \item The method is an extension to \texttt{TypeDefinition} now. Therefore, \texttt{hookType} is the first parameter that is inferred by the compiler when you call the method on some \texttt{TypeDefinition}.
 \item The method does not attempt to fix obvious issues with the specified \texttt{InjectFlags}. Instead, when any mismatch occurs, the method simply returns \texttt{null}.
 \end{enumerate}
 
 \subsection{Injection}
-Owing to compatibility, ReiPatcherPlus contained a plethora of different overloads intended for method injection. In \CecilInject{}, all the methods were combined into two.
+Owing to compatibility, ReiPatcherPlus contains a plethora of different overloads intended for method injection. In \CecilInject{}, all the methods were combined into two.
 Since they are the most important methods, here are their full definitions:
 \begin{mdef}
 In \texttt{InjectionDefinition}
@@ -323,7 +325,7 @@ public void Inject(Instruction startCode,
 \end{cs}
 
 \tcbsubtitle{Description}
-Applies the injection specified in \texttt{InjectionDefinition}.
+Applies the injection specified by \texttt{InjectionDefinition}.
 
 \tcbsubtitle{Parameters}
 \begin{itemize}
@@ -383,7 +385,7 @@ Creates an instance of \texttt{InjectionDefinition} and calls \texttt{Inject}.
 \item[$\triangleright$] \texttt{tag} -- if the hook method can receive custom tags (specified with \texttt{InjecFlags.PassTag}), this is the tag that will be passed to it.
 \item[$\triangleright$] \texttt{flags} -- the flags which specify what and how to inject the method. Different flags can be combined with a logical OR (\texttt{|}) or by using \texttt{InjectValues}.
 \item[$\triangleright$] \texttt{dir} -- the direction in which to inject the method call. The injection can be either done before the specified \texttt{startCode} or after it.
-\item[$\triangleright$] \texttt{localID} -- an array of method local indices to pass to the hook. Used only if \texttt{InjectFlags.PassLocals} is specified.
+\item[$\triangleright$] \texttt{localID} -- an array of target method's local indices to pass to the hook. Used only if \texttt{InjectFlags.PassLocals} is specified.
 \item[$\triangleright$] \texttt{typeFields} -- Fields to pass to the hook. Used only if \texttt{InjectFlags.PassFields} is specified.
 \end{itemize}
 

@@ -13,7 +13,6 @@ namespace Tests
         public static bool HookTest1(int tag,
                                      TypeDefinitionTests test,
                                      out byte ret,
-                                     ref int v,
                                      ref bool testM,
                                      ref int val)
         {
@@ -46,7 +45,7 @@ namespace Tests
             InjectionDefinition hd = new InjectionDefinition(
             testType.GetMethod("Test2"),
             testType.GetMethod("HookTest1"),
-            InjectFlags.ModifyReturn | InjectFlags.PassInvokingInstance | InjectFlags.PassLocals | InjectFlags.PassTag
+            InjectFlags.ModifyReturn | InjectFlags.PassInvokingInstance | InjectFlags.PassTag
             | InjectFlags.PassFields | InjectFlags.PassParametersRef,
             new[] {0},
             testType.GetField("testMember"));
@@ -91,8 +90,7 @@ namespace Tests
 
         public byte Test2(int val)
         {
-            int v = 1 + val;
-            Console.WriteLine("I AM ANOTHER TEST" + v);
+            Console.WriteLine("I AM ANOTHER TEST");
             return 0;
         }
 
