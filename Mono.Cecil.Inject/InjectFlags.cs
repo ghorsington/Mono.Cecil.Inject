@@ -23,7 +23,7 @@ namespace Mono.Cecil.Inject
     ///     The flags are used by Cecil.Inject to search for the right injection method and to inject it the right way.
     ///     The enumeration also dictates the order in which certain method parameters must be specified in the injection
     ///     (hook) method
-    ///     in order to be recognized my Cecil.Inject correctly.
+    ///     in order to be recognized by Cecil.Inject correctly.
     /// </summary>
     [Flags]
     public enum InjectFlags
