@@ -8,8 +8,11 @@ The library is almost a seamless addition to Mono.Cecil that should've been in t
 The library is compact, easy-to-use and well documented.
 
 ## Documentation
-As of this moment, no proper documentation is included. Right now the main priority is to write proper documentation for all methods. The PDF version of the documentation will come later.
+As of right now, all methods are fully documented internally. You can build Cecil.Inject from source to create a standalone XML file to use with IDEs. 
+The full-fledged documentation is WIP and will be appearing on the project's wiki in the nearest future.
+If you have used ReiPatcherPlus before, you can grab the migration guide from `Migration` directory.
 
 ## Building from source
-As of right now, no automatic building scripts are included. To build from source, all you need is Mono.Cecil.
+To build from source, you will need the latest version of MSBuild that is capable of compiling C# 6 source code and Mono.Cecil.
+Simply place `Mono.Cecil.dll` into `lib` folder and run `build.bat` or use MSBuild.
 
