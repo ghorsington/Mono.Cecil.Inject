@@ -292,9 +292,10 @@ Injection has {injectMethod.Parameters.Count
 
             if (direction == InjectDirection.Before && startIndex != 0)
             {
-                il.Replace(startCode, il.Create(OpCodes.Nop));
+                Instruction oldIns = ILUtils.CopyInstruction(startCode);
+                ILUtils.ReplaceInstruction(startCode, il.Create(OpCodes.Nop));
                 Instruction ins = targetBody.Instructions[startIndex];
-                il.InsertAfter(ins, ILUtils.CopyInstruction(startCode));
+                il.InsertAfter(ins, oldIns);
                 startInstruction = targetBody.Instructions[startIndex + 1];
             }
             else if (direction == InjectDirection.After)

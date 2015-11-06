@@ -11,22 +11,22 @@ namespace Mono.Cecil.Inject
     public static class LogMask
     {
         /// <summary>
-        /// Log messages from injection methods.
+        ///     Log messages from injection methods.
         /// </summary>
         public const uint Inject = 1;
-        
+
         /// <summary>
-        /// Log messages from type comparison methods.
+        ///     Log messages from type comparison methods.
         /// </summary>
         public const uint TypeCompare = 2;
 
         /// <summary>
-        /// Log messages from <see cref="TypeDefinitionExtensions.GetInjectionMethod"/>
+        ///     Log messages from <see cref="TypeDefinitionExtensions.GetInjectionMethod" />
         /// </summary>
         public const uint GetInjectionMethod = 4;
-        
+
         /// <summary>
-        /// Log messages from <see cref="TypeDefinitionExtensions.ChangeAccess"/>
+        ///     Log messages from <see cref="TypeDefinitionExtensions.ChangeAccess" />
         /// </summary>
         public const uint ChangeAccess = 8;
     }

@@ -10,11 +10,7 @@ namespace Tests
         private int hiddenStuff;
         public bool testMember;
 
-        public static bool HookTest1(int tag,
-                                     TypeDefinitionTests test,
-                                     out byte ret,
-                                     ref bool testM,
-                                     ref int val)
+        public static bool HookTest1(int tag, TypeDefinitionTests test, out byte ret, ref bool testM, ref int val)
         {
             Console.WriteLine("I AM HOOK");
             ret = 1;
@@ -45,8 +41,8 @@ namespace Tests
             InjectionDefinition hd = new InjectionDefinition(
             testType.GetMethod("Test2"),
             testType.GetMethod("HookTest1"),
-            InjectFlags.ModifyReturn | InjectFlags.PassInvokingInstance | InjectFlags.PassTag
-            | InjectFlags.PassFields | InjectFlags.PassParametersRef,
+            InjectFlags.ModifyReturn | InjectFlags.PassInvokingInstance | InjectFlags.PassTag | InjectFlags.PassFields
+            | InjectFlags.PassParametersRef,
             new[] {0},
             testType.GetField("testMember"));
 

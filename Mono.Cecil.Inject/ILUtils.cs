@@ -26,5 +26,18 @@ namespace Mono.Cecil.Inject
             }
             return result;
         }
+
+        /// <summary>
+        ///     Replaces the insturction with another by replacing the opcode and the operand.
+        ///     Unlike <see cref="ILProcessor.Replace" />, preserves the references to the original instruction (which branches
+        ///     might use, for instance).
+        /// </summary>
+        /// <param name="original">The instruction to replace.</param>
+        /// <param name="newIns">The instruction to replace with.</param>
+        public static void ReplaceInstruction(Instruction original, Instruction newIns)
+        {
+            original.OpCode = newIns.OpCode;
+            original.Operand = newIns.Operand;
+        }
     }
 }
