@@ -57,14 +57,21 @@ namespace Mono.Cecil.Inject
             int prefixCount = Convert.ToInt32(hFlags.PassTag) + Convert.ToInt32(hFlags.PassInvokingInstance)
                               + Convert.ToInt32(hFlags.ModifyReturn && !isVoid);
             int localsCount = hFlags.PassLocals ? localVarIDs.Length : 0;
-            int paramCount = (hFlags.PassParameters ? injectTarget.Parameters.Count : 0);
             int memberRefCount = (hFlags.PassFields ? memberReferences.Length : 0);
-
+            int paramCount = (hFlags.PassParameters ? injectTarget.Parameters.Count : 0);
+            int parameters = injectMethod.Parameters.Count - prefixCount - localsCount - memberRefCount;
+            // int parameters = injectMethod.Parameters.Count - prefixCount - localsCount - memberRefCount;
+            // PassParameters => 0 < parameters <= injectTarget.Patameters.Count
+            // !PassParameters => parameters = 0
             Assert(
-            injectMethod.Parameters.Count == prefixCount + localsCount + memberRefCount + paramCount,
+            (hFlags.PassParameters && 0 < parameters && parameters <= injectTarget.Parameters.Count
+             || !hFlags.PassParameters && parameters == 0),
+            //injectMethod.Parameters.Count == prefixCount + localsCount + memberRefCount + paramCount,
             $@"The injection method has a wrong number of parameters! Check that the provided target method, local variables, member references and injection flags add up to the right number of parameters.
 Needed parameters: Prefix: {
-            prefixCount}, Locals: {localsCount}, Members: {memberRefCount}, Parameters: {paramCount}, TOTAL: {
+            prefixCount}, Locals: {localsCount}, Members: {memberRefCount}, Parameters: {
+            (hFlags.PassParameters ? "between 1 and " + paramCount : "0")}, TOTAL: {
+            (hFlags.PassParameters ? $"between {prefixCount + localsCount + memberRefCount + 1} and " : "")}{
             prefixCount + localsCount + memberRefCount + paramCount}.
 Injection has {injectMethod.Parameters.Count
             } parameters.");
@@ -173,8 +180,11 @@ Injection has {injectMethod.Parameters.Count
                 injectMethod.Parameters.Skip(prefixCount + localsCount + memberRefCount)
                             .Select(p => p.ParameterType)
                             .SequenceEqual(
-                            injectTarget.Parameters.Select(
-                            p => (hFlags.PassParametersByRef ? new ByReferenceType(p.ParameterType) : p.ParameterType)),
+                            injectTarget.Parameters.Take(parameters)
+                                        .Select(
+                                        p =>
+                                        (hFlags.PassParametersByRef
+                                         ? new ByReferenceType(p.ParameterType) : p.ParameterType)),
                             comparer),
                 "Supposed to pass target method parameters by reference, but the types specified in injection and target methods do not match.");
             }
@@ -186,7 +196,7 @@ Injection has {injectMethod.Parameters.Count
             LocalVarIDs = localVarIDs;
             _PrefixCount = prefixCount;
             _MemeberRefCount = memberRefCount;
-            _ParameterCount = injectTarget.Parameters.Count;
+            _ParameterCount = parameters;
         }
 
         internal int _MemeberRefCount { get; set; }

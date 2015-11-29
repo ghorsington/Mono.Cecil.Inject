@@ -293,11 +293,13 @@ namespace Mono.Cecil.Inject
                                                  string methodName,
                                                  params TypeReference[] paramTypes)
         {
-            return
+            return GetMethod(self, methodName, paramTypes.Select(p => p.FullName).ToArray());
+            /*
             self.Methods.FirstOrDefault(
             m =>
             m.Name == methodName
             && paramTypes.SequenceEqual(m.Parameters.Select(p => p.ParameterType), new TypeComparer()));
+            */
         }
 
         /// <summary>
@@ -313,13 +315,7 @@ namespace Mono.Cecil.Inject
         /// </returns>
         public static MethodDefinition GetMethod(this TypeDefinition self, string methodName, params Type[] types)
         {
-            TypeReference[] trs = new TypeReference[types.Length];
-            for (int i = 0; i < types.Length; i++)
-            {
-                trs[i] = ParamHelper.FromType(types[i]);
-            }
-
-            return GetMethod(self, methodName, trs);
+            return GetMethod(self, methodName, types.Select(t => ParamHelper.FromType(t).FullName).ToArray());
         }
 
         /// <summary>
@@ -356,6 +352,58 @@ namespace Mono.Cecil.Inject
         public static MethodDefinition[] GetMethods(this TypeDefinition self, string methodName)
         {
             return self.Methods.Where(m => m.Name == methodName).ToArray();
+        }
+
+        /// <summary>
+        ///     Finds the methods with the given name that have at least the provided parameters. The number of parameters need not
+        ///     match, which is why
+        ///     the methods returned may have more parameters than passed to this method.
+        /// </summary>
+        /// <param name="self">Reference to type definition that owns the method/member.</param>
+        /// <param name="methodName">Name of the method to match.</param>
+        /// <param name="types">Parameter types in the order they should be declared in the method.</param>
+        /// <returns>An array of methods that have the specified name and *at least* the given parameters.</returns>
+        public static MethodDefinition[] MatchMethod(this TypeDefinition self, string methodName, params Type[] types)
+        {
+            return MatchMethod(self, methodName, types.Select(t => ParamHelper.FromType(t).FullName).ToArray());
+        }
+
+        /// <summary>
+        ///     Finds the methods with the given name that have at least the provided parameters. The number of parameters need not
+        ///     match, which is why
+        ///     the methods returned may have more parameters than passed to this method.
+        /// </summary>
+        /// <param name="self">Reference to type definition that owns the method/member.</param>
+        /// <param name="methodName">Name of the method to match.</param>
+        /// <param name="paramTypes">Parameter types in the order they should be declared in the method.</param>
+        /// <returns>An array of methods that have the specified name and *at least* the given parameters.</returns>
+        public static MethodDefinition[] MatchMethod(this TypeDefinition self,
+                                                     string methodName,
+                                                     params TypeReference[] paramTypes)
+        {
+            return MatchMethod(self, methodName, paramTypes.Select(p => p.FullName).ToArray());
+        }
+
+        /// <summary>
+        ///     Finds the methods with the given name that have at least the provided parameters. The number of parameters need not
+        ///     match, which is why
+        ///     the methods returned may have more parameters than passed to this method.
+        /// </summary>
+        /// <param name="self">Reference to type definition that owns the method/member.</param>
+        /// <param name="methodName">Name of the method to match.</param>
+        /// <param name="paramTypes">Parameter types in the order they should be declared in the method.</param>
+        /// <returns>An array of methods that have the specified name and *at least* the given parameters.</returns>
+        public static MethodDefinition[] MatchMethod(this TypeDefinition self,
+                                                     string methodName,
+                                                     params string[] paramTypes)
+        {
+            return
+            self.Methods.Where(
+            m =>
+            m.Name == methodName && paramTypes.Length <= m.Parameters.Count
+            && paramTypes.SequenceEqual(
+            m.Parameters.Take(paramTypes.Length).Select(p => p.ParameterType.FullName),
+            StringComparer.InvariantCulture)).ToArray();
         }
     }
 

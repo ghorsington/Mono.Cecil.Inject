@@ -17,6 +17,12 @@ namespace Tests
             return true;
         }
 
+        public static bool HookTest2(int tag, TypeDefinitionTests test, out int ret, int val1, byte val2, List<int> val3)
+        {
+            ret = 1;
+            return false;
+        }
+
         public static void Main(string[] args)
         {
             AssemblyDefinition ad = AssemblyLoader.LoadAssembly("Tests.exe");
@@ -57,7 +63,7 @@ namespace Tests
             testType.GetField("testMember"));
 
             InjectionDefinition hd3 = testType.GetInjectionMethod("", null, InjectFlags.None, null, null);
-
+            /*
             testType.GetMethod("Test2")
                     .InjectWith(
                     testType.GetMethod("HookTest1"),
@@ -67,6 +73,12 @@ namespace Tests
                     InjectDirection.Before,
                     new[] {0},
                     new[] {testType.GetField("testMember")});
+            */
+            InjectionDefinition hd4 = new InjectionDefinition(testType.GetMethod(nameof(TestPartialParams)), testType.GetMethod(nameof(HookTest2)), (new InjectValues { PassTag = true, PassInvokingInstance = true, ModifyReturn = true, ParameterType = InjectValues.PassParametersType.ByValue}).GetCombinedFlags());
+
+            hd4.Inject();
+
+            MethodDefinition[] matches = testType.MatchMethod("TestMatch", typeof(int), typeof(string));
 
             Console.WriteLine($"Another hookdef: {hd2}");
 
@@ -90,7 +102,27 @@ namespace Tests
             return 0;
         }
 
+        private int TestPartialParams(int val1, byte val2, List<int> val3)
+        {
+            return -1;
+        }
+
         public static void Test3(params object[] asd) {}
+
+        protected void TestMatch(int val1, bool val2)
+        {
+            Console.WriteLine("I am Groot!");
+        }
+
+        protected void TestMatch(int val1, bool val2, byte val3)
+        {
+            Console.WriteLine("I am Groot!");
+        }
+
+        protected void TestMatch(int val1, string val2)
+        {
+            Console.WriteLine("I am Groot!");
+        }
 
         private class Nested1
         {

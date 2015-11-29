@@ -68,11 +68,19 @@ namespace Mono.Cecil.Inject
 
         /// <summary>
         ///     Pass all parameters of the injected method. The parameters are passed by value.
+        ///     <b>Note:</b> Some methods (like constructor of <see cref="InjectionDefinition" />) implement partial parameter
+        ///     passing.
+        ///     It means that the injection method doesn't need to have all of the parameters for injected method (as long as they
+        ///     are in the same order).
         /// </summary>
         PassParametersVal = 0x20,
 
         /// <summary>
         ///     Pass all parameters of the injected method. The parameters are passed by reference (marked as "ref").
+        ///     <b>Note:</b> Some methods (like constructor of <see cref="InjectionDefinition" />) implement partial parameter
+        ///     passing.
+        ///     It means that the injection method doesn't need to have all of the parameters for injected method (as long as they
+        ///     are in the same order).
         /// </summary>
         PassParametersRef = 0x40,
 
