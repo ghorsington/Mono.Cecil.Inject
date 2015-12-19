@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Topics>
+  <Topic id="introduction" visible="True" isDefault="true" title="Introduction" tocTitle="Introduction" />
+  <Topic id="glossary" visible="True" />
+  <Topic id="f21ca3fe-0f76-42b6-a1f6-9b2e969dcf9a" visible="True" noFile="true" isExpanded="true" apiParentMode="InsertAfter" title="Library overview">
+    <Topic id="ovr_features_and_syntax" visible="True" title="Feature overview and syntax">
+      <HelpKeywords>
+        <HelpKeyword index="K" term="feature, overview, syntax, features" />
+      </HelpKeywords>
+    </Topic>
+    <Topic id="ovr_method_get_and_match" visible="True" title="Method and field searching" />
+    <Topic id="ovr_injection_flags" visible="True" title="Injection flags" />
+    <Topic id="ovr_injection_procedure" visible="True" title="How to inject with Cecil.Inject" />
+    <Topic id="ovr_helper_methods" visible="True" isSelected="true" title="Helper Methods" />
+  </Topic>
+</Topics>

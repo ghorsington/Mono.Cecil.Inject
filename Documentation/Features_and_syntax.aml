@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="ovr_features_and_syntax" revisionNumber="1">
+  <developerConceptualDocument xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!--
+    <summary>
+      <para>Optional summary abstract</para>
+    </summary>
+    -->
+    <introduction>
+      <!-- Uncomment this to generate an outline of the section and sub-section
+           titles.  Specify a numeric value as the inner text to limit it to
+           a specific number of sub-topics when creating the outline.  Specify
+           zero (0) to limit it to top-level sections only.  -->
+      <!-- <autoOutline /> -->
+      <para>
+      As its name stands, Cecil.Inject is an extension to Mono.Cecil that mainly provides means for method injection. 
+      However, unlike attribute-based "static" injection libraries, Cecil.Inject does not encapsulate or hide the patching process itself -- quite the opposite, in fact. 
+      This library is made to introduce a multitude of miscellaneous functionality to make Mono.Cecil more similar to Reflection. 
+      That being said, if you are familiar with how to use .NET's reflection library, using Mono.Cecil + Cecil.Inject will be a breeze. You can think of Mono.Cecil as System.Reflection, but with all the properties and methods being set-and-get (as opposed to mostly get-only when using reflection). 
+      The aim of Cecil.Inject is to bring the same syntactic sugar found in .NET's reflection library to Mono.Cecil -- that, and provide a simple method injection functionality.
+      </para>
+    </introduction>
+    <!-- Add one or more top-level section elements.  These are collapsible.
+         If using <autoOutline />, add an address attribute to identify it
+         and specify a title so that it can be jumped to with a hyperlink. -->
+    <section address="section_injection_manipulation">
+      <title>Method injection and access manipulation</title>
+      <content>
+        <!-- Uncomment this to create a sub-section outline
+        <autoOutline /> -->
+        <para>
+        	As a neat little feature, Cecil.Inject provides very simple method injection. 
+        	The functionality consists of the core class <codeEntityReference>T:Mono.Cecil.Inject.InjectionDefinition</codeEntityReference>, the injection options specified in <codeEntityReference>T:Mono.Cecil.Inject.InjectFlags</codeEntityReference> and a panoply of helper methods, like <codeEntityReference linkText="InjectWith">M:Mono.Cecil.Inject.MethodDefinitionExtensions.InjectWith(Mono.Cecil.MethodDefinition,Mono.Cecil.MethodDefinition,System.Int32,System.Int32,Mono.Cecil.Inject.InjectFlags,Mono.Cecil.Inject.InjectDirection,System.Int32[],Mono.Cecil.FieldDefinition[])</codeEntityReference>, <codeEntityReference linkText="GetInjector">M:Mono.Cecil.Inject.MethodDefinitionExtensions.GetInjector(Mono.Cecil.MethodDefinition,Mono.Cecil.TypeDefinition,System.String,Mono.Cecil.Inject.InjectFlags,System.Int32[],Mono.Cecil.FieldDefinition[])</codeEntityReference> and <codeEntityReference linkText="GetInjectionMethod">M:Mono.Cecil.Inject.TypeDefinitionExtensions.GetInjectionMethod(Mono.Cecil.TypeDefinition,System.String,Mono.Cecil.MethodDefinition,Mono.Cecil.Inject.InjectFlags,System.Int32[],Mono.Cecil.FieldDefinition[])</codeEntityReference>.
+        </para>
+        <para>
+        	Furthermore to make common operations with Mono.Cecil easy, <codeEntityReference linkText="ChangeAccess">M:Mono.Cecil.Inject.TypeDefinitionExtensions.ChangeAccess(Mono.Cecil.TypeDefinition,System.String,System.Boolean,System.Boolean,System.Boolean,System.Boolean)</codeEntityReference> method encapsulates all common operations to make any class or its member public or private.
+        </para>
+      </content>
+    </section>
+    
+    <section address="section_helpers">
+      <title>Minor helpers</title>
+      <content>
+        <!-- Uncomment this to create a sub-section outline
+        <autoOutline /> -->
+        <para>
+        	While Mono.Cecil has an <legacyBold>Import</legacyBold> method to resolve all the types provided by .NET's reflection libraries, Cecil.Inject provides minor sugar to import types into Mono.Cecil. In addition, a helper method to create "dummy generic" types is provided.
+        </para>
+        <para>
+        	Cecil.Inject also adds other minor functionality, like assembly loading, collection slicing and IL instruction copying/replacing.
+        </para>
+      </content>
+    </section>
+    <relatedTopics>
+      <!-- One or more of the following:
+           - A local link
+           - An external link
+           - A code entity reference
+
+      <link xlink:href="Other Topic's ID"/>
+      <link xlink:href="Other Topic's ID">Link inner text</link>
+
+      <externalLink>
+          <linkText>Link text</linkText>
+          <linkAlternateText>Optional alternate link text</linkAlternateText>
+          <linkUri>URI</linkUri>
+      </externalLink>
+
+      <codeEntityReference>API member ID</codeEntityReference>
+
+      Examples:
+
+      <link xlink:href="00e97994-e9e6-46e0-b420-5be86b2f8270" />
+      <link xlink:href="00e97994-e9e6-46e0-b420-5be86b2f8278">Some other topic</link>
+
+      <externalLink>
+          <linkText>SHFB on GitHub</linkText>
+          <linkAlternateText>Go to GitHub</linkAlternateText>
+          <linkUri>https://GitHub.com/EWSoftware/SHFB</linkUri>
+      </externalLink>
+
+      <codeEntityReference>T:TestDoc.TestClass</codeEntityReference>
+      <codeEntityReference>P:TestDoc.TestClass.SomeProperty</codeEntityReference>
+      <codeEntityReference>M:TestDoc.TestClass.#ctor</codeEntityReference>
+      <codeEntityReference>M:TestDoc.TestClass.#ctor(System.String,System.Int32)</codeEntityReference>
+      <codeEntityReference>M:TestDoc.TestClass.ToString</codeEntityReference>
+      <codeEntityReference>M:TestDoc.TestClass.FirstMethod</codeEntityReference>
+      <codeEntityReference>M:TestDoc.TestClass.SecondMethod(System.Int32,System.String)</codeEntityReference>
+      -->
+    </relatedTopics>
+  </developerConceptualDocument>
+</topic>

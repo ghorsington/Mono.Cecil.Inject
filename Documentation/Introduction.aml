@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="introduction" revisionNumber="1">
+  <developerConceptualDocument xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <introduction>
+      <para>Mono.Cecil.Inject (hereafter just Cecil.Inject) is an extension library to Mono.Cecil that provides additional methods to search and manipulate methods, fields and classes. The method signatures and class hierarchy was made to mimic that of both Mono.Cecil and System.Reflection to provide a familiar and a robust API.</para>
+    </introduction>
+    <section address="section_about">
+      <title>Source and about this page</title>
+      <content>
+        <!-- Uncomment this to create a sub-section outline
+        <autoOutline /> -->
+        <para>
+         Cecil.Inject is open-sourced and released under the MIT license. That being said, the source code is available on
+         <externalLink>
+          <linkText>the project's GitHub</linkText>
+          <linkUri>https://github.com/denikson/Mono.Cecil.Inject</linkUri>
+      </externalLink>.
+        </para>
+        <para>
+         This webpage contains the overview of Cecil.Inject and full documentation of the latest successfully build version.
+        </para>
+      </content>
+    </section>
+    <section address="section_features">
+      <title>Features</title>
+      <content>
+        <!-- Uncomment this to create a sub-section outline
+        <autoOutline /> -->
+        <para>
+        	The methods and functionality provided by Cecil.Inject can be summarised as follows
+        </para>
+        <para>
+        	<legacyBold>Method/Field searching</legacyBold>
+			<list class="bullet">
+  				<listItem><para>Ability to search methods by name</para></listItem>
+  				<listItem><para>Ability to search for all overloads with the specified name</para></listItem>
+  				<listItem><para>Methods to search for a specific overload by parameter types</para></listItem>
+  				<listItem><para>Method to find member fields by name</para></listItem>
+			</list>
+			
+			<legacyBold>Injection</legacyBold>
+			<list class="bullet">
+  				<listItem><para>Simple API that allows to search for a fitting hook method based on the injection target and the specified search criteria</para></listItem>
+  				<listItem><para>Ability to specify what methods to inject, how to inject and where to inject</para></listItem>
+  				<listItem><para>Possibility to modify the return value of any method</para></listItem>
+  				<listItem><para>Safe injection: Cecil.Inject makes sure the injection is possible nor produces any "impossible" IL instructions. Moreover, Cecil.Inject takes in account possible instruction jumps so that branching isn't affected</para></listItem>
+			</list>
+			
+			<legacyBold>Miscellaneous</legacyBold>
+			<list class="bullet">
+  				<listItem><para>Assembly loading</para></listItem>
+  				<listItem><para>Quickly make a member field public or a `readonly` value assignable</para></listItem>
+  				<listItem><para>Extended logging capabilities (only in DEV version)</para></listItem>
+			</list>
+        </para>
+      </content>
+    </section>
+    <relatedTopics>
+      <!-- One or more of the following:
+           - A local link
+           - An external link
+           - A code entity reference
+
+      <link xlink:href="Other Topic's ID"/>
+      <link xlink:href="Other Topic's ID">Link inner text</link>
+
+      <externalLink>
+          <linkText>Link text</linkText>
+          <linkAlternateText>Optional alternate link text</linkAlternateText>
+          <linkUri>URI</linkUri>
+      </externalLink>
+
+      <codeEntityReference>API member ID</codeEntityReference>
+
+      Examples:
+
+      <link xlink:href="00e97994-e9e6-46e0-b420-5be86b2f8270" />
+      <link xlink:href="00e97994-e9e6-46e0-b420-5be86b2f8278">Some other topic</link>
+
+      <externalLink>
+          <linkText>SHFB on GitHub</linkText>
+          <linkAlternateText>Go to GitHub</linkAlternateText>
+          <linkUri>https://GitHub.com/EWSoftware/SHFB</linkUri>
+      </externalLink>
+
+      <codeEntityReference>T:TestDoc.TestClass</codeEntityReference>
+      <codeEntityReference>P:TestDoc.TestClass.SomeProperty</codeEntityReference>
+      <codeEntityReference>M:TestDoc.TestClass.#ctor</codeEntityReference>
+      <codeEntityReference>M:TestDoc.TestClass.#ctor(System.String,System.Int32)</codeEntityReference>
+      <codeEntityReference>M:TestDoc.TestClass.ToString</codeEntityReference>
+      <codeEntityReference>M:TestDoc.TestClass.FirstMethod</codeEntityReference>
+      <codeEntityReference>M:TestDoc.TestClass.SecondMethod(System.Int32,System.String)</codeEntityReference>
+      -->
+    </relatedTopics>
+  </developerConceptualDocument>
+</topic>

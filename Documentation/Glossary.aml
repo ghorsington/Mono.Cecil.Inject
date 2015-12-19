@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="glossary" revisionNumber="1">
+  <developerGlossaryDocument xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <glossary>
+      <!-- <title>Optional title</title> -->
+      <!-- Glossary division.  You can use these to group entries.  If you only
+           have one group, you can omit it and list the glossaryEntry elements
+           directly.
+
+           If used, be sure to give each glossaryDiv a unique address attribute
+           and a title element.  These will be used to create an index at the
+           top of the glossary page.
+
+           Glossary divisions will appear in the order defined in the topic.
+           Glossary entries will be sorted by the first term for the entry.
+           Terms are sorted by their value. -->
+      <glossaryDiv address="Group1">
+        <glossaryEntry>
+          <terms>
+            <term termId="injection">Injection</term>
+            <term>Method injection</term>
+          </terms>
+          <definition>
+            <para>The process of inserting a call to a static method into another method.</para>
+          </definition>
+        </glossaryEntry>
+        
+        <glossaryEntry>
+          <terms>
+            <term termId="injector">Injector</term>
+          </terms>
+          <definition>
+            <para>An instance of <codeEntityReference>T:Mono.Cecil.Inject.InjectionDefinition</codeEntityReference> that performs the injection.</para>
+          </definition>
+        </glossaryEntry>
+        
+        <glossaryEntry>
+          <terms>
+            <term termId="injector_creator">Injector creator</term>
+          </terms>
+          <definition>
+            <para>A method that creates an injector.</para>
+          </definition>
+        </glossaryEntry>
+        
+        <glossaryEntry>
+          <terms>
+            <term termId="injector_target">Injector target</term>
+            <term>Target</term>
+            <term>Hook target</term>
+          </terms>
+          <definition>
+            <para>A method (or a class) that is being injected into.</para>
+          </definition>
+        </glossaryEntry>
+        
+        <glossaryEntry>
+          <terms>
+            <term termId="injector_method">Injector method</term>
+            <term>Hook</term>
+            <term>Hook method</term>
+          </terms>
+          <definition>
+            <para>A static method that will be called by the injection target.</para>
+          </definition>
+        </glossaryEntry>
+        
+        <glossaryEntry>
+          <terms>
+            <term termId="injector_method">Method redirection</term>
+          </terms>
+          <definition>
+            <para>A special injection in which the injection method can replace the target method's return value or prevent the target's code from executing.</para>
+          </definition>
+        </glossaryEntry>
+        
+      </glossaryDiv>
+    </glossary>
+  </developerGlossaryDocument>
+</topic>

@@ -1,0 +1,518 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="ovr_injection_procedure" revisionNumber="1">
+  <developerConceptualDocument xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!--
+    <summary>
+      <para>Optional summary abstract</para>
+    </summary>
+    -->
+    <introduction>
+      <autoOutline />
+      <para>
+       While Mono.Cecil exposes the contents of any managed .NET assembly and allows to edit everything in it, all the code injection must be done manually by adding IL insturctions into the method.
+       Cecil.Inject attempts to simplify method injection by automating IL instruction editing and providing one-call methods to perform injections.
+       In addition Cecil.Inject verifies every injection, so that no broken assemblies are created.
+      </para>
+      
+      <para>
+       Cecil.Inject provides many ways to perform an injection, but they all contain the following steps:
+              
+       <list class="ordered">
+        <listItem><para>Define the injection method that follows the same structure as described in <link xlink:href="ovr_injection_flags"/>.</para></listItem>
+        <listItem><para>Load the assemblies with the injection method and the injection target.</para></listItem>
+        <listItem><para>Get the <legacyBold>MethodDefiniton</legacyBold> for the injection target and the injection method with <codeEntityReference autoUpgrade="true">M:Mono.Cecil.Inject.TypeDefinitionExtensions.GetMethod(Mono.Cecil.TypeDefinition,System.String)</codeEntityReference> (or others).</para></listItem>
+        <listItem><para>Create an instance of <codeEntityReference>T:Mono.Cecil.Inject.InjectionDefinition</codeEntityReference> specifying the methods and additional settings.</para></listItem>
+        <listItem><para>Call the <codeEntityReference autoUpgrade="true">M:Mono.Cecil.Inject.InjectionDefinition.Inject(Mono.Cecil.Cil.Instruction,System.Int32,Mono.Cecil.Inject.InjectDirection)</codeEntityReference> method.</para></listItem>
+       </list>
+      </para>
+      <para>
+       In this chapter we will take a look at all the ways the injection can be performed.
+       <alert class ="note">
+        Be sure to check the <link xlink:href="ovr_injection_flags"/> chapter to understand how to specify the right injection flags.
+       </alert>
+      </para>
+    </introduction>
+    <!-- Add one or more top-level section elements.  These are collapsible.
+         If using <autoOutline />, add an address attribute to identify it
+         and specify a title so that it can be jumped to with a hyperlink. -->
+    <section address="section_normal_way">
+      <title>Method 1: The traditional way</title>
+      <content>
+       <para>
+        This is the most basic way to inject methods. Here, we simply follow the steps described above. 
+        For the sake of example, let us consider class <legacyBold>Bar</legacyBold> with method <codeInline>Foo(int v1, bool v2)</codeInline>.
+        In this example, we want to inject it with the hook method that will receive the parameters of the method and the invoking instance of <legacyBold>Bar</legacyBold>.
+       </para>
+       <procedure>
+        <title>Do the following</title>
+        <steps class="ordered">
+         <step>
+          <content>
+            <para>Create an assembly with the hook method that follows the structure introduced in the chapter <link xlink:href="ovr_injection_flags"/>.</para>
+            <para>
+             In our hook assembly we define a static class <legacyBold>MyHookClass</legacyBold> with the hook method in it:
+             <code language="cs" numberLines="true">
+              namespace HookNamespace
+              {
+              	public static class MyHookClass 
+             	 {
+              		public static void MyHook(Bar self, int v1, bool v2)
+              		{
+              			// Write hook's code here
+              		}
+              	}
+              }
+             </code>
+             Note that the class with the hook methods in it does not have to be static, but it advised to have it set to static.
+            </para>
+          </content>
+         </step>
+         <step>
+          <content>
+           <para>Create a patcher and load the hook assembly along with the assembly that is to be patched.</para>
+           <para>
+            In this example we create a <legacyBold>Patcher</legacyBold> class method <codeInline>Patch</codeInline> in it.
+            Firstly, we will use <codeEntityReference>M:Mono.Cecil.Inject.AssemblyLoader.LoadAssembly(System.String)</codeEntityReference> to load the needed assemblies.
+            The structure of the <legacyBold>Patcher</legacyBold> class is thus the following:
+            
+            <code language="cs" numberLines="true">
+             using Mono.Cecil;
+             using Mono.Cecil.Inject;
+             
+             public class Patcher
+             {	
+             	public void Patch()
+             	{
+             		// Load the assembly that contains the hook method
+             		AssemblyDefinition hookAssembly = AssemblyLoader.LoadAssembly("MyHookAssembly.dll");
+             		// Load the assembly
+             		AssemblyDefinition targetAssembly = AssemblyLoader.LoadAssembly("TargetAssembly.dll");
+             		
+             		// Next steps...
+             	}
+             }
+            </code>
+           </para>
+          </content>
+         </step>
+         <step>
+          <content>
+           <para>Get <legacyBold>MethodDefinition</legacyBold> for the injection method and the injection target.</para>
+           <para>
+            Next, we update our <codeInline>Patch</codeInline> method by getting the hook and the target. We do that by using <codeEntityReference>M:Mono.Cecil.Inject.TypeDefinitionExtensions.GetMethod(Mono.Cecil.TypeDefinition,System.String)</codeEntityReference>,
+            since we clearly don't have any conflicting overrides in our assemblies. The class now looks as follows:
+            
+            <code language="cs" numberLines="true">
+             using Mono.Cecil;
+             using Mono.Cecil.Inject;
+             
+             public class Patcher
+             {	
+             	public void Patch()
+             	{
+             		// Load the assembly that contains the hook method
+             		AssemblyDefinition hookAssembly = AssemblyLoader.LoadAssembly("MyHookAssembly.dll");
+             		// Load the assembly
+             		AssemblyDefinition targetAssembly = AssemblyLoader.LoadAssembly("TargetAssembly.dll");
+             		
+             		// Get the method definition for the injection definition
+             		MethodDefinition myHook = hookAssembly.MainModule.GetType("HookNamespace.MyHookClass").GetMethod("MyHook");
+             		// Get the method definition for the injection target. 
+             		// Note that in this example class Bar is in the global namespace (no namespace), which is why we don't specify the namespace.
+             		MethodDefinition foo = targetAssembly.MainModule.GetType("Bar").GetMethod("Foo");
+             		
+             		// Next steps...
+             	}
+             }
+            </code>
+           </para>
+          </content>
+         </step>
+         <step>
+          <content>
+           <para>Create an injector (an instance of <codeEntityReference>T:Mono.Cecil.Inject.InjectionDefinition</codeEntityReference>) and call the <codeEntityReference autoUpgrade="true">M:Mono.Cecil.Inject.InjectionDefinition.Inject(Mono.Cecil.Cil.Instruction,System.Int32,Mono.Cecil.Inject.InjectDirection)</codeEntityReference> method.</para>
+           <para>
+            Finally, we can create the injector and perform the injection:
+            
+            <code language="cs" numberLines="true">
+             using Mono.Cecil;
+             using Mono.Cecil.Inject;
+             
+             public class Patcher
+             {	
+             	public void Patch()
+             	{
+             		// Load the assembly that contains the hook method
+             		AssemblyDefinition hookAssembly = AssemblyLoader.LoadAssembly("MyHookAssembly.dll");
+             		// Load the assembly
+             		AssemblyDefinition targetAssembly = AssemblyLoader.LoadAssembly("TargetAssembly.dll");
+             		
+             		// Get the method definition for the injection definition
+             		MethodDefinition myHook = hookAssembly.MainModule.GetType("HookNamespace.MyHookClass").GetMethod("MyHook");
+             		// Get the method definition for the injection target. 
+             		// Note that in this example class Bar is in the global namespace (no namespace), which is why we don't specify the namespace.
+             		MethodDefinition foo = targetAssembly.MainModule.GetType("Bar").GetMethod("Foo");
+             		
+             		// Create the injector
+             		InjectionDefinition injector = new InjectionDefinition(foo, myHook, InjectFlags.PassInvokingInstance | InjectFlags.passParametersVal);
+             		
+             		// Perform the injection with default settings (inject into the beginning before the first instruction)
+             		injector.Inject();
+             		
+             		// More injections or saving the target assembly...
+             	}
+             }
+            </code>
+            
+            Note the following:
+            
+             <list class="bullet">
+              <listItem><para>
+               The constructor for <codeEntityReference>T:Mono.Cecil.Inject.InjectionDefinition</codeEntityReference> requires the injection flags of the hook method.
+               If the flags and the hook signature don't match, an exception will be thrown. For more information on how to specify the injection flags, refer to <link xlink:href="ovr_injection_flags"/>.
+              </para></listItem>
+              <listItem><para>The constructor for <codeEntityReference>T:Mono.Cecil.Inject.InjectionDefinition</codeEntityReference> also takes addition parameters, like list of the fields and local variables to pass. Refer to <codeEntityReference linkText="the constructor of InjectionDefinition">M:Mono.Cecil.Inject.InjectionDefinition.#ctor(Mono.Cecil.MethodDefinition,Mono.Cecil.MethodDefinition,Mono.Cecil.Inject.InjectFlags,System.Int32[],Mono.Cecil.FieldDefinition[])</codeEntityReference>.</para></listItem>
+             </list>
+             
+            After injecting you can either apply more injections or you can save the target assembly by using the <legacyBold>Write</legacyBold> methods found in <legacyBold>AssemblyDefinition</legacyBold> class.
+           </para>
+          </content>
+         </step>
+        </steps>
+      <!-- <conclusion>Optional conclusion</conclusion> -->
+       </procedure>
+      </content>
+    </section>
+    <section address="section_shortcut">
+      <title>Method 2: Using shortcut methods</title>
+      <content>
+       <para>
+        Here, we look at how injections can be performed with a single method using the <codeEntityReference linkText="InjectWith">M:Mono.Cecil.Inject.MethodDefinitionExtensions.InjectWith(Mono.Cecil.MethodDefinition,Mono.Cecil.MethodDefinition,System.Int32,System.Int32,Mono.Cecil.Inject.InjectFlags,Mono.Cecil.Inject.InjectDirection,System.Int32[],Mono.Cecil.FieldDefinition[])</codeEntityReference>.
+        For the sake of example, let us consider class <legacyBold>Bar</legacyBold> with method <codeInline>Foo(int v1, bool v2)</codeInline>.
+        In this example, we want to inject it with the hook method that will receive the parameters of the method and the invoking instance of <legacyBold>Bar</legacyBold>.
+       </para>
+       <procedure>
+        <title>Do the following</title>
+        <steps class="ordered">
+         <step>
+          <content>
+            <para>Create an assembly with the hook method that follows the structure introduced in the chapter <link xlink:href="ovr_injection_flags"/>.</para>
+            <para>
+             In our hook assembly we define a static class <legacyBold>MyHookClass</legacyBold> with the hook method in it:
+             <code language="cs" numberLines="true">
+              namespace HookNamespace
+              {
+              	public static class MyHookClass 
+             	 {
+              		public static void MyHook(Bar self, int v1, bool v2)
+              		{
+              			// Write hook's code here
+              		}
+              	}
+              }
+             </code>
+             Note that the class with the hook methods in it does not have to be static, but it advised to have it set to static.
+            </para>
+          </content>
+         </step>
+         <step>
+          <content>
+           <para>Create a patcher and load the hook assembly along with the assembly that is to be patched.</para>
+           <para>
+            In this example we create a <legacyBold>Patcher</legacyBold> class with method <codeInline>Patch</codeInline> in it.
+            Firstly, we will use <codeEntityReference>M:Mono.Cecil.Inject.AssemblyLoader.LoadAssembly(System.String)</codeEntityReference> to load the needed assemblies.
+            The structure of the <legacyBold>Patcher</legacyBold> class is thus the following:
+            
+            <code language="cs" numberLines="true">
+             using Mono.Cecil;
+             using Mono.Cecil.Inject;
+             
+             public class Patcher
+             {	
+             	public void Patch()
+             	{
+             		// Load the assembly that contains the hook method
+             		AssemblyDefinition hookAssembly = AssemblyLoader.LoadAssembly("MyHookAssembly.dll");
+             		// Load the assembly
+             		AssemblyDefinition targetAssembly = AssemblyLoader.LoadAssembly("TargetAssembly.dll");
+             		
+             		// Next steps...
+             	}
+             }
+            </code>
+           </para>
+          </content>
+         </step>
+         <step>
+          <content>
+           <para>Get <legacyBold>MethodDefinition</legacyBold> for the injection method and the injection target.</para>
+           <para>
+            Next, we update our <codeInline>Patch</codeInline> method by getting the hook and the target. We do that by using <codeEntityReference>M:Mono.Cecil.Inject.TypeDefinitionExtensions.GetMethod(Mono.Cecil.TypeDefinition,System.String)</codeEntityReference>,
+            since we clearly don't have any conflicting overrides in our assemblies. The class now looks as follows:
+            
+            <code language="cs" numberLines="true">
+             using Mono.Cecil;
+             using Mono.Cecil.Inject;
+             
+             public class Patcher
+             {	
+             	public void Patch()
+             	{
+             		// Load the assembly that contains the hook method
+             		AssemblyDefinition hookAssembly = AssemblyLoader.LoadAssembly("MyHookAssembly.dll");
+             		// Load the assembly
+             		AssemblyDefinition targetAssembly = AssemblyLoader.LoadAssembly("TargetAssembly.dll");
+             		
+             		// Get the method definition for the injection definition
+             		MethodDefinition myHook = hookAssembly.MainModule.GetType("HookNamespace.MyHookClass").GetMethod("MyHook");
+             		// Get the method definition for the injection target. 
+             		// Note that in this example class Bar is in the global namespace (no namespace), which is why we don't specify the namespace.
+             		MethodDefinition foo = targetAssembly.MainModule.GetType("Bar").GetMethod("Foo");
+             		
+             		// Next steps...
+             	}
+             }
+            </code>
+           </para>
+          </content>
+         </step>
+         <step>
+          <content>
+           <para>Use <codeEntityReference linkText="InjectWith">M:Mono.Cecil.Inject.MethodDefinitionExtensions.InjectWith(Mono.Cecil.MethodDefinition,Mono.Cecil.MethodDefinition,System.Int32,System.Int32,Mono.Cecil.Inject.InjectFlags,Mono.Cecil.Inject.InjectDirection,System.Int32[],Mono.Cecil.FieldDefinition[])</codeEntityReference> method.</para>
+           <para>
+            Finally, we can create the injector and perform the injection:
+            
+            <code language="cs" numberLines="true">
+             using Mono.Cecil;
+             using Mono.Cecil.Inject;
+             
+             public class Patcher
+             {	
+             	public void Patch()
+             	{
+             		// Load the assembly that contains the hook method
+             		AssemblyDefinition hookAssembly = AssemblyLoader.LoadAssembly("MyHookAssembly.dll");
+             		// Load the assembly
+             		AssemblyDefinition targetAssembly = AssemblyLoader.LoadAssembly("TargetAssembly.dll");
+             		
+             		// Get the method definition for the injection definition
+             		MethodDefinition myHook = hookAssembly.MainModule.GetType("HookNamespace.MyHookClass").GetMethod("MyHook");
+             		// Get the method definition for the injection target. 
+             		// Note that in this example class Bar is in the global namespace (no namespace), which is why we don't specify the namespace.
+             		MethodDefinition foo = targetAssembly.MainModule.GetType("Bar").GetMethod("Foo");
+             		
+             		// Perform the injection with default settings (inject into the beginning before the first instruction
+             		foo.InjectWith(myHook, flags: InjectFlags.PassInvokingInstance | InjectFlags.passParametersVal);
+             		
+             		// More injections or saving the target assembly...
+             	}
+             }
+            </code>
+            
+            Note the following:
+            
+             <list class="bullet">
+              <listItem><para>
+               The creation of an instance of <codeEntityReference>T:Mono.Cecil.Inject.InjectionDefinition</codeEntityReference> and injecting is done automatically within the <codeEntityReference linkText="InjectWith">M:Mono.Cecil.Inject.MethodDefinitionExtensions.InjectWith(Mono.Cecil.MethodDefinition,Mono.Cecil.MethodDefinition,System.Int32,System.Int32,Mono.Cecil.Inject.InjectFlags,Mono.Cecil.Inject.InjectDirection,System.Int32[],Mono.Cecil.FieldDefinition[])</codeEntityReference> method.
+              </para></listItem>
+              <listItem><para>
+               The method requires the injection flags of the hook method.
+               If the flags and the hook signature don't match, an exception will be thrown. For more information on how to specify the injection flags, refer to <link xlink:href="ovr_injection_flags"/>.
+              </para></listItem>
+              <listItem><para>The method also takes addition parameters, like list of the fields and local variables to pass. Refer to <codeEntityReference linkText="the documentation of InjectWith">M:Mono.Cecil.Inject.MethodDefinitionExtensions.InjectWith(Mono.Cecil.MethodDefinition,Mono.Cecil.MethodDefinition,System.Int32,System.Int32,Mono.Cecil.Inject.InjectFlags,Mono.Cecil.Inject.InjectDirection,System.Int32[],Mono.Cecil.FieldDefinition[])</codeEntityReference>.</para></listItem>
+             </list>
+             
+            After injecting you can either apply more injections or you can save the target assembly by using the <legacyBold>Write</legacyBold> methods found in <legacyBold>AssemblyDefinition</legacyBold> class.
+           </para>
+          </content>
+         </step>
+        </steps>
+      <!-- <conclusion>Optional conclusion</conclusion> -->
+       </procedure>
+      </content>
+    </section>
+    <section>
+     <title>Method 3: Automatically create injectors for multiple targets</title>
+     <content>
+      <para>
+       This method is great for situations when there are multiple injection targets with varying method signatures and the goal is to hook them all to a single hook.
+       In this case instead of explicitly creating the right injectors we can let Cecil.Inject figure out which hook fits the target best. This can be accomplished by using
+       either <codeEntityReference linkText="GetInjectionMethod">M:Mono.Cecil.Inject.TypeDefinitionExtensions.GetInjectionMethod(Mono.Cecil.TypeDefinition,System.String,Mono.Cecil.MethodDefinition,Mono.Cecil.Inject.InjectFlags,System.Int32[],Mono.Cecil.FieldDefinition[])</codeEntityReference> or <codeEntityReference linkText="GetInjector">M:Mono.Cecil.Inject.MethodDefinitionExtensions.GetInjector(Mono.Cecil.MethodDefinition,Mono.Cecil.TypeDefinition,System.String,Mono.Cecil.Inject.InjectFlags,System.Int32[],Mono.Cecil.FieldDefinition[])</codeEntityReference>.
+      </para>
+      <para>
+       In this example we consider the class <legacyBold>Bar</legacyBold> with methods <codeInline>Foo(int v1, int v2)</codeInline>, <codeInline>Foo(int v1, long v2)</codeInline> and <codeInline>Foo(int v1, string v2)</codeInline> and with field <codeInline>int[] fArray</codeInline>.
+       The goal is to inject them with a hook method that will receive the <codeInline>fArray</codeInline> field and methods' parameters. Unfortunately, since different overrides of <codeInline>Foo</codeInline> have different parameter types, it would require to go through each method and inject it separately.
+       However, with Cecil.Inject, we can use the above-mentioned methods to automate injection.
+      </para>
+      <procedure>
+       <title>Do the following</title>
+       <steps class="ordered">
+        <step>
+          <content>
+            <para>Create an assembly with the hook methods that follow the structure introduced in the chapter <link xlink:href="ovr_injection_flags"/>.</para>
+            <para>
+             In our hook assembly we define a static class <legacyBold>MyHookClass</legacyBold> with the hook methods in it:
+             <code language="cs" numberLines="true">
+              namespace HookNamespace
+              {
+              	public static class MyHookClass 
+             	 {
+              		public static void FooHook(ref int[] fArray, int v1, long v2)
+              		{
+              			// Write hook's code here
+              		}
+              		
+              		public static void FooHook(ref int[] fArray, int v1, int v2)
+              		{
+              			FooHook(ref fArray, v1, (long) v2);
+              		}
+              		
+              		public static void FooHook(ref int[] fArray, int v1, String v2)
+              		{
+              			FooHook(ref int[], v1, long.Parse(v2));
+              		}
+              	}
+              }
+             </code>
+             
+             Note how all the hook logic is written only in one method, while other hooks simply call the first one. That way we need not write the same logic for all the hooks, and adding new hooks is really simple.
+             If there were methods like <codeInline>Foo(bool v1)</codeInline>, we could simply rewrite the hook class by moving the hook logic to a separate method that would have all the parameters of other hook methods and make the
+             hooks call that method instead.
+            </para>
+          </content>
+        </step>
+        <step>
+          <content>
+            <para>Create a patcher and load the hook assembly along with the assembly that is to be patched.</para>
+            <para>
+             In this example we create a <legacyBold>Patcher</legacyBold> class with method <codeInline>Patch</codeInline> in it.
+             Firstly, we will use <codeEntityReference>M:Mono.Cecil.Inject.AssemblyLoader.LoadAssembly(System.String)</codeEntityReference> to load the needed assemblies.
+             The structure of the <legacyBold>Patcher</legacyBold> class is thus the following:
+             
+             <code language="cs" numberLines="true">
+             using Mono.Cecil;
+             using Mono.Cecil.Inject;
+             
+             public class Patcher
+             {	
+             	public void Patch()
+             	{
+             		// Load the assembly that contains the hook method
+             		AssemblyDefinition hookAssembly = AssemblyLoader.LoadAssembly("MyHookAssembly.dll");
+             		// Load the assembly
+             		AssemblyDefinition targetAssembly = AssemblyLoader.LoadAssembly("TargetAssembly.dll");
+             		
+             		// Next steps...
+             	}
+             }
+            </code>
+            </para>
+          </content>
+        </step>
+        <step>
+          <content>
+           <para>Get <legacyBold>MethodDefinition</legacyBold> for the injection methods and use <codeEntityReference linkText="GetInjectionMethod">M:Mono.Cecil.Inject.TypeDefinitionExtensions.GetInjectionMethod(Mono.Cecil.TypeDefinition,System.String,Mono.Cecil.MethodDefinition,Mono.Cecil.Inject.InjectFlags,System.Int32[],Mono.Cecil.FieldDefinition[])</codeEntityReference> (or <codeEntityReference linkText="GetInjector">M:Mono.Cecil.Inject.MethodDefinitionExtensions.GetInjector(Mono.Cecil.MethodDefinition,Mono.Cecil.TypeDefinition,System.String,Mono.Cecil.Inject.InjectFlags,System.Int32[],Mono.Cecil.FieldDefinition[])</codeEntityReference>) to get the injector and perform the injection.</para>
+           <para>
+            Next, we update our <codeInline>Patch</codeInline> method to find all the method defintions for the <codeInline>Foo</codeInline> method and inject each one of them with the appropriate injection method. We do that by using <codeEntityReference>M:Mono.Cecil.Inject.TypeDefinitionExtensions.GetMethods(Mono.Cecil.TypeDefinition,System.String)</codeEntityReference>,
+            since we want to inject hooks into all the overrides of <codeInline>Foo</codeInline>. After that, we iterate through all the injection targets and create the injector with a suitable injection method (here we do it with <codeEntityReference linkText="GetInjectionMethod">M:Mono.Cecil.Inject.TypeDefinitionExtensions.GetInjectionMethod(Mono.Cecil.TypeDefinition,System.String,Mono.Cecil.MethodDefinition,Mono.Cecil.Inject.InjectFlags,System.Int32[],Mono.Cecil.FieldDefinition[])</codeEntityReference>, but it can be also done with <codeEntityReference linkText="GetInjector">M:Mono.Cecil.Inject.MethodDefinitionExtensions.GetInjector(Mono.Cecil.MethodDefinition,Mono.Cecil.TypeDefinition,System.String,Mono.Cecil.Inject.InjectFlags,System.Int32[],Mono.Cecil.FieldDefinition[])</codeEntityReference>).  
+            Finally we preform the injection by using the <codeEntityReference autoUpgrade="true">M:Mono.Cecil.Inject.InjectionDefinition.Inject(Mono.Cecil.Cil.Instruction,System.Int32,Mono.Cecil.Inject.InjectDirection)</codeEntityReference> method.
+            The class now looks as follows:
+            
+            <code language="cs" numberLines="true">
+             using Mono.Cecil;
+             using Mono.Cecil.Inject;
+             
+             public class Patcher
+             {	
+             	public void Patch()
+             	{
+             		// Load the assembly that contains the hook method
+             		AssemblyDefinition hookAssembly = AssemblyLoader.LoadAssembly("MyHookAssembly.dll");
+             		// Load the assembly
+             		AssemblyDefinition targetAssembly = AssemblyLoader.LoadAssembly("TargetAssembly.dll");
+             		
+             		// Get the type Bar
+             		// In this example Bar is in the global namespace, so we don't have to specify it
+             		TypeDefinition bar = targetAssembly.MainModule.GetType("Bar");
+             		// Get the type MyHookClass
+             		// Note how we have to specify the namespace
+             		TypeDefinition hooks = hookAssembly.MainModule.GetType("HookNamespace.MyHookClass");
+             		
+             		// Get all the overrides of method Foo
+             		MethodDefinition[] foos = bar.GetMethods("Foo");
+             		
+             		// Get the field definition of fArray
+             		FieldDefinition fArray = bar.GetField("fArray");
+             		
+             		foreach(MethodDefinition foo in foos)
+             		{
+             			// Find a suitable override of FooHook for an override of Foo and create an injector out of it
+             			InjectionDefinition injector = hooks.GetInjectionMethod("FooHook", foo, InjectFlags.PassFields | InjectFlags.PassParametersVal, null, fArray);
+             			// Perform the injection with default parameters (inject into the beginning before the first operation)
+             			// Since GetInjectionMethod can return null, we use the null-conditional operator (?) so that the Inject method is called only when injector is not null
+             			injector?.Inject();
+             		}
+             		
+             		// Perform other injections or save the modified assembly...
+             	}
+             }
+            </code>
+            
+            Note the following:
+            
+             <list class="bullet">
+              <listItem><para>
+               The usage of <codeEntityReference linkText="GetInjectionMethod">M:Mono.Cecil.Inject.TypeDefinitionExtensions.GetInjectionMethod(Mono.Cecil.TypeDefinition,System.String,Mono.Cecil.MethodDefinition,Mono.Cecil.Inject.InjectFlags,System.Int32[],Mono.Cecil.FieldDefinition[])</codeEntityReference> (or <codeEntityReference linkText="GetInjector">M:Mono.Cecil.Inject.MethodDefinitionExtensions.GetInjector(Mono.Cecil.MethodDefinition,Mono.Cecil.TypeDefinition,System.String,Mono.Cecil.Inject.InjectFlags,System.Int32[],Mono.Cecil.FieldDefinition[])</codeEntityReference>) requires the injection flags of the hook method.
+               If the no injection methods with the specified flags are found, the methods simply return <codeInline>null</codeInline>. For more information on how to specify the injection flags, refer to <link xlink:href="ovr_injection_flags"/>.
+              </para></listItem>
+              <listItem><para>The above-mentioned methods also take addition parameters, like list of the fields (which we used in this case) and local variables to pass. Refer to <codeEntityReference linkText="the constructor of InjectionDefinition">M:Mono.Cecil.Inject.InjectionDefinition.#ctor(Mono.Cecil.MethodDefinition,Mono.Cecil.MethodDefinition,Mono.Cecil.Inject.InjectFlags,System.Int32[],Mono.Cecil.FieldDefinition[])</codeEntityReference>.</para></listItem>
+             </list>
+             
+            After injecting you can either apply more injections or you can save the target assembly by using the <legacyBold>Write</legacyBold> methods found in <legacyBold>AssemblyDefinition</legacyBold> class.
+           </para>
+          </content>
+         </step>
+       </steps>
+      <!-- <conclusion>Optional conclusion</conclusion> -->
+      </procedure>
+     </content>
+    </section>
+    <relatedTopics>
+      <!-- One or more of the following:
+           - A local link
+           - An external link
+           - A code entity reference
+
+      <link xlink:href="Other Topic's ID"/>
+      <link xlink:href="Other Topic's ID">Link inner text</link>
+
+      <externalLink>
+          <linkText>Link text</linkText>
+          <linkAlternateText>Optional alternate link text</linkAlternateText>
+          <linkUri>URI</linkUri>
+      </externalLink>
+
+      <codeEntityReference>API member ID</codeEntityReference>
+
+      Examples:
+
+      <link xlink:href="00e97994-e9e6-46e0-b420-5be86b2f8270" />
+      <link xlink:href="00e97994-e9e6-46e0-b420-5be86b2f8278">Some other topic</link>
+
+      <externalLink>
+          <linkText>SHFB on GitHub</linkText>
+          <linkAlternateText>Go to GitHub</linkAlternateText>
+          <linkUri>https://GitHub.com/EWSoftware/SHFB</linkUri>
+      </externalLink>
+
+      <codeEntityReference>T:TestDoc.TestClass</codeEntityReference>
+      <codeEntityReference>P:TestDoc.TestClass.SomeProperty</codeEntityReference>
+      <codeEntityReference>M:TestDoc.TestClass.#ctor</codeEntityReference>
+      <codeEntityReference>M:TestDoc.TestClass.#ctor(System.String,System.Int32)</codeEntityReference>
+      <codeEntityReference>M:TestDoc.TestClass.ToString</codeEntityReference>
+      <codeEntityReference>M:TestDoc.TestClass.FirstMethod</codeEntityReference>
+      <codeEntityReference>M:TestDoc.TestClass.SecondMethod(System.Int32,System.String)</codeEntityReference>
+      -->
+    </relatedTopics>
+  </developerConceptualDocument>
+</topic>

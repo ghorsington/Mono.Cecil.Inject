@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<HelpTOC>
+
+  <HelpTOCNode Title="Introduction" Url="html/introduction.htm" />
+  <HelpTOCNode Title="Glossary" Url="html/glossary.htm" />
+  <HelpTOCNode Id="b5626774-f8a7-4c02-a7da-d8d66d9765ef" Title="Library overview">
+    <HelpTOCNode Title="Feature overview and syntax" Url="html/ovr_features_and_syntax.htm" />
+    <HelpTOCNode Title="Method and field searching" Url="html/ovr_method_get_and_match.htm" />
+    <HelpTOCNode Title="Injection flags" Url="html/ovr_injection_flags.htm" />
+    <HelpTOCNode Title="How to inject with Cecil.Inject" Url="html/ovr_injection_procedure.htm" />
+    <HelpTOCNode Title="Helper Methods" Url="html/ovr_helper_methods.htm" />
+  </HelpTOCNode>
+  <HelpTOCNode Id="ca946374-069e-429f-88b7-c5d608b329fc" Title="Mono.Cecil.Inject" Url="html/N_Mono_Cecil_Inject.htm">
+    <HelpTOCNode Id="a1542098-a107-4b59-b16c-9679c78c502f" Title="AssemblyLoader Class" Url="html/T_Mono_Cecil_Inject_AssemblyLoader.htm">
+      <HelpTOCNode Id="1af84e81-9330-4d1a-aafe-76bdaa3db992" Title="AssemblyLoader Methods" Url="html/Methods_T_Mono_Cecil_Inject_AssemblyLoader.htm">
+        <HelpTOCNode Title="LoadAssembly Method " Url="html/M_Mono_Cecil_Inject_AssemblyLoader_LoadAssembly.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="a012b981-910f-42f4-9871-f7e7991729be" Title="CollectionUtils Class" Url="html/T_Mono_Cecil_Inject_CollectionUtils.htm">
+      <HelpTOCNode Id="225b0f3e-1a70-46d5-9c49-3367f1a5b183" Title="CollectionUtils Methods" Url="html/Methods_T_Mono_Cecil_Inject_CollectionUtils.htm">
+        <HelpTOCNode Title="ForEach(T) Method " Url="html/M_Mono_Cecil_Inject_CollectionUtils_ForEach__1.htm" />
+        <HelpTOCNode Title="Range(T) Method " Url="html/M_Mono_Cecil_Inject_CollectionUtils_Range__1.htm" />
+        <HelpTOCNode Title="Slice(T) Method " Url="html/M_Mono_Cecil_Inject_CollectionUtils_Slice__1.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="62d34934-11b2-423a-82e9-cda26f7126fa" Title="ILUtils Class" Url="html/T_Mono_Cecil_Inject_ILUtils.htm">
+      <HelpTOCNode Id="da32f65f-611a-4b9e-bdf6-81ebd4cc1876" Title="ILUtils Methods" Url="html/Methods_T_Mono_Cecil_Inject_ILUtils.htm">
+        <HelpTOCNode Title="CopyInstruction Method " Url="html/M_Mono_Cecil_Inject_ILUtils_CopyInstruction.htm" />
+        <HelpTOCNode Title="ReplaceInstruction Method " Url="html/M_Mono_Cecil_Inject_ILUtils_ReplaceInstruction.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Title="InjectDirection Enumeration" Url="html/T_Mono_Cecil_Inject_InjectDirection.htm" />
+    <HelpTOCNode Id="e60b9cf4-ec7d-436a-8714-0ef0cbbb879a" Title="InjectFlagMethods Class" Url="html/T_Mono_Cecil_Inject_InjectFlagMethods.htm">
+      <HelpTOCNode Id="bd4700de-3776-4c55-966e-22611d7e408f" Title="InjectFlagMethods Methods" Url="html/Methods_T_Mono_Cecil_Inject_InjectFlagMethods.htm">
+        <HelpTOCNode Title="IsSet Method " Url="html/M_Mono_Cecil_Inject_InjectFlagMethods_IsSet.htm" />
+        <HelpTOCNode Title="ToValues Method " Url="html/M_Mono_Cecil_Inject_InjectFlagMethods_ToValues.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Title="InjectFlags Enumeration" Url="html/T_Mono_Cecil_Inject_InjectFlags.htm" />
+    <HelpTOCNode Id="5d689537-a24e-4606-9aab-1a1c3ab732c3" Title="InjectionDefinition Class" Url="html/T_Mono_Cecil_Inject_InjectionDefinition.htm">
+      <HelpTOCNode Title="InjectionDefinition Constructor " Url="html/M_Mono_Cecil_Inject_InjectionDefinition__ctor.htm" />
+      <HelpTOCNode Id="c2775ad2-a06d-472f-8442-866c89eaf721" Title="InjectionDefinition Properties" Url="html/Properties_T_Mono_Cecil_Inject_InjectionDefinition.htm">
+        <HelpTOCNode Title="Flags Property " Url="html/P_Mono_Cecil_Inject_InjectionDefinition_Flags.htm" />
+        <HelpTOCNode Title="InjectMethod Property " Url="html/P_Mono_Cecil_Inject_InjectionDefinition_InjectMethod.htm" />
+        <HelpTOCNode Title="InjectTarget Property " Url="html/P_Mono_Cecil_Inject_InjectionDefinition_InjectTarget.htm" />
+        <HelpTOCNode Title="LocalVarIDs Property " Url="html/P_Mono_Cecil_Inject_InjectionDefinition_LocalVarIDs.htm" />
+        <HelpTOCNode Title="MemberReferences Property " Url="html/P_Mono_Cecil_Inject_InjectionDefinition_MemberReferences.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="4ff9b8d1-b40b-4d7e-8f29-5207fc8edf03" Title="InjectionDefinition Methods" Url="html/Methods_T_Mono_Cecil_Inject_InjectionDefinition.htm">
+        <HelpTOCNode Id="ced7ca08-8554-4159-bf99-d3039d90396c" Title="Inject Method " Url="html/Overload_Mono_Cecil_Inject_InjectionDefinition_Inject.htm">
+          <HelpTOCNode Title="Inject Method (Instruction, Int32, InjectDirection)" Url="html/M_Mono_Cecil_Inject_InjectionDefinition_Inject.htm" />
+          <HelpTOCNode Title="Inject Method (Int32, Int32, InjectDirection)" Url="html/M_Mono_Cecil_Inject_InjectionDefinition_Inject_1.htm" />
+        </HelpTOCNode>
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="aab8d58a-239a-4a86-beab-8370d5936f7f" Title="InjectionDefinitionException Class" Url="html/T_Mono_Cecil_Inject_InjectionDefinitionException.htm">
+      <HelpTOCNode Title="InjectionDefinitionException Constructor " Url="html/M_Mono_Cecil_Inject_InjectionDefinitionException__ctor.htm" />
+      <HelpTOCNode Title="InjectionDefinitionException Properties" Url="html/Properties_T_Mono_Cecil_Inject_InjectionDefinitionException.htm" />
+      <HelpTOCNode Title="InjectionDefinitionException Methods" Url="html/Methods_T_Mono_Cecil_Inject_InjectionDefinitionException.htm" />
+    </HelpTOCNode>
+    <HelpTOCNode Id="ed66ce0d-c7bb-4347-a497-9ba4375c332f" Title="InjectValues Structure" Url="html/T_Mono_Cecil_Inject_InjectValues.htm">
+      <HelpTOCNode Title="InjectValues Constructor " Url="html/M_Mono_Cecil_Inject_InjectValues__ctor.htm" />
+      <HelpTOCNode Id="fc82ec16-6e2d-4f7e-bbbb-c0a71ea5a5b8" Title="InjectValues Properties" Url="html/Properties_T_Mono_Cecil_Inject_InjectValues.htm">
+        <HelpTOCNode Title="PassParameters Property " Url="html/P_Mono_Cecil_Inject_InjectValues_PassParameters.htm" />
+        <HelpTOCNode Title="PassParametersByRef Property " Url="html/P_Mono_Cecil_Inject_InjectValues_PassParametersByRef.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="d943eae2-1a25-4316-bb77-35b229459169" Title="InjectValues Methods" Url="html/Methods_T_Mono_Cecil_Inject_InjectValues.htm">
+        <HelpTOCNode Title="GetCombinedFlags Method " Url="html/M_Mono_Cecil_Inject_InjectValues_GetCombinedFlags.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="a07ec578-5163-4d18-8ee6-326bfd0d8285" Title="InjectValues Fields" Url="html/Fields_T_Mono_Cecil_Inject_InjectValues.htm">
+        <HelpTOCNode Title="ModifyReturn Field" Url="html/F_Mono_Cecil_Inject_InjectValues_ModifyReturn.htm" />
+        <HelpTOCNode Title="ParameterType Field" Url="html/F_Mono_Cecil_Inject_InjectValues_ParameterType.htm" />
+        <HelpTOCNode Title="PassFields Field" Url="html/F_Mono_Cecil_Inject_InjectValues_PassFields.htm" />
+        <HelpTOCNode Title="PassInvokingInstance Field" Url="html/F_Mono_Cecil_Inject_InjectValues_PassInvokingInstance.htm" />
+        <HelpTOCNode Title="PassLocals Field" Url="html/F_Mono_Cecil_Inject_InjectValues_PassLocals.htm" />
+        <HelpTOCNode Title="PassTag Field" Url="html/F_Mono_Cecil_Inject_InjectValues_PassTag.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Title="InjectValues.PassParametersType Enumeration" Url="html/T_Mono_Cecil_Inject_InjectValues_PassParametersType.htm" />
+    <HelpTOCNode Id="93fb99c0-bfd7-45b7-8997-d88923dd0b43" Title="Logger Class" Url="html/T_Mono_Cecil_Inject_Logger.htm">
+      <HelpTOCNode Id="8d401fc2-cfb4-4478-aca4-130b96cd0fae" Title="Logger Properties" Url="html/Properties_T_Mono_Cecil_Inject_Logger.htm">
+        <HelpTOCNode Title="LogOutput Property " Url="html/P_Mono_Cecil_Inject_Logger_LogOutput.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="4dd21f90-a872-4d29-99eb-6ee3e0a3454d" Title="Logger Methods" Url="html/Methods_T_Mono_Cecil_Inject_Logger.htm">
+        <HelpTOCNode Title="IsSet Method " Url="html/M_Mono_Cecil_Inject_Logger_IsSet.htm" />
+        <HelpTOCNode Title="Log Method " Url="html/M_Mono_Cecil_Inject_Logger_Log.htm" />
+        <HelpTOCNode Id="db952b64-1bab-4a39-9208-c94a3dfcedd6" Title="LogLine Method " Url="html/Overload_Mono_Cecil_Inject_Logger_LogLine.htm">
+          <HelpTOCNode Title="LogLine Method (UInt32)" Url="html/M_Mono_Cecil_Inject_Logger_LogLine.htm" />
+          <HelpTOCNode Title="LogLine Method (UInt32, String)" Url="html/M_Mono_Cecil_Inject_Logger_LogLine_1.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Title="SetLogMask Method " Url="html/M_Mono_Cecil_Inject_Logger_SetLogMask.htm" />
+        <HelpTOCNode Title="UnsetMask Method " Url="html/M_Mono_Cecil_Inject_Logger_UnsetMask.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="2bd53a17-7849-4df3-988e-e9c2e19de0b7" Title="LogMask Class" Url="html/T_Mono_Cecil_Inject_LogMask.htm">
+      <HelpTOCNode Id="e5d64cf0-b195-4d5a-947b-09b9291e7d95" Title="LogMask Fields" Url="html/Fields_T_Mono_Cecil_Inject_LogMask.htm">
+        <HelpTOCNode Title="ChangeAccess Field" Url="html/F_Mono_Cecil_Inject_LogMask_ChangeAccess.htm" />
+        <HelpTOCNode Title="GetInjectionMethod Field" Url="html/F_Mono_Cecil_Inject_LogMask_GetInjectionMethod.htm" />
+        <HelpTOCNode Title="Inject Field" Url="html/F_Mono_Cecil_Inject_LogMask_Inject.htm" />
+        <HelpTOCNode Title="TypeCompare Field" Url="html/F_Mono_Cecil_Inject_LogMask_TypeCompare.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="19de79fb-3561-4ddf-b928-7b4a14aa3158" Title="MethodDefinitionExtensions Class" Url="html/T_Mono_Cecil_Inject_MethodDefinitionExtensions.htm">
+      <HelpTOCNode Id="2e5a74ef-bb1f-4ce3-885e-6194fa551699" Title="MethodDefinitionExtensions Methods" Url="html/Methods_T_Mono_Cecil_Inject_MethodDefinitionExtensions.htm">
+        <HelpTOCNode Title="GetInjector Method " Url="html/M_Mono_Cecil_Inject_MethodDefinitionExtensions_GetInjector.htm" />
+        <HelpTOCNode Title="InjectWith Method " Url="html/M_Mono_Cecil_Inject_MethodDefinitionExtensions_InjectWith.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="53d4ed5c-6a9c-42dc-b8e0-783955ef3050" Title="ParamHelper Class" Url="html/T_Mono_Cecil_Inject_ParamHelper.htm">
+      <HelpTOCNode Id="f93d035c-25dc-4609-8315-f550bf1f7175" Title="ParamHelper Methods" Url="html/Methods_T_Mono_Cecil_Inject_ParamHelper.htm">
+        <HelpTOCNode Title="CreateDummyType Method " Url="html/M_Mono_Cecil_Inject_ParamHelper_CreateDummyType.htm" />
+        <HelpTOCNode Title="CreateGeneric Method " Url="html/M_Mono_Cecil_Inject_ParamHelper_CreateGeneric.htm" />
+        <HelpTOCNode Id="e4986c51-d34a-47cd-8e6d-0f950cd0b203" Title="FromType Method " Url="html/Overload_Mono_Cecil_Inject_ParamHelper_FromType.htm">
+          <HelpTOCNode Title="FromType(T) Method " Url="html/M_Mono_Cecil_Inject_ParamHelper_FromType__1.htm" />
+          <HelpTOCNode Title="FromType Method (Type)" Url="html/M_Mono_Cecil_Inject_ParamHelper_FromType.htm" />
+        </HelpTOCNode>
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="b61b6b76-c49e-4ff5-970a-c909c5aeaa3a" Title="TypeDefinitionExtensions Class" Url="html/T_Mono_Cecil_Inject_TypeDefinitionExtensions.htm">
+      <HelpTOCNode Id="003b34af-8533-43a3-a179-67bf0e17567b" Title="TypeDefinitionExtensions Methods" Url="html/Methods_T_Mono_Cecil_Inject_TypeDefinitionExtensions.htm">
+        <HelpTOCNode Title="ChangeAccess Method " Url="html/M_Mono_Cecil_Inject_TypeDefinitionExtensions_ChangeAccess.htm" />
+        <HelpTOCNode Title="GetField Method " Url="html/M_Mono_Cecil_Inject_TypeDefinitionExtensions_GetField.htm" />
+        <HelpTOCNode Title="GetInjectionMethod Method " Url="html/M_Mono_Cecil_Inject_TypeDefinitionExtensions_GetInjectionMethod.htm" />
+        <HelpTOCNode Id="5dd57d04-468a-4d97-a609-9abc811d78d0" Title="GetMethod Method " Url="html/Overload_Mono_Cecil_Inject_TypeDefinitionExtensions_GetMethod.htm">
+          <HelpTOCNode Title="GetMethod Method (TypeDefinition, String)" Url="html/M_Mono_Cecil_Inject_TypeDefinitionExtensions_GetMethod.htm" />
+          <HelpTOCNode Title="GetMethod Method (TypeDefinition, String, TypeReference[])" Url="html/M_Mono_Cecil_Inject_TypeDefinitionExtensions_GetMethod_1.htm" />
+          <HelpTOCNode Title="GetMethod Method (TypeDefinition, String, String[])" Url="html/M_Mono_Cecil_Inject_TypeDefinitionExtensions_GetMethod_2.htm" />
+          <HelpTOCNode Title="GetMethod Method (TypeDefinition, String, Type[])" Url="html/M_Mono_Cecil_Inject_TypeDefinitionExtensions_GetMethod_3.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Title="GetMethods Method " Url="html/M_Mono_Cecil_Inject_TypeDefinitionExtensions_GetMethods.htm" />
+        <HelpTOCNode Id="0b05c8ca-d6f6-4177-ba04-906d806b2e26" Title="MatchMethod Method " Url="html/Overload_Mono_Cecil_Inject_TypeDefinitionExtensions_MatchMethod.htm">
+          <HelpTOCNode Title="MatchMethod Method (TypeDefinition, String, TypeReference[])" Url="html/M_Mono_Cecil_Inject_TypeDefinitionExtensions_MatchMethod.htm" />
+          <HelpTOCNode Title="MatchMethod Method (TypeDefinition, String, String[])" Url="html/M_Mono_Cecil_Inject_TypeDefinitionExtensions_MatchMethod_1.htm" />
+          <HelpTOCNode Title="MatchMethod Method (TypeDefinition, String, Type[])" Url="html/M_Mono_Cecil_Inject_TypeDefinitionExtensions_MatchMethod_2.htm" />
+        </HelpTOCNode>
+      </HelpTOCNode>
+    </HelpTOCNode>
+  </HelpTOCNode>
+</HelpTOC>
