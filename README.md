@@ -8,8 +8,7 @@ The library is almost a seamless addition to Mono.Cecil that should've been in t
 The library is compact, easy-to-use and well documented.
 
 ## Documentation
-As of right now, all methods are fully documented internally. You can build Cecil.Inject from source to create a standalone XML file to use with IDEs. 
-The full-fledged documentation is WIP and will be appearing on the project's wiki in the nearest future.
+Online documentation (along with a library overview) can be found [here](http://denikson.github.io/Mono.Cecil.Inject/).
 If you have used ReiPatcherPlus before, you can grab the migration guide from `Migration` directory.
 
 ## Building from source
