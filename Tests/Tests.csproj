@@ -63,17 +63,17 @@
     <None Include="app.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Mono.Cecil.Inject\Mono.Cecil.Inject.csproj">
-      <Project>{41e2f2c1-6004-40d8-b84f-b96265088074}</Project>
-      <Name>Mono.Cecil.Inject</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
       <Visible>False</Visible>
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Mono.Cecil.Inject\Mono.Cecil.Inject.csproj">
+      <Project>{41e2f2c1-6004-40d8-b84f-b96265088074}</Project>
+      <Name>Mono.Cecil.Inject</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

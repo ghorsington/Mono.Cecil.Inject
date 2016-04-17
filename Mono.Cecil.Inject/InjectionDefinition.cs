@@ -393,6 +393,9 @@ Injection has {injectMethod.Parameters.Count
                 Logger.LogLine(LogMask.Inject, "Inserting return command");
                 il.InsertBefore(startInstruction, il.Create(OpCodes.Ret));
             }
+            // If we don't use the return value of InjectMethod, pop it from the ES
+            else if (InjectMethod.ReturnType.FullName != "System.Void")
+                il.InsertBefore(startInstruction, il.Create(OpCodes.Pop));
             if (direction == InjectDirection.After)
                 il.Remove(startInstruction);
             Logger.LogLine(LogMask.Inject, "Injection complete");

@@ -35,3 +35,4 @@ if not exist %cecilpath%\Mono.Cecil.dll (
 )
 
 "%msbuildpath%\msbuild.exe" %projectpath%\Mono.Cecil.Inject.csproj /p:Configuration=%buildconf%
+pause
