@@ -73,8 +73,8 @@
                    <entry><para><codeEntityReference>F:Mono.Cecil.Inject.InjectFlags.ModifyReturn</codeEntityReference></para></entry>
                    <entry><para>
                     &lt;3&gt; = <codeInline>bool</codeInline><markup><br/></markup>
-                    <legacyItalic>If target is static: </legacyItalic>&lt;4&gt; = empty<markup><br/></markup>
-                    <legacyItalic>If target is not static: </legacyItalic>&lt;4&gt; = <codeInline>out T</codeInline>
+                    <legacyItalic>If target returns <codeInline>void</codeInline>: </legacyItalic>&lt;4&gt; = empty<markup><br/></markup>
+                    <legacyItalic>Otherwise: </legacyItalic>&lt;4&gt; = <codeInline>out T</codeInline>
                     </para></entry>
                    <entry>
                    	&lt;3&gt; = <codeInline>void</codeInline><markup><br/></markup>
