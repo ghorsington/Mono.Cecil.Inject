@@ -320,11 +320,7 @@ Injection has {injectMethod.Parameters.Count
                 targetBody.InitLocals = true;
                 returnDef = new VariableDefinition(
                 InjectMethod.Name + "_return",
-                new TypeReference(
-                InjectTarget.ReturnType.Namespace,
-                InjectTarget.ReturnType.Name,
-                InjectTarget.ReturnType.Module,
-                InjectTarget.ReturnType.Scope));
+                InjectTarget.ReturnType);
                 targetBody.Variables.Add(returnDef);
             }
 
