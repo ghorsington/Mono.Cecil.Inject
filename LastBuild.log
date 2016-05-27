@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<shfbBuild product="Sandcastle Help File Builder and Tools" version="2015.10.10.0" projectFile="D:\Projects\C#\Mono.Cecil.Inject\Documentation\cecilinject.shfbproj" started="27.5.2016 21.46.53">
+<shfbBuild product="Sandcastle Help File Builder and Tools" version="2015.10.10.0" projectFile="D:\Projects\C#\Mono.Cecil.Inject\Documentation\cecilinject.shfbproj" started="27.5.2016 22.26.09">
 <buildStep step="Initializing">
 Finding tools...
 The Sandcastle tools are located in &#39;D:\Program Files\EWSoftware\Sandcastle Help File Builder\&#39;
@@ -13,6 +13,9 @@ Loading and initializing plug-ins...
 Lightweight Website Style Version 2015.10.10.0
 Copyright &#169; 2006-2015, Eric Woodruff, All Rights Reserved
 Portions Copyright &#169; 2014, Sam Harwell, All Rights Reserved
+</buildStep>
+<buildStep step="ClearWorkFolder">
+Clearing working folder...
 -------------------------------
 Clearing any prior web/markdown output...
 </buildStep>
@@ -34,16 +37,16 @@ Copying XML comments files
 <buildStep step="GenerateSharedContent">
 Generating shared content files (en-US, englanti (Yhdysvallat))...
 <plugIn name="Lightweight Website Style" behavior="After" priority="1000">
-</plugIn>    Last step completed in 00:00:00,0469
+</plugIn>    Last step completed in 00:00:00,0490
 </buildStep>
 <buildStep step="GenerateApiFilter">
 Generating API filter for MRefBuilder...
-    Last step completed in 00:00:00,0050
+    Last step completed in 00:00:00,0080
 </buildStep>
 <buildStep step="GenerateReflectionInfo">
 Generating reflection information...
 [C:\Windows\Microsoft.NET\Framework64\v4.0.30319\MSBuild.exe - GenerateRefInfo.proj]
-Koonti aloitettu 27.5.2016 21.46.54.
+Koonti aloitettu 27.5.2016 22.26.10.
 Projekti D:\Projects\C#\Mono.Cecil.Inject\Documentation\Help\Working\GenerateRefInfo.proj solmussa 1 (oletuskohteet).
 PrepareForBuild:
   Luodaan hakemisto obj\Debug\.
@@ -62,13 +65,13 @@ Projektin D:\Projects\C#\Mono.Cecil.Inject\Documentation\Help\Working\GenerateRe
 
 Koonti onnistui.
 
-Aikaa kulunut 00:00:01.98
-    Last step completed in 00:00:02,3920
+Aikaa kulunut 00:00:01.70
+    Last step completed in 00:00:02,3000
 </buildStep>
 <buildStep step="TransformReflectionInfo">
 Transforming reflection output...
 [C:\Windows\Microsoft.NET\Framework64\v4.0.30319\MSBuild.exe - TransformManifest.proj]
-Koonti aloitettu 27.5.2016 21.46.56.
+Koonti aloitettu 27.5.2016 22.26.13.
 Projekti D:\Projects\C#\Mono.Cecil.Inject\Documentation\Help\Working\TransformManifest.proj solmussa 1 (oletuskohteet).
 TransformManifest:
   XslTransform (v2015.10.10.0)
@@ -95,12 +98,12 @@ Projektin D:\Projects\C#\Mono.Cecil.Inject\Documentation\Help\Working\TransformM
 
 Koonti onnistui.
 
-Aikaa kulunut 00:00:01.17
-    Last step completed in 00:00:01,5435
+Aikaa kulunut 00:00:01.14
+    Last step completed in 00:00:01,4905
 </buildStep>
 <buildStep step="GenerateNamespaceSummaries">
 Generating namespace summary information...
-    Last step completed in 00:00:00,0115
+    Last step completed in 00:00:00,0230
 </buildStep>
 <buildStep step="CopyConceptualContent">
 Copying conceptual content...
@@ -123,28 +126,28 @@ Generating conceptual topic files
     D:\Projects\C#\Mono.Cecil.Inject\Documentation\Injection.aml -&gt; D:\Projects\C#\Mono.Cecil.Inject\Documentation\Help\Working\ddueXml\ovr_injection_procedure.xml
     Parsing topic file &#39;D:\Projects\C#\Mono.Cecil.Inject\Documentation\Helper_Methods.aml&#39;
     D:\Projects\C#\Mono.Cecil.Inject\Documentation\Helper_Methods.aml -&gt; D:\Projects\C#\Mono.Cecil.Inject\Documentation\Help\Working\ddueXml\ovr_helper_methods.xml
-    Last step completed in 00:00:00,1242
+    Last step completed in 00:00:00,0591
 </buildStep>
 <buildStep step="CreateConceptualTopicConfigs">
 Creating conceptual topic configuration files...
     Companion files
     _ContentMetadata_.xml
     ConceptualManifest.xml
-    Last step completed in 00:00:00,0388
+    Last step completed in 00:00:00,0441
 </buildStep>
 <buildStep step="CopyAdditionalContent">
 Copying additional content files...
 No additional content to copy
-    Last step completed in 00:00:00,0000
+    Last step completed in 00:00:00,0030
 </buildStep>
 <buildStep step="MergeTablesOfContents">
 Merging conceptual and additional tables of contents...
-    Last step completed in 00:00:00,0005
+    Last step completed in 00:00:00,0060
 </buildStep>
 <buildStep step="GenerateIntermediateTableOfContents">
 Generating intermediate table of contents file...
 [C:\Windows\Microsoft.NET\Framework64\v4.0.30319\MSBuild.exe - GenerateIntermediateTOC.proj]
-Koonti aloitettu 27.5.2016 21.46.58.
+Koonti aloitettu 27.5.2016 22.26.14.
 Projekti D:\Projects\C#\Mono.Cecil.Inject\Documentation\Help\Working\GenerateIntermediateTOC.proj solmussa 1 (oletuskohteet).
 GenerateIntermediateTOC:
   XslTransform (v2015.10.10.0)
@@ -157,25 +160,25 @@ Koonti onnistui.
 
 Aikaa kulunut 00:00:00.65
 Generating conceptual content intermediate TOC file...
-    Last step completed in 00:00:01,0114
+    Last step completed in 00:00:01,0171
 </buildStep>
 <buildStep step="CreateBuildAssemblerConfigs">
 Creating Sandcastle configuration files...
     sandcastle.config
     conceptual.config
-    Last step completed in 00:00:00,1401
+    Last step completed in 00:00:00,1813
 </buildStep>
 <buildStep step="MergeCustomConfigs">
 Merging custom build component configurations
 D:\Projects\C#\Mono.Cecil.Inject\Documentation\Help\Working\sandcastle.config
 D:\Projects\C#\Mono.Cecil.Inject\Documentation\Help\Working\conceptual.config
     Removing unused ExampleComponent.
-    Last step completed in 00:00:00,0180
+    Last step completed in 00:00:00,0220
 </buildStep>
 <buildStep step="BuildConceptualTopics">
 Building conceptual help topics...
 [C:\Windows\Microsoft.NET\Framework64\v4.0.30319\MSBuild.exe - BuildConceptualTopics.proj]
-Koonti aloitettu 27.5.2016 21.46.59.
+Koonti aloitettu 27.5.2016 22.26.15.
 Projekti D:\Projects\C#\Mono.Cecil.Inject\Documentation\Help\Working\BuildConceptualTopics.proj solmussa 1 (oletuskohteet).
 BuildConceptualTopics:
   BuildAssembler (v2015.10.10.0)
@@ -189,13 +192,13 @@ Projektin D:\Projects\C#\Mono.Cecil.Inject\Documentation\Help\Working\BuildConce
 
 Koonti onnistui.
 
-Aikaa kulunut 00:00:03.13
-    Last step completed in 00:00:03,5081
+Aikaa kulunut 00:00:03.72
+    Last step completed in 00:00:04,0826
 </buildStep>
 <buildStep step="BuildReferenceTopics">
 Building reference help topics...
 [C:\Windows\Microsoft.NET\Framework64\v4.0.30319\MSBuild.exe - BuildReferenceTopics.proj]
-Koonti aloitettu 27.5.2016 21.47.03.
+Koonti aloitettu 27.5.2016 22.26.19.
 Projekti D:\Projects\C#\Mono.Cecil.Inject\Documentation\Help\Working\BuildReferenceTopics.proj solmussa 1 (oletuskohteet).
 BuildReferenceTopics:
   BuildAssembler (v2015.10.10.0)
@@ -280,12 +283,12 @@ Projektin D:\Projects\C#\Mono.Cecil.Inject\Documentation\Help\Working\BuildRefer
 
 Koonti onnistui.
 
-Aikaa kulunut 00:00:05.75
-    Last step completed in 00:00:06,1154
+Aikaa kulunut 00:00:06.51
+    Last step completed in 00:00:06,8867
 </buildStep>
 <buildStep step="CombiningIntermediateTocFiles">
 Combining conceptual and API intermediate TOC files...
-    Last step completed in 00:00:00,0325
+    Last step completed in 00:00:00,0070
 </buildStep>
 <buildStep step="ExtractingHtmlInfo">
 Extracting HTML info for HTML Help 1 and/or website...
@@ -301,7 +304,7 @@ Processed 100 HTML files
 Sorting keywords and generating See Also indices
 Saving website keyword index to D:\Projects\C#\Mono.Cecil.Inject\Documentation\Help\Working\WebKI.xml
 Saving website table of contents to D:\Projects\C#\Mono.Cecil.Inject\Documentation\Help\Working\WebTOC.xml
-    Last step completed in 00:00:01,1134
+    Last step completed in 00:00:01,2011
 </buildStep>
 <buildStep step="CopyStandardHelpContent">
 Copying standard help content...
@@ -380,32 +383,32 @@ D:\Program Files\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS20
 D:\Program Files\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\Web\icons\TocOpen.gif -&gt; D:\Projects\C#\Mono.Cecil.Inject\Documentation\Help\Working\Output\Website\icons\TocOpen.gif
 D:\Program Files\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\Web\scripts\branding-Website.js -&gt; D:\Projects\C#\Mono.Cecil.Inject\Documentation\Help\Working\Output\Website\scripts\branding-Website.js
 D:\Program Files\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\Web\scripts\jquery-1.11.0.min.js -&gt; D:\Projects\C#\Mono.Cecil.Inject\Documentation\Help\Working\Output\Website\scripts\jquery-1.11.0.min.js
-    Last step completed in 00:00:00,0901
+    Last step completed in 00:00:00,0890
 </buildStep>
 <buildStep step="GenerateHelpFormatTableOfContents">
 Generating website table of contents file...
-    Last step completed in 00:00:00,0000
+    Last step completed in 00:00:00,0020
 </buildStep>
 <buildStep step="GenerateFullTextIndex">
 Generating full-text index for the website...
 
 <plugIn name="Lightweight Website Style" behavior="After" priority="1000">
 Adding lightweight search and TOC elements to each topic...
-</plugIn>    Last step completed in 00:00:01,5190
+</plugIn>    Last step completed in 00:00:02,1866
 </buildStep>
 <buildStep step="CopyingWebsiteFiles">
 Copying website files to output folder...
 
 Copied 236 files for the website content
-    Last step completed in 00:00:00,4964
+    Last step completed in 00:00:00,2956
 </buildStep>
 <buildStep step="CleanIntermediates">
 Removing intermediate files...
-    Last step completed in 00:00:00,0995
+    Last step completed in 00:00:00,1187
 </buildStep>
 <buildStep step="Completed">
 
-Build completed successfully at 27.5.2016 21.47.12.  Total time: 00:00:18,8913
+Build completed successfully at 27.5.2016 22.26.30.  Total time: 00:00:20,6252
 
 </buildStep>
 </shfbBuild>
