@@ -162,13 +162,13 @@ Injection has {injectMethod.Parameters.Count
             if (hFlags.PassParameters)
             {
                 Assert(
-                injectMethod.HasGenericParameters == injectTarget.HasGenericParameters,
+                injectMethod.HasGenericParameters && injectTarget.Parameters.Any(p => p.ParameterType.IsGenericParameter),
                 "The injection and target methods have mismatching specification of generic parameters!");
 
                 Assert(
                 !injectMethod.HasGenericParameters
-                || injectMethod.GenericParameters.Count <= injectTarget.GenericParameters.Count,
-                "The injection and target methods have a mismatching number of generic parameters! The injection method must have less or the same number of generic paramters as the target!");
+                || injectMethod.GenericParameters.Count <= injectTarget.GenericParameters.Count + injectTarget.DeclaringType.GenericParameters.Count,
+                "The injection and target methods have a mismatching number of generic parameters! The injection method must have less or the same number of generic parameters as the target!");
 
                 Assert(
                 !hFlags.PassParametersByRef
@@ -292,6 +292,23 @@ Injection has {injectMethod.Parameters.Count
             bool isVoid = InjectTarget.ReturnType.FullName == "System.Void";
 
             MethodReference hookRef = InjectTarget.Module.Import(InjectMethod);
+
+            // If the hook is generic but not instantiated fully, attempt to fill in the generic arguments with the ones specified in the target method/class
+            if (hookRef.HasGenericParameters && (!hookRef.IsGenericInstance || hookRef.IsGenericInstance && ((GenericInstanceMethod)hookRef).GenericArguments.Count < hookRef.GenericParameters.Count))
+            {
+                GenericInstanceMethod genericInjectMethod = new GenericInstanceMethod(hookRef);
+                foreach (GenericParameter genericParameter in InjectMethod.GenericParameters)
+                {
+                    List<GenericParameter> @params = new List<GenericParameter>();
+                    @params.AddRange(InjectTarget.GenericParameters);
+                    @params.AddRange(InjectTarget.DeclaringType.GenericParameters);
+                    GenericParameter param = @params.FirstOrDefault(p => p.Name == genericParameter.Name);
+                    if (param == null)
+                        throw new Exception("Could not find a suitable type to bind to the generic injection method. Try to manually instantiate the generic injection method before injecting.");
+                    genericInjectMethod.GenericArguments.Add(param);
+                }
+                hookRef = genericInjectMethod;
+            }
 
             MethodBody targetBody = InjectTarget.Body;
             ILProcessor il = targetBody.GetILProcessor();
