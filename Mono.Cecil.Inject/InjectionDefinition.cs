@@ -162,7 +162,7 @@ Injection has {injectMethod.Parameters.Count
             if (hFlags.PassParameters)
             {
                 Assert(
-                injectMethod.HasGenericParameters && injectTarget.Parameters.Any(p => p.ParameterType.IsGenericParameter),
+                injectMethod.HasGenericParameters == injectTarget.Parameters.Any(p => p.ParameterType.IsGenericParameter),
                 "The injection and target methods have mismatching specification of generic parameters!");
 
                 Assert(
