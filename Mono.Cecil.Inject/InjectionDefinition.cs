@@ -122,7 +122,7 @@ Injection has {injectMethod.Parameters.Count
                 "Supposed to receive local references, but the provided local variable index/indices do not exist in the target method!");
                 Assert(
                 injectMethod.Parameters.Slice(prefixCount, localsCount)
-                            .Select((p, i) => new {param = p, index = i})
+                            .Select((p, i) => new {param = p, index = localVarIDs[i]})
                             .All(
                             t =>
                             t.param.ParameterType.IsByReference
