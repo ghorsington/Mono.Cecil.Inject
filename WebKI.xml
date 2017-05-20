@@ -78,6 +78,7 @@
     <HelpKINode Title="InjectionDefinitionException Class" Url="html/T_Mono_Cecil_Inject_InjectionDefinitionException.htm" />
     <HelpKINode Title="about InjectionDefinitionException class" Url="html/T_Mono_Cecil_Inject_InjectionDefinitionException.htm" />
     <HelpKINode Title="constructor" Url="html/M_Mono_Cecil_Inject_InjectionDefinitionException__ctor.htm" />
+    <HelpKINode Title="events" Url="html/Events_T_Mono_Cecil_Inject_InjectionDefinitionException.htm" />
     <HelpKINode Title="methods" Url="html/Methods_T_Mono_Cecil_Inject_InjectionDefinitionException.htm" />
     <HelpKINode Title="properties" Url="html/Properties_T_Mono_Cecil_Inject_InjectionDefinitionException.htm" />
   </HelpKINode>
@@ -102,8 +103,11 @@
   <HelpKINode Title="InjectValues.PassParameters property" Url="html/P_Mono_Cecil_Inject_InjectValues_PassParameters.htm" />
   <HelpKINode Title="InjectValues.PassParametersByRef property" Url="html/P_Mono_Cecil_Inject_InjectValues_PassParametersByRef.htm" />
   <HelpKINode Title="InjectValues.PassParametersType enumeration" Url="html/T_Mono_Cecil_Inject_InjectValues_PassParametersType.htm" />
-  <HelpKINode Title="InjectValues.PassTag field" Url="html/F_Mono_Cecil_Inject_InjectValues_PassTag.htm" />
+  <HelpKINode Title="InjectValues.PassTag property" Url="html/P_Mono_Cecil_Inject_InjectValues_PassTag.htm" />
+  <HelpKINode Title="InjectValues.PassTagType enumeration" Url="html/T_Mono_Cecil_Inject_InjectValues_PassTagType.htm" />
+  <HelpKINode Title="InjectValues.TagType field" Url="html/F_Mono_Cecil_Inject_InjectValues_TagType.htm" />
   <HelpKINode Title="InjectWith method" Url="html/M_Mono_Cecil_Inject_MethodDefinitionExtensions_InjectWith.htm" />
+  <HelpKINode Title="Int32 enumeration member" Url="html/T_Mono_Cecil_Inject_InjectValues_PassTagType.htm" />
   <HelpKINode Title="IsSet method">
     <HelpKINode Title="InjectFlagMethods.IsSet Method " Url="html/M_Mono_Cecil_Inject_InjectFlagMethods_IsSet.htm" />
     <HelpKINode Title="Logger.IsSet Method " Url="html/M_Mono_Cecil_Inject_Logger_IsSet.htm" />
@@ -135,6 +139,10 @@
   <HelpKINode Title="LogMask.TypeCompare field" Url="html/F_Mono_Cecil_Inject_LogMask_TypeCompare.htm" />
   <HelpKINode Title="LogOutput property" Url="html/P_Mono_Cecil_Inject_Logger_LogOutput.htm" />
   <HelpKINode Title="MatchMethod method" Url="html/Overload_Mono_Cecil_Inject_TypeDefinitionExtensions_MatchMethod.htm" />
+  <HelpKINode Title="Max enumeration member">
+    <HelpKINode Title="InjectValues.PassParametersType Enumeration" Url="html/T_Mono_Cecil_Inject_InjectValues_PassParametersType.htm" />
+    <HelpKINode Title="InjectValues.PassTagType Enumeration" Url="html/T_Mono_Cecil_Inject_InjectValues_PassTagType.htm" />
+  </HelpKINode>
   <HelpKINode Title="MemberReferences property" Url="html/P_Mono_Cecil_Inject_InjectionDefinition_MemberReferences.htm" />
   <HelpKINode Title="MethodDefinitionExtensions class">
     <HelpKINode Title="MethodDefinitionExtensions Class" Url="html/T_Mono_Cecil_Inject_MethodDefinitionExtensions.htm" />
@@ -156,6 +164,7 @@
   <HelpKINode Title="Mono.Cecil.Inject.InjectionDefinitionException class" Url="html/T_Mono_Cecil_Inject_InjectionDefinitionException.htm" />
   <HelpKINode Title="Mono.Cecil.Inject.InjectValues structure" Url="html/T_Mono_Cecil_Inject_InjectValues.htm" />
   <HelpKINode Title="Mono.Cecil.Inject.InjectValues.PassParametersType enumeration" Url="html/T_Mono_Cecil_Inject_InjectValues_PassParametersType.htm" />
+  <HelpKINode Title="Mono.Cecil.Inject.InjectValues.PassTagType enumeration" Url="html/T_Mono_Cecil_Inject_InjectValues_PassTagType.htm" />
   <HelpKINode Title="Mono.Cecil.Inject.Logger class" Url="html/T_Mono_Cecil_Inject_Logger.htm" />
   <HelpKINode Title="Mono.Cecil.Inject.LogMask class" Url="html/T_Mono_Cecil_Inject_LogMask.htm" />
   <HelpKINode Title="Mono.Cecil.Inject.MethodDefinitionExtensions class" Url="html/T_Mono_Cecil_Inject_MethodDefinitionExtensions.htm" />
@@ -164,6 +173,7 @@
   <HelpKINode Title="None enumeration member">
     <HelpKINode Title="InjectFlags Enumeration" Url="html/T_Mono_Cecil_Inject_InjectFlags.htm" />
     <HelpKINode Title="InjectValues.PassParametersType Enumeration" Url="html/T_Mono_Cecil_Inject_InjectValues_PassParametersType.htm" />
+    <HelpKINode Title="InjectValues.PassTagType Enumeration" Url="html/T_Mono_Cecil_Inject_InjectValues_PassTagType.htm" />
   </HelpKINode>
   <HelpKINode Title="ParameterType field" Url="html/F_Mono_Cecil_Inject_InjectValues_ParameterType.htm" />
   <HelpKINode Title="ParamHelper class">
@@ -184,14 +194,17 @@
   <HelpKINode Title="PassParametersByRef property" Url="html/P_Mono_Cecil_Inject_InjectValues_PassParametersByRef.htm" />
   <HelpKINode Title="PassParametersRef enumeration member" Url="html/T_Mono_Cecil_Inject_InjectFlags.htm" />
   <HelpKINode Title="PassParametersVal enumeration member" Url="html/T_Mono_Cecil_Inject_InjectFlags.htm" />
+  <HelpKINode Title="PassStringTag enumeration member" Url="html/T_Mono_Cecil_Inject_InjectFlags.htm" />
   <HelpKINode Title="PassTag enumeration member" Url="html/T_Mono_Cecil_Inject_InjectFlags.htm" />
-  <HelpKINode Title="PassTag field" Url="html/F_Mono_Cecil_Inject_InjectValues_PassTag.htm" />
+  <HelpKINode Title="PassTag property" Url="html/P_Mono_Cecil_Inject_InjectValues_PassTag.htm" />
   <HelpKINode Title="Range(Of T) method" Url="html/M_Mono_Cecil_Inject_CollectionUtils_Range__1.htm" />
   <HelpKINode Title="Range&lt;T&gt; method" Url="html/M_Mono_Cecil_Inject_CollectionUtils_Range__1.htm" />
   <HelpKINode Title="ReplaceInstruction method" Url="html/M_Mono_Cecil_Inject_ILUtils_ReplaceInstruction.htm" />
   <HelpKINode Title="SetLogMask method" Url="html/M_Mono_Cecil_Inject_Logger_SetLogMask.htm" />
   <HelpKINode Title="Slice(Of T) method" Url="html/M_Mono_Cecil_Inject_CollectionUtils_Slice__1.htm" />
   <HelpKINode Title="Slice&lt;T&gt; method" Url="html/M_Mono_Cecil_Inject_CollectionUtils_Slice__1.htm" />
+  <HelpKINode Title="String enumeration member" Url="html/T_Mono_Cecil_Inject_InjectValues_PassTagType.htm" />
+  <HelpKINode Title="TagType field" Url="html/F_Mono_Cecil_Inject_InjectValues_TagType.htm" />
   <HelpKINode Title="ToValues method" Url="html/M_Mono_Cecil_Inject_InjectFlagMethods_ToValues.htm" />
   <HelpKINode Title="TypeCompare field" Url="html/F_Mono_Cecil_Inject_LogMask_TypeCompare.htm" />
   <HelpKINode Title="TypeDefinitionExtensions class">

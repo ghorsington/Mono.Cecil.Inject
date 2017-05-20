@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <!-- The configuration and platform will be used to determine which assemblies to include from solution and
 				 project documentation sources -->
@@ -28,8 +28,8 @@
     <IncludeFavorites>False</IncludeFavorites>
     <BinaryTOC>True</BinaryTOC>
     <DocumentationSources>
-      <DocumentationSource sourceFile="..\Mono.Cecil.Inject\Mono.Cecil.Inject.csproj" />
-    </DocumentationSources>
+      <DocumentationSource sourceFile="..\..\..\..\C#\Mono.Cecil.Inject\Mono.Cecil.Inject\bin\Release\Mono.Cecil.Inject.XML" />
+<DocumentationSource sourceFile="..\..\..\..\C#\Mono.Cecil.Inject\Mono.Cecil.Inject\bin\Release\Mono.Cecil.Inject.dll" /></DocumentationSources>
     <HelpFileVersion>1.0.0.0</HelpFileVersion>
     <MaximumGroupParts>2</MaximumGroupParts>
     <NamespaceGrouping>False</NamespaceGrouping>

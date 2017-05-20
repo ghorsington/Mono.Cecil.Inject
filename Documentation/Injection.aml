@@ -331,7 +331,7 @@
        </procedure>
       </content>
     </section>
-    <section>
+    <section address="section_automatic">
      <title>Method 3: Automatically create injectors for multiple targets</title>
      <content>
       <para>

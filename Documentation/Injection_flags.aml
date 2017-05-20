@@ -65,6 +65,11 @@
                    <entry>&lt;1&gt; = empty</entry>
                   </row>
                   <row>
+                   <entry><para><codeEntityReference>F:Mono.Cecil.Inject.InjectFlags.PassStringTag</codeEntityReference></para></entry>
+                   <entry><para>&lt;1&gt; = <codeInline>string</codeInline></para></entry>
+                   <entry>&lt;1&gt; = empty</entry>
+                  </row>
+                  <row>
                    <entry><para><codeEntityReference>F:Mono.Cecil.Inject.InjectFlags.PassInvokingInstance</codeEntityReference></para></entry>
                    <entry><para>&lt;2&gt; = <codeInline>T</codeInline></para></entry>
                    <entry>&lt;2&gt; = empty</entry>
@@ -121,6 +126,11 @@
                   <row>
                    <entry><para><codeEntityReference>F:Mono.Cecil.Inject.InjectFlags.PassTag</codeEntityReference></para></entry>
                    <entry><para>A 32-bit signed integer is passed to the injection method. The value of the tag is specified when performing the injection. Useful if you have the method injection into multiple targets and need to differentiate between the targets that call the injection method.</para></entry>
+                  </row>
+                  <row>
+                   <entry><para><codeEntityReference>F:Mono.Cecil.Inject.InjectFlags.PassStringTag</codeEntityReference></para></entry>
+                   <entry><para>A constant string is passed to the injection method. The value of the tag is specified when performing the injection. Useful if you have the method injection into multiple targets and need to differentiate between the targets that call the injection method.
+                                <legacyItalic>Only on of the tags can be used at a time. That means you can use only either <codeEntityReference>F:Mono.Cecil.Inject.InjectFlags.PassTag</codeEntityReference> or <codeEntityReference>F:Mono.Cecil.Inject.InjectFlags.PassStringTag</codeEntityReference> on a single injection.</legacyItalic></para></entry>
                   </row>
                   <row>
                    <entry><para><codeEntityReference>F:Mono.Cecil.Inject.InjectFlags.PassInvokingInstance</codeEntityReference></para></entry>
