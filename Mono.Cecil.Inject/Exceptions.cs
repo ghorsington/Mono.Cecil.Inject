@@ -11,6 +11,8 @@ namespace Mono.Cecil.Inject
         ///     Initialises the exception with a message.
         /// </summary>
         /// <param name="message">Message to display.</param>
-        public InjectionDefinitionException(string message) : base(message) {}
+        public InjectionDefinitionException(string message) : base(message)
+        {
+        }
     }
 }

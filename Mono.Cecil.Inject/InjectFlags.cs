@@ -35,7 +35,9 @@ namespace Mono.Cecil.Inject
         None = 0x00,
 
         /// <summary>
-        ///     A 32-bit signed integer is passed to the injection method. The value is specified when injection the method.
+        ///     A 32-bit constant signed integer is passed to the injection method. The constant is specified when injecting.
+        ///     <b>Note:</b> Only one type of a constant tag can be used at a time. If both are set, <see cref="PassTag" />
+        ///     overrides <see cref="PassStringTag" />.
         /// </summary>
         PassTag = 0x01,
 
@@ -43,7 +45,7 @@ namespace Mono.Cecil.Inject
         ///     Pass the instance of the type which calls (invokes) the injection method (hook). The type of this parameter is the
         ///     one that contains the injected method.
         /// </summary>
-        PassInvokingInstance = 0x02,
+        PassInvokingInstance = 0x01 << 1,
 
         /// <summary>
         ///     Specifies Cecil.Inject that the injection method should be allowed to prematurely stop the execution of the
@@ -53,18 +55,18 @@ namespace Mono.Cecil.Inject
         ///     type (not void), the hook must
         ///     have a reference parameter (marked as "out") of the same type as that of what the injected method returns.
         /// </summary>
-        ModifyReturn = 0x04,
+        ModifyReturn = 0x01 << 2,
 
         /// <summary>
         ///     Pass local variables found in the injected method. The variables will be passed as references (marked as "ref").
         /// </summary>
-        PassLocals = 0x08,
+        PassLocals = 0x01 << 3,
 
         /// <summary>
         ///     Pass class fields of the type that contains the injected method. The method must not be static.
         ///     The variables will be passed as references (marked as "ref").
         /// </summary>
-        PassFields = 0x10,
+        PassFields = 0x01 << 4,
 
         /// <summary>
         ///     Pass all parameters of the injected method. The parameters are passed by value.
@@ -73,7 +75,7 @@ namespace Mono.Cecil.Inject
         ///     It means that the injection method doesn't need to have all of the parameters for injected method (as long as they
         ///     are in the same order).
         /// </summary>
-        PassParametersVal = 0x20,
+        PassParametersVal = 0x01 << 5,
 
         /// <summary>
         ///     Pass all parameters of the injected method. The parameters are passed by reference (marked as "ref").
@@ -82,7 +84,14 @@ namespace Mono.Cecil.Inject
         ///     It means that the injection method doesn't need to have all of the parameters for injected method (as long as they
         ///     are in the same order).
         /// </summary>
-        PassParametersRef = 0x40,
+        PassParametersRef = 0x01 << 6,
+
+        /// <summary>
+        ///     A constant string is passed to the injection method. The constant is specified when performing the injection.
+        ///     <b>Note:</b> Only one type of a constant tag can be used at a time. If both are set, <see cref="PassTag" />
+        ///     overrides <see cref="PassStringTag" />.
+        /// </summary>
+        PassStringTag = 0x01 << 7,
 
         /// <summary>
         ///     Same as PassTag | PassInvokingInstance | PassLocals | PassFields | PassParametersVal
@@ -118,7 +127,32 @@ namespace Mono.Cecil.Inject
             /// <summary>
             ///     Pass parameters by reference
             /// </summary>
-            ByReference = 2
+            ByReference = 2,
+
+            Max
+        }
+
+        /// <summary>
+        ///     Enumeration of how the tag is passed
+        /// </summary>
+        public enum PassTagType
+        {
+            /// <summary>
+            ///     No tags are passed.
+            /// </summary>
+            None = 0,
+
+            /// <summary>
+            ///     An integer tag is passed
+            /// </summary>
+            Int32 = 1,
+
+            /// <summary>
+            ///     A string tag is passed
+            /// </summary>
+            String = 2,
+
+            Max
         }
 
         /// <summary>
@@ -153,10 +187,11 @@ namespace Mono.Cecil.Inject
         /// </summary>
         public bool PassLocals;
 
+
         /// <summary>
-        ///     Pass a 32-bit signed integer to the injection method. The value is specified when injection the method.
+        ///     Type of the tag that will get passed.
         /// </summary>
-        public bool PassTag;
+        public PassTagType TagType;
 
         /// <summary>
         ///     Convert the injection flags into an instance of InjectValues.
@@ -165,21 +200,31 @@ namespace Mono.Cecil.Inject
         public InjectValues(InjectFlags flags)
         {
             ModifyReturn = flags.IsSet(InjectFlags.ModifyReturn);
-            PassTag = flags.IsSet(InjectFlags.PassTag);
+            TagType = flags.IsSet(InjectFlags.PassTag)
+                ? PassTagType.Int32
+                : flags.IsSet(InjectFlags.PassStringTag)
+                    ? PassTagType.String
+                    : PassTagType.None;
             PassInvokingInstance = flags.IsSet(InjectFlags.PassInvokingInstance);
             PassFields = flags.IsSet(InjectFlags.PassFields);
             PassLocals = flags.IsSet(InjectFlags.PassLocals);
             ParameterType = flags.IsSet(InjectFlags.PassParametersVal)
-                            ? PassParametersType.ByValue
-                            : (flags.IsSet(InjectFlags.PassParametersRef)
-                               ? PassParametersType.ByReference : PassParametersType.None);
+                ? PassParametersType.ByValue
+                : (flags.IsSet(InjectFlags.PassParametersRef)
+                    ? PassParametersType.ByReference
+                    : PassParametersType.None);
         }
+
+        /// <summary>
+        ///     Pass a constant value to the injection method. The value is specified when calling
+        ///     <see cref="InjectionDefinition.Inject(int,object,Mono.Cecil.Inject.InjectDirection)" />.
+        /// </summary>
+        public bool PassTag => PassTagType.None < TagType && TagType < PassTagType.Max;
 
         /// <summary>
         ///     If true, parameters will be passed (either by value or by reference).
         /// </summary>
-        public bool PassParameters
-            => ParameterType == PassParametersType.ByReference || ParameterType == PassParametersType.ByValue;
+        public bool PassParameters => PassParametersType.None < ParameterType && ParameterType < PassParametersType.Max;
 
         /// <summary>
         ///     If true, parameters will be passed by reference.
@@ -192,12 +237,16 @@ namespace Mono.Cecil.Inject
         /// <returns>The combination of the properties in a single <see cref="InjectFlags" /> value to use in injection.</returns>
         public InjectFlags GetCombinedFlags()
         {
-            return (ModifyReturn ? InjectFlags.ModifyReturn : 0) | (PassTag ? InjectFlags.PassTag : 0)
+            return (ModifyReturn ? InjectFlags.ModifyReturn : 0) | (TagType == PassTagType.Int32
+                       ? InjectFlags.PassTag
+                       : TagType == PassTagType.String
+                           ? InjectFlags.PassStringTag
+                           : 0)
                    | (PassInvokingInstance ? InjectFlags.PassInvokingInstance : 0)
                    | (PassFields ? InjectFlags.PassFields : 0) | (PassLocals ? InjectFlags.PassLocals : 0)
                    | (ParameterType == PassParametersType.ByValue
-                      ? InjectFlags.PassParametersVal
-                      : (ParameterType == PassParametersType.ByReference ? InjectFlags.PassParametersRef : 0));
+                       ? InjectFlags.PassParametersVal
+                       : (ParameterType == PassParametersType.ByReference ? InjectFlags.PassParametersRef : 0));
         }
     }
 

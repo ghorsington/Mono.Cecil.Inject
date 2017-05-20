@@ -54,7 +54,7 @@ namespace Mono.Cecil.Inject
         /// <returns>Type reference of the type that contains generic parameters.</returns>
         public static TypeReference FromType<T>()
         {
-            return FromType(typeof (T));
+            return FromType(typeof(T));
         }
 
         /// <summary>

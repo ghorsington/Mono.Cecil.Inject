@@ -18,9 +18,7 @@ namespace Mono.Cecil.Inject
         public static void ForEach<T>(this IEnumerable<T> self, Action<T> action)
         {
             foreach (T var in self)
-            {
                 action(var);
-            }
         }
 
         /// <summary>
