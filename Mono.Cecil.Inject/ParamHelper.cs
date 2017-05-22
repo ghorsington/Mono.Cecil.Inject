@@ -44,7 +44,10 @@ namespace Mono.Cecil.Inject
         /// </returns>
         public static TypeReference CreateGeneric(string name)
         {
-            return new GenericParameter(new TypeReference(name, null, resolverModule, null)) {Name = name};
+            return new GenericParameter(new TypeReference(name, null, resolverModule, null))
+            {
+                Name = name
+            };
         }
 
         /// <summary>

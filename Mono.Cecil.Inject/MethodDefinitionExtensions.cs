@@ -65,7 +65,7 @@
         public static void InjectWith(this MethodDefinition method,
                                       MethodDefinition injectionMethod,
                                       int codeOffset = 0,
-                                      int tag = 0,
+                                      object tag = null,
                                       InjectFlags flags = InjectFlags.None,
                                       InjectDirection dir = InjectDirection.Before,
                                       int[] localsID = null,

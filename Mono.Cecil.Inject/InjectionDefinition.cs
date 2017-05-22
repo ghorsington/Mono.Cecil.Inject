@@ -37,7 +37,10 @@ namespace Mono.Cecil.Inject
                                    int[] localVarIDs = null,
                                    params FieldDefinition[] memberReferences)
         {
-            ParameterCount = VerifyInjectionDefinition(injectMethod, injectTarget, flags, localVarIDs,
+            ParameterCount = VerifyInjectionDefinition(injectMethod,
+                                                       injectTarget,
+                                                       flags,
+                                                       localVarIDs,
                                                        memberReferences);
             InjectMethod = injectMethod;
             InjectTarget = injectTarget;
@@ -140,19 +143,19 @@ namespace Mono.Cecil.Inject
             int parameterCount = 0;
 
             MethodDefinition injection =
-                type.Methods.FirstOrDefault(m =>
-                {
-                    try
+                    type.Methods.FirstOrDefault(m =>
                     {
-                        parameterCount = VerifyInjectionDefinition(m, target, flags, localVarIDs, memberReferences);
-                    }
-                    catch (InjectionDefinitionException e)
-                    {
-                        Logger.LogLine(LogMask.GetInjectionMethod, e.Message);
-                        return false;
-                    }
-                    return true;
-                });
+                        try
+                        {
+                            parameterCount = VerifyInjectionDefinition(m, target, flags, localVarIDs, memberReferences);
+                        }
+                        catch (InjectionDefinitionException e)
+                        {
+                            Logger.LogLine(LogMask.GetInjectionMethod, e.Message);
+                            return false;
+                        }
+                        return true;
+                    });
 
             if (injection == null)
             {
@@ -178,8 +181,10 @@ namespace Mono.Cecil.Inject
                 throw new InjectionDefinitionException(message);
         }
 
-        private static int VerifyInjectionDefinition(MethodDefinition injectMethod, MethodDefinition injectTarget,
-                                                     InjectFlags flags, int[] localVarIDs = null,
+        private static int VerifyInjectionDefinition(MethodDefinition injectMethod,
+                                                     MethodDefinition injectTarget,
+                                                     InjectFlags flags,
+                                                     int[] localVarIDs = null,
                                                      params FieldDefinition[] memberReferences)
         {
             Assert(
@@ -201,22 +206,25 @@ namespace Mono.Cecil.Inject
                 !hFlags.PassFields || memberReferences != null,
                 $"Supposed to pass member fields, but {nameof(memberReferences)} is empty!");
 
-            int prefixCount = Convert.ToInt32(hFlags.PassTag) + Convert.ToInt32(hFlags.PassInvokingInstance)
-                              + Convert.ToInt32(hFlags.ModifyReturn && !isVoid);
+            int prefixCount = Convert.ToInt32(hFlags.PassTag) +
+                              Convert.ToInt32(hFlags.PassInvokingInstance) +
+                              Convert.ToInt32(hFlags.ModifyReturn && !isVoid);
             int localsCount = hFlags.PassLocals ? localVarIDs.Length : 0;
             int memberRefCount = hFlags.PassFields ? memberReferences.Length : 0;
             int paramCount = hFlags.PassParameters ? injectTarget.Parameters.Count : 0;
             int parameters = injectMethod.Parameters.Count - prefixCount - localsCount - memberRefCount;
 
             Assert(
-                hFlags.PassParameters && 0 < parameters && parameters <= injectTarget.Parameters.Count
-                || !hFlags.PassParameters && parameters == 0,
+                hFlags.PassParameters && 0 < parameters && parameters <= injectTarget.Parameters.Count ||
+                !hFlags.PassParameters && parameters == 0,
                 $@"The injection method has a wrong number of parameters! Check that the provided target method, local variables, member references and injection flags add up to the right number of parameters.
 Needed parameters: Prefix: {prefixCount}, Locals: {localsCount}, Members: {memberRefCount}, Parameters: {
-                        (hFlags.PassParameters ? "between 1 and " + paramCount : "0")
-                    }, TOTAL: {
-                        (hFlags.PassParameters ? $"between {prefixCount + localsCount + memberRefCount + 1} and " : "")
-                    }{prefixCount + localsCount + memberRefCount + paramCount}.
+                            (hFlags.PassParameters ? "between 1 and " + paramCount : "0")
+                        }, TOTAL: {
+                            (hFlags.PassParameters
+                                ? $"between {prefixCount + localsCount + memberRefCount + 1} and "
+                                : "")
+                        }{prefixCount + localsCount + memberRefCount + paramCount}.
 Injection has {injectMethod.Parameters.Count} parameters.");
 
             TypeComparer comparer = TypeComparer.Instance;
@@ -247,11 +255,12 @@ Injection has {injectMethod.Parameters.Count} parameters.");
                     injectMethod.ReturnType.FullName == "System.Boolean",
                     "The injection method must return a boolean in order to alter the return value.");
                 Assert(
-                    isVoid
-                    || comparer.Equals(
+                    isVoid ||
+                    comparer.Equals(
                         injectMethod
-                            .Parameters[Convert.ToInt32(hFlags.PassTag) + Convert.ToInt32(hFlags.PassInvokingInstance)]
-                            .ParameterType,
+                                .Parameters[Convert.ToInt32(hFlags.PassTag) +
+                                            Convert.ToInt32(hFlags.PassInvokingInstance)]
+                                .ParameterType,
                         new ByReferenceType(injectTarget.ReturnType)),
                     "Supposed to modify the return value, but the provided return type does not match with the return type of the target method! Also make sure the type is passed by reference (out/ref).");
             }
@@ -267,11 +276,15 @@ Injection has {injectMethod.Parameters.Count} parameters.");
                     "Supposed to receive local references, but the provided local variable index/indices do not exist in the target method!");
                 Assert(
                     injectMethod.Parameters.Slice(prefixCount, localsCount)
-                                .Select((p, i) => new {param = p, index = localVarIDs[i]})
+                                .Select((p, i) => new
+                                {
+                                    param = p,
+                                    index = localVarIDs[i]
+                                })
                                 .All(
                                     t =>
-                                        t.param.ParameterType.IsByReference
-                                        && comparer.Equals(
+                                        t.param.ParameterType.IsByReference &&
+                                        comparer.Equals(
                                             t.param.ParameterType,
                                             new ByReferenceType(injectTarget.Body.Variables[t.index].VariableType))),
                     "Supposed to receive local references, but the types between injection method and target method mismatch. Also make sure they are passed by reference (ref/out).");
@@ -286,13 +299,13 @@ Injection has {injectMethod.Parameters.Count} parameters.");
                 Assert(
                     memberReferences.All(
                         m =>
-                            m.DeclaringType.FullName == injectTarget.DeclaringType.FullName
-                            && m.DeclaringType.BaseType.FullName == injectTarget.DeclaringType.BaseType.FullName),
+                            m.DeclaringType.FullName == injectTarget.DeclaringType.FullName &&
+                            m.DeclaringType.BaseType.FullName == injectTarget.DeclaringType.BaseType.FullName),
                     $"The provided member fields do not belong to {injectTarget.DeclaringType}");
 
                 IEnumerable<TypeReference> paramRefs =
-                    injectMethod.Parameters.Slice(prefixCount + localsCount, memberRefCount)
-                                .Select(p => p.ParameterType);
+                        injectMethod.Parameters.Slice(prefixCount + localsCount, memberRefCount)
+                                    .Select(p => p.ParameterType);
                 IEnumerable<TypeReference> typeReferences = paramRefs as TypeReference[] ?? paramRefs.ToArray();
 
                 Assert(
@@ -313,15 +326,16 @@ Injection has {injectMethod.Parameters.Count} parameters.");
                     "The injection and target methods have mismatching specification of generic parameters!");
 
                 Assert(
-                    !injectMethod.HasGenericParameters
-                    || injectMethod.GenericParameters.Count <= injectTarget.GenericParameters.Count +
+                    !injectMethod.HasGenericParameters ||
+                    injectMethod.GenericParameters.Count <=
+                    injectTarget.GenericParameters.Count +
                     injectTarget.DeclaringType.GenericParameters.Count,
                     "The injection and target methods have a mismatching number of generic parameters! The injection method must have less or the same number of generic parameters as the target!");
 
                 Assert(
-                    !hFlags.PassParametersByRef
-                    || injectMethod.Parameters.Skip(prefixCount + localsCount + memberRefCount)
-                                   .All(p => p.ParameterType.IsByReference),
+                    !hFlags.PassParametersByRef ||
+                    injectMethod.Parameters.Skip(prefixCount + localsCount + memberRefCount)
+                                .All(p => p.ParameterType.IsByReference),
                     "Supposed to pass target method parameters by reference, but the provided parameters in the injection method are not of a reference type (ref).");
 
                 Assert(
@@ -369,7 +383,8 @@ Injection has {injectMethod.Parameters.Count} parameters.");
         ///     parameter to the injection method.
         /// </param>
         /// <param name="direction">The direction in which to insert the call: either above the start code or below it.</param>
-        public void Inject(Instruction startCode, object token = null,
+        public void Inject(Instruction startCode,
+                           object token = null,
                            InjectDirection direction = InjectDirection.Before)
         {
             InjectValues flags = Flags.ToValues();
@@ -397,10 +412,11 @@ Injection has {injectMethod.Parameters.Count} parameters.");
             MethodReference hookRef = InjectTarget.Module.Import(InjectMethod);
 
             // If the hook is generic but not instantiated fully, attempt to fill in the generic arguments with the ones specified in the target method/class
-            if (hookRef.HasGenericParameters && (!hookRef.IsGenericInstance ||
-                                                 hookRef.IsGenericInstance &&
-                                                 ((GenericInstanceMethod) hookRef).GenericArguments.Count <
-                                                 hookRef.GenericParameters.Count))
+            if (hookRef.HasGenericParameters &&
+                (!hookRef.IsGenericInstance ||
+                 hookRef.IsGenericInstance &&
+                 ((GenericInstanceMethod) hookRef).GenericArguments.Count <
+                 hookRef.GenericParameters.Count))
             {
                 GenericInstanceMethod genericInjectMethod = new GenericInstanceMethod(hookRef);
                 foreach (GenericParameter genericParameter in InjectMethod.GenericParameters)

@@ -132,7 +132,12 @@ namespace Mono.Cecil.Inject
                                                              params FieldDefinition[] memberReferences)
         {
             return InjectionDefinition.FindInjectionDefinition(
-                type, name, target, flags, localVarIDs, memberReferences);
+                type,
+                name,
+                target,
+                flags,
+                localVarIDs,
+                memberReferences);
         }
 
 
@@ -199,11 +204,11 @@ namespace Mono.Cecil.Inject
         public static MethodDefinition GetMethod(this TypeDefinition self, string methodName, params string[] types)
         {
             return
-                self.Methods.FirstOrDefault(
-                    m =>
-                        m.Name == methodName
-                        && types.SequenceEqual(m.Parameters.Select(p => p.ParameterType.FullName),
-                                               StringComparer.InvariantCulture));
+                    self.Methods.FirstOrDefault(
+                        m =>
+                            m.Name == methodName &&
+                            types.SequenceEqual(m.Parameters.Select(p => p.ParameterType.FullName),
+                                                StringComparer.InvariantCulture));
         }
 
         /// <summary>
@@ -263,13 +268,14 @@ namespace Mono.Cecil.Inject
                                                      params string[] paramTypes)
         {
             return
-                self.Methods.Where(
-                        m =>
-                            m.Name == methodName && paramTypes.Length <= m.Parameters.Count
-                            && paramTypes.SequenceEqual(
-                                m.Parameters.Take(paramTypes.Length).Select(p => p.ParameterType.FullName),
-                                StringComparer.InvariantCulture))
-                    .ToArray();
+                    self.Methods.Where(
+                            m =>
+                                m.Name == methodName &&
+                                paramTypes.Length <= m.Parameters.Count &&
+                                paramTypes.SequenceEqual(
+                                    m.Parameters.Take(paramTypes.Length).Select(p => p.ParameterType.FullName),
+                                    StringComparer.InvariantCulture))
+                        .ToArray();
         }
     }
 
@@ -292,8 +298,11 @@ namespace Mono.Cecil.Inject
 
 
             if (
-                !(x.Name == y.Name && x.Namespace == y.Namespace && x.IsArray == y.IsArray
-                  && x.IsGenericInstance == y.IsGenericInstance && x.IsByReference == y.IsByReference))
+                !(x.Name == y.Name &&
+                  x.Namespace == y.Namespace &&
+                  x.IsArray == y.IsArray &&
+                  x.IsGenericInstance == y.IsGenericInstance &&
+                  x.IsByReference == y.IsByReference))
                 return false;
             if (!x.IsGenericInstance)
                 return true;
@@ -305,8 +314,8 @@ namespace Mono.Cecil.Inject
                 $"Generic arg count| x: {gx.GenericArguments.Count}, y: {gy.GenericArguments.Count}");
             Logger.LogLine(LogMask.TypeCompare, "Comparing generics");
 
-            return gx.GenericArguments.Count == gy.GenericArguments.Count
-                   && !gx.GenericArguments.Where((t, i) => !Equals(t, gy.GenericArguments[i])).Any();
+            return gx.GenericArguments.Count == gy.GenericArguments.Count &&
+                   !gx.GenericArguments.Where((t, i) => !Equals(t, gy.GenericArguments[i])).Any();
         }
 
         public int GetHashCode(TypeReference obj)

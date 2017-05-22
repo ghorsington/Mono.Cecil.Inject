@@ -237,14 +237,16 @@ namespace Mono.Cecil.Inject
         /// <returns>The combination of the properties in a single <see cref="InjectFlags" /> value to use in injection.</returns>
         public InjectFlags GetCombinedFlags()
         {
-            return (ModifyReturn ? InjectFlags.ModifyReturn : 0) | (TagType == PassTagType.Int32
+            return (ModifyReturn ? InjectFlags.ModifyReturn : 0) |
+                   (TagType == PassTagType.Int32
                        ? InjectFlags.PassTag
                        : TagType == PassTagType.String
                            ? InjectFlags.PassStringTag
-                           : 0)
-                   | (PassInvokingInstance ? InjectFlags.PassInvokingInstance : 0)
-                   | (PassFields ? InjectFlags.PassFields : 0) | (PassLocals ? InjectFlags.PassLocals : 0)
-                   | (ParameterType == PassParametersType.ByValue
+                           : 0) |
+                   (PassInvokingInstance ? InjectFlags.PassInvokingInstance : 0) |
+                   (PassFields ? InjectFlags.PassFields : 0) |
+                   (PassLocals ? InjectFlags.PassLocals : 0) |
+                   (ParameterType == PassParametersType.ByValue
                        ? InjectFlags.PassParametersVal
                        : (ParameterType == PassParametersType.ByReference ? InjectFlags.PassParametersRef : 0));
         }

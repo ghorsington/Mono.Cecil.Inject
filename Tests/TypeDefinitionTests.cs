@@ -17,14 +17,22 @@ namespace Tests
             return true;
         }
 
-        public static bool HookTest2(int tag, TypeDefinitionTests test, out int ret, int val1, byte val2,
+        public static bool HookTest2(int tag,
+                                     TypeDefinitionTests test,
+                                     out int ret,
+                                     int val1,
+                                     byte val2,
                                      List<int> val3)
         {
             ret = 1;
             return false;
         }
 
-        public static bool HookTest3(string tag, TypeDefinitionTests test, out int ret, int val1, byte val2,
+        public static bool HookTest3(string tag,
+                                     TypeDefinitionTests test,
+                                     out int ret,
+                                     int val1,
+                                     byte val2,
                                      List<int> val3)
         {
             ret = 1;
@@ -38,9 +46,9 @@ namespace Tests
             Console.WriteLine($"Loaded type: {testType}");
 
             TypeReference tr =
-                ParamHelper.FromType(
-                    typeof(Dictionary<,>).MakeGenericType(ParamHelper.CreateDummyType("T"),
-                                                          ParamHelper.CreateDummyType("T")));
+                    ParamHelper.FromType(
+                        typeof(Dictionary<,>).MakeGenericType(ParamHelper.CreateDummyType("T"),
+                                                              ParamHelper.CreateDummyType("T")));
 
             MethodDefinition md = testType.GetMethod(
                 "Test",
@@ -49,7 +57,8 @@ namespace Tests
                     typeof(List<>).MakeGenericType(ParamHelper.CreateDummyType("T")),
                     typeof(List<>).MakeGenericType(
                         typeof(Dictionary<,>).MakeGenericType(
-                            ParamHelper.CreateDummyType("U"), ParamHelper.CreateDummyType("T")))));
+                            ParamHelper.CreateDummyType("U"),
+                            ParamHelper.CreateDummyType("T")))));
 
             Console.WriteLine($"Type: {tr}");
             Console.WriteLine($"Method: {md}");
@@ -57,9 +66,11 @@ namespace Tests
             InjectionDefinition hd = new InjectionDefinition(
                 testType.GetMethod("Test2"),
                 testType.GetMethod("HookTest1"),
-                InjectFlags.ModifyReturn | InjectFlags.PassInvokingInstance | InjectFlags.PassTag |
-                InjectFlags.PassFields
-                | InjectFlags.PassParametersRef,
+                InjectFlags.ModifyReturn |
+                InjectFlags.PassInvokingInstance |
+                InjectFlags.PassTag |
+                InjectFlags.PassFields |
+                InjectFlags.PassParametersRef,
                 new[] {0},
                 testType.GetField("testMember"));
 
@@ -68,8 +79,11 @@ namespace Tests
             InjectionDefinition hd2 = testType.GetInjectionMethod(
                 "HookTest1",
                 testType.GetMethod("Test2"),
-                InjectFlags.ModifyReturn | InjectFlags.PassInvokingInstance | InjectFlags.PassTag
-                | InjectFlags.PassFields | InjectFlags.PassParametersRef,
+                InjectFlags.ModifyReturn |
+                InjectFlags.PassInvokingInstance |
+                InjectFlags.PassTag |
+                InjectFlags.PassFields |
+                InjectFlags.PassParametersRef,
                 new[] {0},
                 testType.GetField("testMember"));
 
@@ -86,7 +100,8 @@ namespace Tests
                     new[] {testType.GetField("testMember")});
             */
             InjectionDefinition hd4 = new InjectionDefinition(
-                testType.GetMethod(nameof(TestPartialParams)), testType.GetMethod(nameof(HookTest2)),
+                testType.GetMethod(nameof(TestPartialParams)),
+                testType.GetMethod(nameof(HookTest2)),
                 new InjectValues
                 {
                     TagType = InjectValues.PassTagType.Int32,
@@ -98,7 +113,8 @@ namespace Tests
             hd4.Inject(token: 5);
 
             InjectionDefinition hd5 = new InjectionDefinition(
-                testType.GetMethod(nameof(TestPartialParams)), testType.GetMethod(nameof(HookTest3)),
+                testType.GetMethod(nameof(TestPartialParams)),
+                testType.GetMethod(nameof(HookTest3)),
                 new InjectValues
                 {
                     TagType = InjectValues.PassTagType.String,
@@ -117,7 +133,9 @@ namespace Tests
 
             testType.ChangeAccess("hidden.*", recursive: true);
 
-            hd2.Inject();
+            hd2.Inject(2, 2);
+
+            ad.Write("Test_patched.exe");
 
             Console.ReadLine();
         }
