@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<shfbBuild product="Sandcastle Help File Builder and Tools" version="2017.5.15.0" projectFile="E:\Projects\Git\cecil_inject_doc\Mono.Cecil.Inject\Documentation\cecilinject.shfbproj" started="20.5.2017 14.52.37">
+<shfbBuild product="Sandcastle Help File Builder and Tools" version="2017.5.15.0" projectFile="E:\Projects\Git\cecil_inject_doc\Mono.Cecil.Inject\Documentation\cecilinject.shfbproj" started="22.5.2017 20.11.57">
 <buildStep step="Initializing">
 Finding tools...
 The Sandcastle tools are located in &#39;C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\&#39;
@@ -15,7 +15,6 @@ Copyright &#169; 2006-2017, Eric Woodruff, All Rights Reserved
 Portions Copyright &#169; 2014, Sam Harwell, All Rights Reserved
 -------------------------------
 Clearing any prior web/markdown output...
-    Did not delete folder &#39;E:\Projects\Git\cecil_inject_doc\Mono.Cecil.Inject\Documentation\Help\.vs&#39; as it contains read-only or hidden folders/files
 </buildStep>
 <buildStep step="ValidatingDocumentationSources">
 Validating and copying documentation source information
@@ -29,16 +28,16 @@ Copying XML comments files
 <buildStep step="GenerateSharedContent">
 Generating shared content files (en-US, English (United States))...
 <plugIn name="Lightweight Website Style" behavior="After" priority="1000">
-</plugIn>    Last step completed in 00:00:00,0100
+</plugIn>    Last step completed in 00:00:00,0791
 </buildStep>
 <buildStep step="GenerateApiFilter">
 Generating API filter for MRefBuilder...
-    Last step completed in 00:00:00,0065
+    Last step completed in 00:00:00,0110
 </buildStep>
 <buildStep step="GenerateReflectionInfo">
 Generating reflection information...
 [C:\Program Files (x86)\MSBuild\14.0\bin\amd64\MSBuild.exe - GenerateRefInfo.proj]
-Build started 20.5.2017 14.52.38.
+Build started 22.5.2017 20.11.59.
 Project &quot;E:\Projects\Git\cecil_inject_doc\Mono.Cecil.Inject\Documentation\Help\Working\GenerateRefInfo.proj&quot; on node 1 (default targets).
 PrepareForBuild:
   Creating directory &quot;obj\Debug\&quot;.
@@ -58,13 +57,13 @@ Done Building Project &quot;E:\Projects\Git\cecil_inject_doc\Mono.Cecil.Inject\D
 
 Build succeeded.
 
-Time Elapsed 00:00:02.31
-    Last step completed in 00:00:02,7539
+Time Elapsed 00:00:01.06
+    Last step completed in 00:00:01,3037
 </buildStep>
 <buildStep step="TransformReflectionInfo">
 Transforming reflection output...
 [C:\Program Files (x86)\MSBuild\14.0\bin\amd64\MSBuild.exe - TransformManifest.proj]
-Build started 20.5.2017 14.52.41.
+Build started 22.5.2017 20.12.00.
 Project &quot;E:\Projects\Git\cecil_inject_doc\Mono.Cecil.Inject\Documentation\Help\Working\TransformManifest.proj&quot; on node 1 (default targets).
 TransformManifest:
   XslTransform (v2017.5.15.0)
@@ -91,12 +90,12 @@ Done Building Project &quot;E:\Projects\Git\cecil_inject_doc\Mono.Cecil.Inject\D
 
 Build succeeded.
 
-Time Elapsed 00:00:01.91
-    Last step completed in 00:00:02,2551
+Time Elapsed 00:00:00.63
+    Last step completed in 00:00:00,7298
 </buildStep>
 <buildStep step="GenerateNamespaceSummaries">
 Generating namespace summary information...
-    Last step completed in 00:00:00,0125
+    Last step completed in 00:00:00,0240
 </buildStep>
 <buildStep step="CopyConceptualContent">
 Copying conceptual content...
@@ -119,28 +118,28 @@ Generating conceptual topic files
     E:\Projects\Git\cecil_inject_doc\Mono.Cecil.Inject\Documentation\Injection.aml -&gt; E:\Projects\Git\cecil_inject_doc\Mono.Cecil.Inject\Documentation\Help\Working\ddueXml\ovr_injection_procedure.xml
     Parsing topic file &#39;E:\Projects\Git\cecil_inject_doc\Mono.Cecil.Inject\Documentation\Helper_Methods.aml&#39;
     E:\Projects\Git\cecil_inject_doc\Mono.Cecil.Inject\Documentation\Helper_Methods.aml -&gt; E:\Projects\Git\cecil_inject_doc\Mono.Cecil.Inject\Documentation\Help\Working\ddueXml\ovr_helper_methods.xml
-    Last step completed in 00:00:00,0275
+    Last step completed in 00:00:00,2238
 </buildStep>
 <buildStep step="CreateConceptualTopicConfigs">
 Creating conceptual topic configuration files...
     Companion files
     _ContentMetadata_.xml
     Merging topic IDs into manifest.xml
-    Last step completed in 00:00:00,0225
+    Last step completed in 00:00:00,0601
 </buildStep>
 <buildStep step="CopyAdditionalContent">
 Copying additional content files...
 No additional content to copy
-    Last step completed in 00:00:00,0000
+    Last step completed in 00:00:00,0030
 </buildStep>
 <buildStep step="MergeTablesOfContents">
 Merging conceptual and additional tables of contents...
-    Last step completed in 00:00:00,0000
+    Last step completed in 00:00:00,0050
 </buildStep>
 <buildStep step="GenerateIntermediateTableOfContents">
 Generating intermediate table of contents file...
 [C:\Program Files (x86)\MSBuild\14.0\bin\amd64\MSBuild.exe - GenerateIntermediateTOC.proj]
-Build started 20.5.2017 14.52.43.
+Build started 22.5.2017 20.12.01.
 Project &quot;E:\Projects\Git\cecil_inject_doc\Mono.Cecil.Inject\Documentation\Help\Working\GenerateIntermediateTOC.proj&quot; on node 1 (default targets).
 GenerateIntermediateTOC:
   XslTransform (v2017.5.15.0)
@@ -151,14 +150,14 @@ Done Building Project &quot;E:\Projects\Git\cecil_inject_doc\Mono.Cecil.Inject\D
 
 Build succeeded.
 
-Time Elapsed 00:00:01.32
+Time Elapsed 00:00:00.14
 Generating conceptual content intermediate TOC file...
-    Last step completed in 00:00:01,6737
+    Last step completed in 00:00:00,2551
 </buildStep>
 <buildStep step="CreateBuildAssemblerConfigs">
 Creating Sandcastle configuration files...
     sandcastle.config
-    Last step completed in 00:00:00,1025
+    Last step completed in 00:00:00,2490
 </buildStep>
 <buildStep step="MergeCustomConfigs">
 Merging custom build component configurations
@@ -166,12 +165,12 @@ E:\Projects\Git\cecil_inject_doc\Mono.Cecil.Inject\Documentation\Help\Working\sa
   Updating reference topic configurations.
   Updating conceptual topic configurations.
     Removing unused ExampleComponent.
-    Last step completed in 00:00:00,0220
+    Last step completed in 00:00:00,0258
 </buildStep>
 <buildStep step="BuildTopics">
 Building help topics...
 [C:\Program Files (x86)\MSBuild\14.0\bin\amd64\MSBuild.exe - BuildTopics.proj]
-Build started 20.5.2017 14.52.45.
+Build started 22.5.2017 20.12.02.
 Project &quot;E:\Projects\Git\cecil_inject_doc\Mono.Cecil.Inject\Documentation\Help\Working\BuildTopics.proj&quot; on node 1 (default targets).
 BuildTopics:
   BuildAssembler (v2017.5.15.0)
@@ -179,9 +178,14 @@ BuildTopics:
   Portions Copyright c 2006-2016, Eric Woodruff, All Rights Reserved.
   Loading configuration...
   Processing topics...
+BuildAssembler : warning : ResolveReferenceLinksComponent: [ovr_features_and_syntax] Unknown reference link target &#39;M:Mono.Cecil.Inject.MethodDefinitionExtensions.InjectWith(Mono.Cecil.MethodDefinition,Mono.Cecil.MethodDefinition,System.Int32,System.Int32,Mono.Cecil.Inject.InjectFlags,Mono.Cecil.Inject.InjectDirection,System.Int32[],Mono.Cecil.FieldDefinition[])&#39;. [E:\Projects\Git\cecil_inject_doc\Mono.Cecil.Inject\Documentation\Help\Working\BuildTopics.proj]
 BuildAssembler : warning : ResolveReferenceLinksComponent: [ovr_injection_flags] Unknown reference link target &#39;M:Mono.Cecil.Inject.InjectionDefinition.Inject(System.Int32,System.Int32,Mono.Cecil.Inject.InjectDirection)&#39;. [E:\Projects\Git\cecil_inject_doc\Mono.Cecil.Inject\Documentation\Help\Working\BuildTopics.proj]
 BuildAssembler : warning : ResolveReferenceLinksComponent: [ovr_injection_procedure] Unknown reference link target &#39;M:Mono.Cecil.Inject.InjectionDefinition.Inject(Mono.Cecil.Cil.Instruction,System.Int32,Mono.Cecil.Inject.InjectDirection)&#39;. [E:\Projects\Git\cecil_inject_doc\Mono.Cecil.Inject\Documentation\Help\Working\BuildTopics.proj]
 BuildAssembler : warning : ResolveReferenceLinksComponent: [ovr_injection_procedure] Unknown reference link target &#39;M:Mono.Cecil.Inject.InjectionDefinition.Inject(Mono.Cecil.Cil.Instruction,System.Int32,Mono.Cecil.Inject.InjectDirection)&#39;. [E:\Projects\Git\cecil_inject_doc\Mono.Cecil.Inject\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ResolveReferenceLinksComponent: [ovr_injection_procedure] Unknown reference link target &#39;M:Mono.Cecil.Inject.MethodDefinitionExtensions.InjectWith(Mono.Cecil.MethodDefinition,Mono.Cecil.MethodDefinition,System.Int32,System.Int32,Mono.Cecil.Inject.InjectFlags,Mono.Cecil.Inject.InjectDirection,System.Int32[],Mono.Cecil.FieldDefinition[])&#39;. [E:\Projects\Git\cecil_inject_doc\Mono.Cecil.Inject\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ResolveReferenceLinksComponent: [ovr_injection_procedure] Unknown reference link target &#39;M:Mono.Cecil.Inject.MethodDefinitionExtensions.InjectWith(Mono.Cecil.MethodDefinition,Mono.Cecil.MethodDefinition,System.Int32,System.Int32,Mono.Cecil.Inject.InjectFlags,Mono.Cecil.Inject.InjectDirection,System.Int32[],Mono.Cecil.FieldDefinition[])&#39;. [E:\Projects\Git\cecil_inject_doc\Mono.Cecil.Inject\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ResolveReferenceLinksComponent: [ovr_injection_procedure] Unknown reference link target &#39;M:Mono.Cecil.Inject.MethodDefinitionExtensions.InjectWith(Mono.Cecil.MethodDefinition,Mono.Cecil.MethodDefinition,System.Int32,System.Int32,Mono.Cecil.Inject.InjectFlags,Mono.Cecil.Inject.InjectDirection,System.Int32[],Mono.Cecil.FieldDefinition[])&#39;. [E:\Projects\Git\cecil_inject_doc\Mono.Cecil.Inject\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ResolveReferenceLinksComponent: [ovr_injection_procedure] Unknown reference link target &#39;M:Mono.Cecil.Inject.MethodDefinitionExtensions.InjectWith(Mono.Cecil.MethodDefinition,Mono.Cecil.MethodDefinition,System.Int32,System.Int32,Mono.Cecil.Inject.InjectFlags,Mono.Cecil.Inject.InjectDirection,System.Int32[],Mono.Cecil.FieldDefinition[])&#39;. [E:\Projects\Git\cecil_inject_doc\Mono.Cecil.Inject\Documentation\Help\Working\BuildTopics.proj]
 BuildAssembler : warning : ResolveReferenceLinksComponent: [ovr_injection_procedure] Unknown reference link target &#39;M:Mono.Cecil.Inject.InjectionDefinition.Inject(Mono.Cecil.Cil.Instruction,System.Int32,Mono.Cecil.Inject.InjectDirection)&#39;. [E:\Projects\Git\cecil_inject_doc\Mono.Cecil.Inject\Documentation\Help\Working\BuildTopics.proj]
 BuildAssembler : warning : ResolveReferenceLinksComponent: [N:Mono.Cecil.Inject] Unknown reference link target &#39;T:Mono.Cecil.MethodDefinition&#39;. [E:\Projects\Git\cecil_inject_doc\Mono.Cecil.Inject\Documentation\Help\Working\BuildTopics.proj]
 BuildAssembler : warning : ResolveReferenceLinksComponent: [N:Mono.Cecil.Inject] Unknown reference link target &#39;T:Mono.Cecil.TypeReference&#39;. [E:\Projects\Git\cecil_inject_doc\Mono.Cecil.Inject\Documentation\Help\Working\BuildTopics.proj]
@@ -207,10 +211,10 @@ BuildAssembler : warning : ResolveReferenceLinksComponent: [M:Mono.Cecil.Inject.
 BuildAssembler : warning : ResolveReferenceLinksComponent: [M:Mono.Cecil.Inject.MethodDefinitionExtensions.GetInjector(Mono.Cecil.MethodDefinition,Mono.Cecil.TypeDefinition,System.String,Mono.Cecil.Inject.InjectFlags,System.Int32[],Mono.Cecil.FieldDefinition[])] Unknown reference link target &#39;T:Mono.Cecil.TypeDefinition&#39;. [E:\Projects\Git\cecil_inject_doc\Mono.Cecil.Inject\Documentation\Help\Working\BuildTopics.proj]
 BuildAssembler : warning : ResolveReferenceLinksComponent: [M:Mono.Cecil.Inject.MethodDefinitionExtensions.GetInjector(Mono.Cecil.MethodDefinition,Mono.Cecil.TypeDefinition,System.String,Mono.Cecil.Inject.InjectFlags,System.Int32[],Mono.Cecil.FieldDefinition[])] Unknown reference link target &#39;T:Mono.Cecil.FieldDefinition&#39;. [E:\Projects\Git\cecil_inject_doc\Mono.Cecil.Inject\Documentation\Help\Working\BuildTopics.proj]
 BuildAssembler : warning : ResolveReferenceLinksComponent: [M:Mono.Cecil.Inject.MethodDefinitionExtensions.GetInjector(Mono.Cecil.MethodDefinition,Mono.Cecil.TypeDefinition,System.String,Mono.Cecil.Inject.InjectFlags,System.Int32[],Mono.Cecil.FieldDefinition[])] Unknown reference link target &#39;T:Mono.Cecil.MethodDefinition&#39;. [E:\Projects\Git\cecil_inject_doc\Mono.Cecil.Inject\Documentation\Help\Working\BuildTopics.proj]
-BuildAssembler : warning : ResolveReferenceLinksComponent: [M:Mono.Cecil.Inject.MethodDefinitionExtensions.InjectWith(Mono.Cecil.MethodDefinition,Mono.Cecil.MethodDefinition,System.Int32,System.Int32,Mono.Cecil.Inject.InjectFlags,Mono.Cecil.Inject.InjectDirection,System.Int32[],Mono.Cecil.FieldDefinition[])] Unknown reference link target &#39;T:Mono.Cecil.MethodDefinition&#39;. [E:\Projects\Git\cecil_inject_doc\Mono.Cecil.Inject\Documentation\Help\Working\BuildTopics.proj]
-BuildAssembler : warning : ResolveReferenceLinksComponent: [M:Mono.Cecil.Inject.MethodDefinitionExtensions.InjectWith(Mono.Cecil.MethodDefinition,Mono.Cecil.MethodDefinition,System.Int32,System.Int32,Mono.Cecil.Inject.InjectFlags,Mono.Cecil.Inject.InjectDirection,System.Int32[],Mono.Cecil.FieldDefinition[])] Unknown reference link target &#39;T:Mono.Cecil.MethodDefinition&#39;. [E:\Projects\Git\cecil_inject_doc\Mono.Cecil.Inject\Documentation\Help\Working\BuildTopics.proj]
-BuildAssembler : warning : ResolveReferenceLinksComponent: [M:Mono.Cecil.Inject.MethodDefinitionExtensions.InjectWith(Mono.Cecil.MethodDefinition,Mono.Cecil.MethodDefinition,System.Int32,System.Int32,Mono.Cecil.Inject.InjectFlags,Mono.Cecil.Inject.InjectDirection,System.Int32[],Mono.Cecil.FieldDefinition[])] Unknown reference link target &#39;T:Mono.Cecil.FieldDefinition&#39;. [E:\Projects\Git\cecil_inject_doc\Mono.Cecil.Inject\Documentation\Help\Working\BuildTopics.proj]
-BuildAssembler : warning : ResolveReferenceLinksComponent: [M:Mono.Cecil.Inject.MethodDefinitionExtensions.InjectWith(Mono.Cecil.MethodDefinition,Mono.Cecil.MethodDefinition,System.Int32,System.Int32,Mono.Cecil.Inject.InjectFlags,Mono.Cecil.Inject.InjectDirection,System.Int32[],Mono.Cecil.FieldDefinition[])] Unknown reference link target &#39;T:Mono.Cecil.MethodDefinition&#39;. [E:\Projects\Git\cecil_inject_doc\Mono.Cecil.Inject\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ResolveReferenceLinksComponent: [M:Mono.Cecil.Inject.MethodDefinitionExtensions.InjectWith(Mono.Cecil.MethodDefinition,Mono.Cecil.MethodDefinition,System.Int32,System.Object,Mono.Cecil.Inject.InjectFlags,Mono.Cecil.Inject.InjectDirection,System.Int32[],Mono.Cecil.FieldDefinition[])] Unknown reference link target &#39;T:Mono.Cecil.MethodDefinition&#39;. [E:\Projects\Git\cecil_inject_doc\Mono.Cecil.Inject\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ResolveReferenceLinksComponent: [M:Mono.Cecil.Inject.MethodDefinitionExtensions.InjectWith(Mono.Cecil.MethodDefinition,Mono.Cecil.MethodDefinition,System.Int32,System.Object,Mono.Cecil.Inject.InjectFlags,Mono.Cecil.Inject.InjectDirection,System.Int32[],Mono.Cecil.FieldDefinition[])] Unknown reference link target &#39;T:Mono.Cecil.MethodDefinition&#39;. [E:\Projects\Git\cecil_inject_doc\Mono.Cecil.Inject\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ResolveReferenceLinksComponent: [M:Mono.Cecil.Inject.MethodDefinitionExtensions.InjectWith(Mono.Cecil.MethodDefinition,Mono.Cecil.MethodDefinition,System.Int32,System.Object,Mono.Cecil.Inject.InjectFlags,Mono.Cecil.Inject.InjectDirection,System.Int32[],Mono.Cecil.FieldDefinition[])] Unknown reference link target &#39;T:Mono.Cecil.FieldDefinition&#39;. [E:\Projects\Git\cecil_inject_doc\Mono.Cecil.Inject\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ResolveReferenceLinksComponent: [M:Mono.Cecil.Inject.MethodDefinitionExtensions.InjectWith(Mono.Cecil.MethodDefinition,Mono.Cecil.MethodDefinition,System.Int32,System.Object,Mono.Cecil.Inject.InjectFlags,Mono.Cecil.Inject.InjectDirection,System.Int32[],Mono.Cecil.FieldDefinition[])] Unknown reference link target &#39;T:Mono.Cecil.MethodDefinition&#39;. [E:\Projects\Git\cecil_inject_doc\Mono.Cecil.Inject\Documentation\Help\Working\BuildTopics.proj]
 BuildAssembler : warning : ResolveReferenceLinksComponent: [T:Mono.Cecil.Inject.ParamHelper] Unknown reference link target &#39;T:Mono.Cecil.TypeReference&#39;. [E:\Projects\Git\cecil_inject_doc\Mono.Cecil.Inject\Documentation\Help\Working\BuildTopics.proj]
 BuildAssembler : warning : ResolveReferenceLinksComponent: [M:Mono.Cecil.Inject.ParamHelper.CreateGeneric(System.String)] Unknown reference link target &#39;T:Mono.Cecil.TypeReference&#39;. [E:\Projects\Git\cecil_inject_doc\Mono.Cecil.Inject\Documentation\Help\Working\BuildTopics.proj]
 BuildAssembler : warning : ResolveReferenceLinksComponent: [M:Mono.Cecil.Inject.ParamHelper.FromType``1] Unknown reference link target &#39;T:Mono.Cecil.TypeReference&#39;. [E:\Projects\Git\cecil_inject_doc\Mono.Cecil.Inject\Documentation\Help\Working\BuildTopics.proj]
@@ -253,18 +257,18 @@ BuildAssembler : warning : ResolveReferenceLinksComponent: [M:Mono.Cecil.Inject.
 BuildAssembler : warning : ResolveReferenceLinksComponent: [M:Mono.Cecil.Inject.TypeDefinitionExtensions.MatchMethod(Mono.Cecil.TypeDefinition,System.String,System.Type[])] Unknown reference link target &#39;T:Mono.Cecil.MethodDefinition&#39;. [E:\Projects\Git\cecil_inject_doc\Mono.Cecil.Inject\Documentation\Help\Working\BuildTopics.proj]
 BuildAssembler : warning : ResolveReferenceLinksComponent: [M:Mono.Cecil.Inject.TypeDefinitionExtensions.MatchMethod(Mono.Cecil.TypeDefinition,System.String,System.Type[])] Unknown reference link target &#39;T:Mono.Cecil.TypeDefinition&#39;. [E:\Projects\Git\cecil_inject_doc\Mono.Cecil.Inject\Documentation\Help\Working\BuildTopics.proj]
   Processed 103 topic(s)
-  73 warning(s)
+  78 warning(s)
   CopyFromIndexComponent: &quot;metadata&quot; in-memory cache entries used: 1 of 15.
   ResolveArtLinksComponent: Copying media files...
   CopyFromIndexComponent: &quot;reflection&quot; in-memory cache entries used: 4 of 15.
   CopyFromIndexComponent: &quot;comments&quot; in-memory cache entries used: 1 of 30.
-  SaveComponent: Waiting for the document writer task to finish (44 Website API file(s) remaining)...
+  SaveComponent: Waiting for the document writer task to finish (48 Website API file(s) remaining)...
 Done Building Project &quot;E:\Projects\Git\cecil_inject_doc\Mono.Cecil.Inject\Documentation\Help\Working\BuildTopics.proj&quot; (default targets).
 
 Build succeeded.
 
-Time Elapsed 00:00:07.24
-    Last step completed in 00:00:07,6166
+Time Elapsed 00:00:06.24
+    Last step completed in 00:00:06,3664
 </buildStep>
 <buildStep step="CombiningIntermediateTocFiles">
 Combining conceptual and API intermediate TOC files...
@@ -284,7 +288,7 @@ Processed 103 HTML files
 Sorting keywords and generating See Also indices
 Saving website keyword index to E:\Projects\Git\cecil_inject_doc\Mono.Cecil.Inject\Documentation\Help\Working\WebKI.xml
 Saving website table of contents to E:\Projects\Git\cecil_inject_doc\Mono.Cecil.Inject\Documentation\Help\Working\WebTOC.xml
-    Last step completed in 00:00:01,3336
+    Last step completed in 00:00:00,5880
 </buildStep>
 <buildStep step="CopyStandardHelpContent">
 Copying standard help content...
@@ -366,32 +370,32 @@ C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyle
 C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\Web\scripts\branding-Website.js -&gt; E:\Projects\Git\cecil_inject_doc\Mono.Cecil.Inject\Documentation\Help\Working\Output\Website\scripts\branding-Website.js
 C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\Web\scripts\clipboard.min.js -&gt; E:\Projects\Git\cecil_inject_doc\Mono.Cecil.Inject\Documentation\Help\Working\Output\Website\scripts\clipboard.min.js
 C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\Web\scripts\jquery-1.11.0.min.js -&gt; E:\Projects\Git\cecil_inject_doc\Mono.Cecil.Inject\Documentation\Help\Working\Output\Website\scripts\jquery-1.11.0.min.js
-    Last step completed in 00:00:00,3155
+    Last step completed in 00:00:00,4473
 </buildStep>
 <buildStep step="GenerateHelpFormatTableOfContents">
 Generating website table of contents file...
-    Last step completed in 00:00:00,0000
+    Last step completed in 00:00:00,0010
 </buildStep>
 <buildStep step="GenerateFullTextIndex">
 Generating full-text index for the website...
 
 <plugIn name="Lightweight Website Style" behavior="After" priority="1000">
 Adding lightweight search and TOC elements to each topic...
-</plugIn>    Last step completed in 00:00:00,7921
+</plugIn>    Last step completed in 00:00:00,6675
 </buildStep>
 <buildStep step="CopyingWebsiteFiles">
 Copying website files to output folder...
 
 Copied 242 files for the website content
-    Last step completed in 00:00:00,2121
+    Last step completed in 00:00:00,6139
 </buildStep>
 <buildStep step="CleanIntermediates">
 Removing intermediate files...
-    Last step completed in 00:00:00,1897
+    Last step completed in 00:00:00,1216
 </buildStep>
 <buildStep step="Completed">
 
-Build completed successfully at 20.5.2017 14.52.55.  Total time: 00:00:18,0511
+Build completed successfully at 22.5.2017 20.12.11.  Total time: 00:00:13,4541
 
 </buildStep>
 </shfbBuild>
