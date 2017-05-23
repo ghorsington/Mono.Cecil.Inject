@@ -368,11 +368,49 @@ Injection has {injectMethod.Parameters.Count} parameters.");
         ///     parameter to the injection method.
         /// </param>
         /// <param name="direction">The direction in which to insert the call: either above the start code or below it.</param>
+        [Obsolete("This signature will be removed in the future versions. Consider casting the token to an object.")]
+        public void Inject(int startCode, int token, InjectDirection direction)
+        {
+            Inject(startCode, (object) token, direction);
+        }
+
+
+        /// <summary>
+        ///     Inject the call of the injection method into the target.
+        /// </summary>
+        /// <param name="startCode">
+        ///     The index of the instruction from which to start injecting. If positive, will count from the
+        ///     beginning of the method. If negative, will count from the end. For instance, -1 is the method's last instruction
+        ///     and 0 is the first.
+        /// </param>
+        /// <param name="token">
+        ///     If <see cref="InjectFlags.PassTag" /> is specified, the value of this parameter will be passed as a
+        ///     parameter to the injection method.
+        /// </param>
+        /// <param name="direction">The direction in which to insert the call: either above the start code or below it.</param>
         public void Inject(int startCode = 0, object token = null, InjectDirection direction = InjectDirection.Before)
         {
             startCode = startCode < 0 ? InjectTarget.Body.Instructions.Count + startCode : startCode;
             Inject(InjectTarget.Body.Instructions[startCode], token, direction);
         }
+
+        /// <summary>
+        ///     Inject the call of the injection method into the target.
+        /// </summary>
+        /// <param name="startCode">The instruction from which to start injecting.</param>
+        /// <param name="token">
+        ///     If <see cref="InjectFlags.PassTag" /> is specified, the value of this parameter will be passed as a
+        ///     parameter to the injection method.
+        /// </param>
+        /// <param name="direction">The direction in which to insert the call: either above the start code or below it.</param>
+        [Obsolete("This signature will be removed in future versions. Consider casting the token to an object.")]
+        public void Inject(Instruction startCode,
+                           int token,
+                           InjectDirection direction)
+        {
+            Inject(startCode, (object) token, direction);
+        }
+
 
         /// <summary>
         ///     Inject the call of the injection method into the target.
