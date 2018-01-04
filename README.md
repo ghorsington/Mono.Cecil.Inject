@@ -1,7 +1,7 @@
 # Mono.Cecil.Inject
 
 ### [Download the latest version](https://github.com/denikson/Mono.Cecil.Inject/releases)
-### [Documentation](http://denikson.github.io/Mono.Cecil.Inject/docs/)
+### [Documentation](http://coder.horse/Mono.Cecil.Inject/docs/)
 
 ## Overview
 Mono.Cecil.Inject (Cecil.Inject from now on) is a simple library that adds a few convenience methods to the original Mono.Cecil library.
