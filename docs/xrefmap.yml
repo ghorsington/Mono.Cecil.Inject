@@ -1,0 +1,858 @@
+### YamlMime:XRefMap
+sorted: true
+references:
+- uid: Mono.Cecil.Inject
+  name: Mono.Cecil.Inject
+  href: api/Mono.Cecil.Inject.html
+  commentId: N:Mono.Cecil.Inject
+  fullName: Mono.Cecil.Inject
+  nameWithType: Mono.Cecil.Inject
+- uid: Mono.Cecil.Inject.AssemblyLoader
+  name: AssemblyLoader
+  href: api/Mono.Cecil.Inject.AssemblyLoader.html
+  commentId: T:Mono.Cecil.Inject.AssemblyLoader
+  fullName: Mono.Cecil.Inject.AssemblyLoader
+  nameWithType: AssemblyLoader
+- uid: Mono.Cecil.Inject.AssemblyLoader.LoadAssembly(System.String)
+  name: LoadAssembly(String)
+  href: api/Mono.Cecil.Inject.AssemblyLoader.html#Mono_Cecil_Inject_AssemblyLoader_LoadAssembly_System_String_
+  commentId: M:Mono.Cecil.Inject.AssemblyLoader.LoadAssembly(System.String)
+  fullName: Mono.Cecil.Inject.AssemblyLoader.LoadAssembly(System.String)
+  nameWithType: AssemblyLoader.LoadAssembly(String)
+- uid: Mono.Cecil.Inject.AssemblyLoader.LoadAssembly*
+  name: LoadAssembly
+  href: api/Mono.Cecil.Inject.AssemblyLoader.html#Mono_Cecil_Inject_AssemblyLoader_LoadAssembly_
+  commentId: Overload:Mono.Cecil.Inject.AssemblyLoader.LoadAssembly
+  fullName: Mono.Cecil.Inject.AssemblyLoader.LoadAssembly
+  nameWithType: AssemblyLoader.LoadAssembly
+- uid: Mono.Cecil.Inject.CollectionUtils
+  name: CollectionUtils
+  href: api/Mono.Cecil.Inject.CollectionUtils.html
+  commentId: T:Mono.Cecil.Inject.CollectionUtils
+  fullName: Mono.Cecil.Inject.CollectionUtils
+  nameWithType: CollectionUtils
+- uid: Mono.Cecil.Inject.CollectionUtils.ForEach*
+  name: ForEach
+  href: api/Mono.Cecil.Inject.CollectionUtils.html#Mono_Cecil_Inject_CollectionUtils_ForEach_
+  commentId: Overload:Mono.Cecil.Inject.CollectionUtils.ForEach
+  fullName: Mono.Cecil.Inject.CollectionUtils.ForEach
+  nameWithType: CollectionUtils.ForEach
+- uid: Mono.Cecil.Inject.CollectionUtils.ForEach``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0})
+  name: ForEach<T>(IEnumerable<T>, Action<T>)
+  href: api/Mono.Cecil.Inject.CollectionUtils.html#Mono_Cecil_Inject_CollectionUtils_ForEach__1_System_Collections_Generic_IEnumerable___0__System_Action___0__
+  commentId: M:Mono.Cecil.Inject.CollectionUtils.ForEach``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0})
+  name.vb: ForEach(Of T)(IEnumerable(Of T), Action(Of T))
+  fullName: Mono.Cecil.Inject.CollectionUtils.ForEach<T>(System.Collections.Generic.IEnumerable<T>, System.Action<T>)
+  fullName.vb: Mono.Cecil.Inject.CollectionUtils.ForEach(Of T)(System.Collections.Generic.IEnumerable(Of T), System.Action(Of T))
+  nameWithType: CollectionUtils.ForEach<T>(IEnumerable<T>, Action<T>)
+  nameWithType.vb: CollectionUtils.ForEach(Of T)(IEnumerable(Of T), Action(Of T))
+- uid: Mono.Cecil.Inject.CollectionUtils.Range*
+  name: Range
+  href: api/Mono.Cecil.Inject.CollectionUtils.html#Mono_Cecil_Inject_CollectionUtils_Range_
+  commentId: Overload:Mono.Cecil.Inject.CollectionUtils.Range
+  fullName: Mono.Cecil.Inject.CollectionUtils.Range
+  nameWithType: CollectionUtils.Range
+- uid: Mono.Cecil.Inject.CollectionUtils.Range``1(System.Collections.Generic.IEnumerable{``0},System.Int32,System.Int32)
+  name: Range<T>(IEnumerable<T>, Int32, Int32)
+  href: api/Mono.Cecil.Inject.CollectionUtils.html#Mono_Cecil_Inject_CollectionUtils_Range__1_System_Collections_Generic_IEnumerable___0__System_Int32_System_Int32_
+  commentId: M:Mono.Cecil.Inject.CollectionUtils.Range``1(System.Collections.Generic.IEnumerable{``0},System.Int32,System.Int32)
+  name.vb: Range(Of T)(IEnumerable(Of T), Int32, Int32)
+  fullName: Mono.Cecil.Inject.CollectionUtils.Range<T>(System.Collections.Generic.IEnumerable<T>, System.Int32, System.Int32)
+  fullName.vb: Mono.Cecil.Inject.CollectionUtils.Range(Of T)(System.Collections.Generic.IEnumerable(Of T), System.Int32, System.Int32)
+  nameWithType: CollectionUtils.Range<T>(IEnumerable<T>, Int32, Int32)
+  nameWithType.vb: CollectionUtils.Range(Of T)(IEnumerable(Of T), Int32, Int32)
+- uid: Mono.Cecil.Inject.CollectionUtils.Slice*
+  name: Slice
+  href: api/Mono.Cecil.Inject.CollectionUtils.html#Mono_Cecil_Inject_CollectionUtils_Slice_
+  commentId: Overload:Mono.Cecil.Inject.CollectionUtils.Slice
+  fullName: Mono.Cecil.Inject.CollectionUtils.Slice
+  nameWithType: CollectionUtils.Slice
+- uid: Mono.Cecil.Inject.CollectionUtils.Slice``1(System.Collections.Generic.IEnumerable{``0},System.Int32,System.Int32)
+  name: Slice<T>(IEnumerable<T>, Int32, Int32)
+  href: api/Mono.Cecil.Inject.CollectionUtils.html#Mono_Cecil_Inject_CollectionUtils_Slice__1_System_Collections_Generic_IEnumerable___0__System_Int32_System_Int32_
+  commentId: M:Mono.Cecil.Inject.CollectionUtils.Slice``1(System.Collections.Generic.IEnumerable{``0},System.Int32,System.Int32)
+  name.vb: Slice(Of T)(IEnumerable(Of T), Int32, Int32)
+  fullName: Mono.Cecil.Inject.CollectionUtils.Slice<T>(System.Collections.Generic.IEnumerable<T>, System.Int32, System.Int32)
+  fullName.vb: Mono.Cecil.Inject.CollectionUtils.Slice(Of T)(System.Collections.Generic.IEnumerable(Of T), System.Int32, System.Int32)
+  nameWithType: CollectionUtils.Slice<T>(IEnumerable<T>, Int32, Int32)
+  nameWithType.vb: CollectionUtils.Slice(Of T)(IEnumerable(Of T), Int32, Int32)
+- uid: Mono.Cecil.Inject.ILUtils
+  name: ILUtils
+  href: api/Mono.Cecil.Inject.ILUtils.html
+  commentId: T:Mono.Cecil.Inject.ILUtils
+  fullName: Mono.Cecil.Inject.ILUtils
+  nameWithType: ILUtils
+- uid: Mono.Cecil.Inject.ILUtils.CopyInstruction(Instruction)
+  name: CopyInstruction(Instruction)
+  href: api/Mono.Cecil.Inject.ILUtils.html#Mono_Cecil_Inject_ILUtils_CopyInstruction_Instruction_
+  commentId: M:Mono.Cecil.Inject.ILUtils.CopyInstruction(Instruction)
+  fullName: Mono.Cecil.Inject.ILUtils.CopyInstruction(Instruction)
+  nameWithType: ILUtils.CopyInstruction(Instruction)
+- uid: Mono.Cecil.Inject.ILUtils.CopyInstruction*
+  name: CopyInstruction
+  href: api/Mono.Cecil.Inject.ILUtils.html#Mono_Cecil_Inject_ILUtils_CopyInstruction_
+  commentId: Overload:Mono.Cecil.Inject.ILUtils.CopyInstruction
+  fullName: Mono.Cecil.Inject.ILUtils.CopyInstruction
+  nameWithType: ILUtils.CopyInstruction
+- uid: Mono.Cecil.Inject.ILUtils.ReplaceInstruction(Instruction,Instruction)
+  name: ReplaceInstruction(Instruction, Instruction)
+  href: api/Mono.Cecil.Inject.ILUtils.html#Mono_Cecil_Inject_ILUtils_ReplaceInstruction_Instruction_Instruction_
+  commentId: M:Mono.Cecil.Inject.ILUtils.ReplaceInstruction(Instruction,Instruction)
+  fullName: Mono.Cecil.Inject.ILUtils.ReplaceInstruction(Instruction, Instruction)
+  nameWithType: ILUtils.ReplaceInstruction(Instruction, Instruction)
+- uid: Mono.Cecil.Inject.ILUtils.ReplaceInstruction*
+  name: ReplaceInstruction
+  href: api/Mono.Cecil.Inject.ILUtils.html#Mono_Cecil_Inject_ILUtils_ReplaceInstruction_
+  commentId: Overload:Mono.Cecil.Inject.ILUtils.ReplaceInstruction
+  fullName: Mono.Cecil.Inject.ILUtils.ReplaceInstruction
+  nameWithType: ILUtils.ReplaceInstruction
+- uid: Mono.Cecil.Inject.InjectDirection
+  name: InjectDirection
+  href: api/Mono.Cecil.Inject.InjectDirection.html
+  commentId: T:Mono.Cecil.Inject.InjectDirection
+  fullName: Mono.Cecil.Inject.InjectDirection
+  nameWithType: InjectDirection
+- uid: Mono.Cecil.Inject.InjectDirection.After
+  name: After
+  href: api/Mono.Cecil.Inject.InjectDirection.html#Mono_Cecil_Inject_InjectDirection_After
+  commentId: F:Mono.Cecil.Inject.InjectDirection.After
+  fullName: Mono.Cecil.Inject.InjectDirection.After
+  nameWithType: InjectDirection.After
+- uid: Mono.Cecil.Inject.InjectDirection.Before
+  name: Before
+  href: api/Mono.Cecil.Inject.InjectDirection.html#Mono_Cecil_Inject_InjectDirection_Before
+  commentId: F:Mono.Cecil.Inject.InjectDirection.Before
+  fullName: Mono.Cecil.Inject.InjectDirection.Before
+  nameWithType: InjectDirection.Before
+- uid: Mono.Cecil.Inject.InjectFlagMethods
+  name: InjectFlagMethods
+  href: api/Mono.Cecil.Inject.InjectFlagMethods.html
+  commentId: T:Mono.Cecil.Inject.InjectFlagMethods
+  fullName: Mono.Cecil.Inject.InjectFlagMethods
+  nameWithType: InjectFlagMethods
+- uid: Mono.Cecil.Inject.InjectFlagMethods.IsSet(Mono.Cecil.Inject.InjectFlags,Mono.Cecil.Inject.InjectFlags)
+  name: IsSet(InjectFlags, InjectFlags)
+  href: api/Mono.Cecil.Inject.InjectFlagMethods.html#Mono_Cecil_Inject_InjectFlagMethods_IsSet_Mono_Cecil_Inject_InjectFlags_Mono_Cecil_Inject_InjectFlags_
+  commentId: M:Mono.Cecil.Inject.InjectFlagMethods.IsSet(Mono.Cecil.Inject.InjectFlags,Mono.Cecil.Inject.InjectFlags)
+  fullName: Mono.Cecil.Inject.InjectFlagMethods.IsSet(Mono.Cecil.Inject.InjectFlags, Mono.Cecil.Inject.InjectFlags)
+  nameWithType: InjectFlagMethods.IsSet(InjectFlags, InjectFlags)
+- uid: Mono.Cecil.Inject.InjectFlagMethods.IsSet*
+  name: IsSet
+  href: api/Mono.Cecil.Inject.InjectFlagMethods.html#Mono_Cecil_Inject_InjectFlagMethods_IsSet_
+  commentId: Overload:Mono.Cecil.Inject.InjectFlagMethods.IsSet
+  fullName: Mono.Cecil.Inject.InjectFlagMethods.IsSet
+  nameWithType: InjectFlagMethods.IsSet
+- uid: Mono.Cecil.Inject.InjectFlagMethods.ToValues(Mono.Cecil.Inject.InjectFlags)
+  name: ToValues(InjectFlags)
+  href: api/Mono.Cecil.Inject.InjectFlagMethods.html#Mono_Cecil_Inject_InjectFlagMethods_ToValues_Mono_Cecil_Inject_InjectFlags_
+  commentId: M:Mono.Cecil.Inject.InjectFlagMethods.ToValues(Mono.Cecil.Inject.InjectFlags)
+  fullName: Mono.Cecil.Inject.InjectFlagMethods.ToValues(Mono.Cecil.Inject.InjectFlags)
+  nameWithType: InjectFlagMethods.ToValues(InjectFlags)
+- uid: Mono.Cecil.Inject.InjectFlagMethods.ToValues*
+  name: ToValues
+  href: api/Mono.Cecil.Inject.InjectFlagMethods.html#Mono_Cecil_Inject_InjectFlagMethods_ToValues_
+  commentId: Overload:Mono.Cecil.Inject.InjectFlagMethods.ToValues
+  fullName: Mono.Cecil.Inject.InjectFlagMethods.ToValues
+  nameWithType: InjectFlagMethods.ToValues
+- uid: Mono.Cecil.Inject.InjectFlags
+  name: InjectFlags
+  href: api/Mono.Cecil.Inject.InjectFlags.html
+  commentId: T:Mono.Cecil.Inject.InjectFlags
+  fullName: Mono.Cecil.Inject.InjectFlags
+  nameWithType: InjectFlags
+- uid: Mono.Cecil.Inject.InjectFlags.All_Ref
+  name: All_Ref
+  href: api/Mono.Cecil.Inject.InjectFlags.html#Mono_Cecil_Inject_InjectFlags_All_Ref
+  commentId: F:Mono.Cecil.Inject.InjectFlags.All_Ref
+  fullName: Mono.Cecil.Inject.InjectFlags.All_Ref
+  nameWithType: InjectFlags.All_Ref
+- uid: Mono.Cecil.Inject.InjectFlags.All_Val
+  name: All_Val
+  href: api/Mono.Cecil.Inject.InjectFlags.html#Mono_Cecil_Inject_InjectFlags_All_Val
+  commentId: F:Mono.Cecil.Inject.InjectFlags.All_Val
+  fullName: Mono.Cecil.Inject.InjectFlags.All_Val
+  nameWithType: InjectFlags.All_Val
+- uid: Mono.Cecil.Inject.InjectFlags.ModifyReturn
+  name: ModifyReturn
+  href: api/Mono.Cecil.Inject.InjectFlags.html#Mono_Cecil_Inject_InjectFlags_ModifyReturn
+  commentId: F:Mono.Cecil.Inject.InjectFlags.ModifyReturn
+  fullName: Mono.Cecil.Inject.InjectFlags.ModifyReturn
+  nameWithType: InjectFlags.ModifyReturn
+- uid: Mono.Cecil.Inject.InjectFlags.None
+  name: None
+  href: api/Mono.Cecil.Inject.InjectFlags.html#Mono_Cecil_Inject_InjectFlags_None
+  commentId: F:Mono.Cecil.Inject.InjectFlags.None
+  fullName: Mono.Cecil.Inject.InjectFlags.None
+  nameWithType: InjectFlags.None
+- uid: Mono.Cecil.Inject.InjectFlags.PassFields
+  name: PassFields
+  href: api/Mono.Cecil.Inject.InjectFlags.html#Mono_Cecil_Inject_InjectFlags_PassFields
+  commentId: F:Mono.Cecil.Inject.InjectFlags.PassFields
+  fullName: Mono.Cecil.Inject.InjectFlags.PassFields
+  nameWithType: InjectFlags.PassFields
+- uid: Mono.Cecil.Inject.InjectFlags.PassInvokingInstance
+  name: PassInvokingInstance
+  href: api/Mono.Cecil.Inject.InjectFlags.html#Mono_Cecil_Inject_InjectFlags_PassInvokingInstance
+  commentId: F:Mono.Cecil.Inject.InjectFlags.PassInvokingInstance
+  fullName: Mono.Cecil.Inject.InjectFlags.PassInvokingInstance
+  nameWithType: InjectFlags.PassInvokingInstance
+- uid: Mono.Cecil.Inject.InjectFlags.PassLocals
+  name: PassLocals
+  href: api/Mono.Cecil.Inject.InjectFlags.html#Mono_Cecil_Inject_InjectFlags_PassLocals
+  commentId: F:Mono.Cecil.Inject.InjectFlags.PassLocals
+  fullName: Mono.Cecil.Inject.InjectFlags.PassLocals
+  nameWithType: InjectFlags.PassLocals
+- uid: Mono.Cecil.Inject.InjectFlags.PassParametersRef
+  name: PassParametersRef
+  href: api/Mono.Cecil.Inject.InjectFlags.html#Mono_Cecil_Inject_InjectFlags_PassParametersRef
+  commentId: F:Mono.Cecil.Inject.InjectFlags.PassParametersRef
+  fullName: Mono.Cecil.Inject.InjectFlags.PassParametersRef
+  nameWithType: InjectFlags.PassParametersRef
+- uid: Mono.Cecil.Inject.InjectFlags.PassParametersVal
+  name: PassParametersVal
+  href: api/Mono.Cecil.Inject.InjectFlags.html#Mono_Cecil_Inject_InjectFlags_PassParametersVal
+  commentId: F:Mono.Cecil.Inject.InjectFlags.PassParametersVal
+  fullName: Mono.Cecil.Inject.InjectFlags.PassParametersVal
+  nameWithType: InjectFlags.PassParametersVal
+- uid: Mono.Cecil.Inject.InjectFlags.PassStringTag
+  name: PassStringTag
+  href: api/Mono.Cecil.Inject.InjectFlags.html#Mono_Cecil_Inject_InjectFlags_PassStringTag
+  commentId: F:Mono.Cecil.Inject.InjectFlags.PassStringTag
+  fullName: Mono.Cecil.Inject.InjectFlags.PassStringTag
+  nameWithType: InjectFlags.PassStringTag
+- uid: Mono.Cecil.Inject.InjectFlags.PassTag
+  name: PassTag
+  href: api/Mono.Cecil.Inject.InjectFlags.html#Mono_Cecil_Inject_InjectFlags_PassTag
+  commentId: F:Mono.Cecil.Inject.InjectFlags.PassTag
+  fullName: Mono.Cecil.Inject.InjectFlags.PassTag
+  nameWithType: InjectFlags.PassTag
+- uid: Mono.Cecil.Inject.InjectionDefinition
+  name: InjectionDefinition
+  href: api/Mono.Cecil.Inject.InjectionDefinition.html
+  commentId: T:Mono.Cecil.Inject.InjectionDefinition
+  fullName: Mono.Cecil.Inject.InjectionDefinition
+  nameWithType: InjectionDefinition
+- uid: Mono.Cecil.Inject.InjectionDefinition.#ctor(MethodDefinition,MethodDefinition,Mono.Cecil.Inject.InjectFlags,System.Int32[],FieldDefinition[])
+  name: InjectionDefinition(MethodDefinition, MethodDefinition, InjectFlags, Int32[], FieldDefinition[])
+  href: api/Mono.Cecil.Inject.InjectionDefinition.html#Mono_Cecil_Inject_InjectionDefinition__ctor_MethodDefinition_MethodDefinition_Mono_Cecil_Inject_InjectFlags_System_Int32___FieldDefinition___
+  commentId: M:Mono.Cecil.Inject.InjectionDefinition.#ctor(MethodDefinition,MethodDefinition,Mono.Cecil.Inject.InjectFlags,System.Int32[],FieldDefinition[])
+  name.vb: InjectionDefinition(MethodDefinition, MethodDefinition, InjectFlags, Int32(), FieldDefinition())
+  fullName: Mono.Cecil.Inject.InjectionDefinition.InjectionDefinition(MethodDefinition, MethodDefinition, Mono.Cecil.Inject.InjectFlags, System.Int32[], FieldDefinition[])
+  fullName.vb: Mono.Cecil.Inject.InjectionDefinition.InjectionDefinition(MethodDefinition, MethodDefinition, Mono.Cecil.Inject.InjectFlags, System.Int32(), FieldDefinition())
+  nameWithType: InjectionDefinition.InjectionDefinition(MethodDefinition, MethodDefinition, InjectFlags, Int32[], FieldDefinition[])
+  nameWithType.vb: InjectionDefinition.InjectionDefinition(MethodDefinition, MethodDefinition, InjectFlags, Int32(), FieldDefinition())
+- uid: Mono.Cecil.Inject.InjectionDefinition.#ctor*
+  name: InjectionDefinition
+  href: api/Mono.Cecil.Inject.InjectionDefinition.html#Mono_Cecil_Inject_InjectionDefinition__ctor_
+  commentId: Overload:Mono.Cecil.Inject.InjectionDefinition.#ctor
+  fullName: Mono.Cecil.Inject.InjectionDefinition.InjectionDefinition
+  nameWithType: InjectionDefinition.InjectionDefinition
+- uid: Mono.Cecil.Inject.InjectionDefinition.Flags
+  name: Flags
+  href: api/Mono.Cecil.Inject.InjectionDefinition.html#Mono_Cecil_Inject_InjectionDefinition_Flags
+  commentId: P:Mono.Cecil.Inject.InjectionDefinition.Flags
+  fullName: Mono.Cecil.Inject.InjectionDefinition.Flags
+  nameWithType: InjectionDefinition.Flags
+- uid: Mono.Cecil.Inject.InjectionDefinition.Flags*
+  name: Flags
+  href: api/Mono.Cecil.Inject.InjectionDefinition.html#Mono_Cecil_Inject_InjectionDefinition_Flags_
+  commentId: Overload:Mono.Cecil.Inject.InjectionDefinition.Flags
+  fullName: Mono.Cecil.Inject.InjectionDefinition.Flags
+  nameWithType: InjectionDefinition.Flags
+- uid: Mono.Cecil.Inject.InjectionDefinition.Inject(Instruction,System.Int32,Mono.Cecil.Inject.InjectDirection)
+  name: Inject(Instruction, Int32, InjectDirection)
+  href: api/Mono.Cecil.Inject.InjectionDefinition.html#Mono_Cecil_Inject_InjectionDefinition_Inject_Instruction_System_Int32_Mono_Cecil_Inject_InjectDirection_
+  commentId: M:Mono.Cecil.Inject.InjectionDefinition.Inject(Instruction,System.Int32,Mono.Cecil.Inject.InjectDirection)
+  fullName: Mono.Cecil.Inject.InjectionDefinition.Inject(Instruction, System.Int32, Mono.Cecil.Inject.InjectDirection)
+  nameWithType: InjectionDefinition.Inject(Instruction, Int32, InjectDirection)
+- uid: Mono.Cecil.Inject.InjectionDefinition.Inject(Instruction,System.Object,Mono.Cecil.Inject.InjectDirection)
+  name: Inject(Instruction, Object, InjectDirection)
+  href: api/Mono.Cecil.Inject.InjectionDefinition.html#Mono_Cecil_Inject_InjectionDefinition_Inject_Instruction_System_Object_Mono_Cecil_Inject_InjectDirection_
+  commentId: M:Mono.Cecil.Inject.InjectionDefinition.Inject(Instruction,System.Object,Mono.Cecil.Inject.InjectDirection)
+  fullName: Mono.Cecil.Inject.InjectionDefinition.Inject(Instruction, System.Object, Mono.Cecil.Inject.InjectDirection)
+  nameWithType: InjectionDefinition.Inject(Instruction, Object, InjectDirection)
+- uid: Mono.Cecil.Inject.InjectionDefinition.Inject(System.Int32,System.Int32,Mono.Cecil.Inject.InjectDirection)
+  name: Inject(Int32, Int32, InjectDirection)
+  href: api/Mono.Cecil.Inject.InjectionDefinition.html#Mono_Cecil_Inject_InjectionDefinition_Inject_System_Int32_System_Int32_Mono_Cecil_Inject_InjectDirection_
+  commentId: M:Mono.Cecil.Inject.InjectionDefinition.Inject(System.Int32,System.Int32,Mono.Cecil.Inject.InjectDirection)
+  fullName: Mono.Cecil.Inject.InjectionDefinition.Inject(System.Int32, System.Int32, Mono.Cecil.Inject.InjectDirection)
+  nameWithType: InjectionDefinition.Inject(Int32, Int32, InjectDirection)
+- uid: Mono.Cecil.Inject.InjectionDefinition.Inject(System.Int32,System.Object,Mono.Cecil.Inject.InjectDirection)
+  name: Inject(Int32, Object, InjectDirection)
+  href: api/Mono.Cecil.Inject.InjectionDefinition.html#Mono_Cecil_Inject_InjectionDefinition_Inject_System_Int32_System_Object_Mono_Cecil_Inject_InjectDirection_
+  commentId: M:Mono.Cecil.Inject.InjectionDefinition.Inject(System.Int32,System.Object,Mono.Cecil.Inject.InjectDirection)
+  fullName: Mono.Cecil.Inject.InjectionDefinition.Inject(System.Int32, System.Object, Mono.Cecil.Inject.InjectDirection)
+  nameWithType: InjectionDefinition.Inject(Int32, Object, InjectDirection)
+- uid: Mono.Cecil.Inject.InjectionDefinition.Inject*
+  name: Inject
+  href: api/Mono.Cecil.Inject.InjectionDefinition.html#Mono_Cecil_Inject_InjectionDefinition_Inject_
+  commentId: Overload:Mono.Cecil.Inject.InjectionDefinition.Inject
+  fullName: Mono.Cecil.Inject.InjectionDefinition.Inject
+  nameWithType: InjectionDefinition.Inject
+- uid: Mono.Cecil.Inject.InjectionDefinition.InjectMethod
+  name: InjectMethod
+  href: api/Mono.Cecil.Inject.InjectionDefinition.html#Mono_Cecil_Inject_InjectionDefinition_InjectMethod
+  commentId: P:Mono.Cecil.Inject.InjectionDefinition.InjectMethod
+  fullName: Mono.Cecil.Inject.InjectionDefinition.InjectMethod
+  nameWithType: InjectionDefinition.InjectMethod
+- uid: Mono.Cecil.Inject.InjectionDefinition.InjectMethod*
+  name: InjectMethod
+  href: api/Mono.Cecil.Inject.InjectionDefinition.html#Mono_Cecil_Inject_InjectionDefinition_InjectMethod_
+  commentId: Overload:Mono.Cecil.Inject.InjectionDefinition.InjectMethod
+  fullName: Mono.Cecil.Inject.InjectionDefinition.InjectMethod
+  nameWithType: InjectionDefinition.InjectMethod
+- uid: Mono.Cecil.Inject.InjectionDefinition.InjectTarget
+  name: InjectTarget
+  href: api/Mono.Cecil.Inject.InjectionDefinition.html#Mono_Cecil_Inject_InjectionDefinition_InjectTarget
+  commentId: P:Mono.Cecil.Inject.InjectionDefinition.InjectTarget
+  fullName: Mono.Cecil.Inject.InjectionDefinition.InjectTarget
+  nameWithType: InjectionDefinition.InjectTarget
+- uid: Mono.Cecil.Inject.InjectionDefinition.InjectTarget*
+  name: InjectTarget
+  href: api/Mono.Cecil.Inject.InjectionDefinition.html#Mono_Cecil_Inject_InjectionDefinition_InjectTarget_
+  commentId: Overload:Mono.Cecil.Inject.InjectionDefinition.InjectTarget
+  fullName: Mono.Cecil.Inject.InjectionDefinition.InjectTarget
+  nameWithType: InjectionDefinition.InjectTarget
+- uid: Mono.Cecil.Inject.InjectionDefinition.LocalVarIDs
+  name: LocalVarIDs
+  href: api/Mono.Cecil.Inject.InjectionDefinition.html#Mono_Cecil_Inject_InjectionDefinition_LocalVarIDs
+  commentId: P:Mono.Cecil.Inject.InjectionDefinition.LocalVarIDs
+  fullName: Mono.Cecil.Inject.InjectionDefinition.LocalVarIDs
+  nameWithType: InjectionDefinition.LocalVarIDs
+- uid: Mono.Cecil.Inject.InjectionDefinition.LocalVarIDs*
+  name: LocalVarIDs
+  href: api/Mono.Cecil.Inject.InjectionDefinition.html#Mono_Cecil_Inject_InjectionDefinition_LocalVarIDs_
+  commentId: Overload:Mono.Cecil.Inject.InjectionDefinition.LocalVarIDs
+  fullName: Mono.Cecil.Inject.InjectionDefinition.LocalVarIDs
+  nameWithType: InjectionDefinition.LocalVarIDs
+- uid: Mono.Cecil.Inject.InjectionDefinition.MemberReferences
+  name: MemberReferences
+  href: api/Mono.Cecil.Inject.InjectionDefinition.html#Mono_Cecil_Inject_InjectionDefinition_MemberReferences
+  commentId: P:Mono.Cecil.Inject.InjectionDefinition.MemberReferences
+  fullName: Mono.Cecil.Inject.InjectionDefinition.MemberReferences
+  nameWithType: InjectionDefinition.MemberReferences
+- uid: Mono.Cecil.Inject.InjectionDefinition.MemberReferences*
+  name: MemberReferences
+  href: api/Mono.Cecil.Inject.InjectionDefinition.html#Mono_Cecil_Inject_InjectionDefinition_MemberReferences_
+  commentId: Overload:Mono.Cecil.Inject.InjectionDefinition.MemberReferences
+  fullName: Mono.Cecil.Inject.InjectionDefinition.MemberReferences
+  nameWithType: InjectionDefinition.MemberReferences
+- uid: Mono.Cecil.Inject.InjectionDefinitionException
+  name: InjectionDefinitionException
+  href: api/Mono.Cecil.Inject.InjectionDefinitionException.html
+  commentId: T:Mono.Cecil.Inject.InjectionDefinitionException
+  fullName: Mono.Cecil.Inject.InjectionDefinitionException
+  nameWithType: InjectionDefinitionException
+- uid: Mono.Cecil.Inject.InjectionDefinitionException.#ctor(System.String)
+  name: InjectionDefinitionException(String)
+  href: api/Mono.Cecil.Inject.InjectionDefinitionException.html#Mono_Cecil_Inject_InjectionDefinitionException__ctor_System_String_
+  commentId: M:Mono.Cecil.Inject.InjectionDefinitionException.#ctor(System.String)
+  fullName: Mono.Cecil.Inject.InjectionDefinitionException.InjectionDefinitionException(System.String)
+  nameWithType: InjectionDefinitionException.InjectionDefinitionException(String)
+- uid: Mono.Cecil.Inject.InjectionDefinitionException.#ctor*
+  name: InjectionDefinitionException
+  href: api/Mono.Cecil.Inject.InjectionDefinitionException.html#Mono_Cecil_Inject_InjectionDefinitionException__ctor_
+  commentId: Overload:Mono.Cecil.Inject.InjectionDefinitionException.#ctor
+  fullName: Mono.Cecil.Inject.InjectionDefinitionException.InjectionDefinitionException
+  nameWithType: InjectionDefinitionException.InjectionDefinitionException
+- uid: Mono.Cecil.Inject.InjectValues
+  name: InjectValues
+  href: api/Mono.Cecil.Inject.InjectValues.html
+  commentId: T:Mono.Cecil.Inject.InjectValues
+  fullName: Mono.Cecil.Inject.InjectValues
+  nameWithType: InjectValues
+- uid: Mono.Cecil.Inject.InjectValues.#ctor(Mono.Cecil.Inject.InjectFlags)
+  name: InjectValues(InjectFlags)
+  href: api/Mono.Cecil.Inject.InjectValues.html#Mono_Cecil_Inject_InjectValues__ctor_Mono_Cecil_Inject_InjectFlags_
+  commentId: M:Mono.Cecil.Inject.InjectValues.#ctor(Mono.Cecil.Inject.InjectFlags)
+  fullName: Mono.Cecil.Inject.InjectValues.InjectValues(Mono.Cecil.Inject.InjectFlags)
+  nameWithType: InjectValues.InjectValues(InjectFlags)
+- uid: Mono.Cecil.Inject.InjectValues.#ctor*
+  name: InjectValues
+  href: api/Mono.Cecil.Inject.InjectValues.html#Mono_Cecil_Inject_InjectValues__ctor_
+  commentId: Overload:Mono.Cecil.Inject.InjectValues.#ctor
+  fullName: Mono.Cecil.Inject.InjectValues.InjectValues
+  nameWithType: InjectValues.InjectValues
+- uid: Mono.Cecil.Inject.InjectValues.GetCombinedFlags
+  name: GetCombinedFlags()
+  href: api/Mono.Cecil.Inject.InjectValues.html#Mono_Cecil_Inject_InjectValues_GetCombinedFlags
+  commentId: M:Mono.Cecil.Inject.InjectValues.GetCombinedFlags
+  fullName: Mono.Cecil.Inject.InjectValues.GetCombinedFlags()
+  nameWithType: InjectValues.GetCombinedFlags()
+- uid: Mono.Cecil.Inject.InjectValues.GetCombinedFlags*
+  name: GetCombinedFlags
+  href: api/Mono.Cecil.Inject.InjectValues.html#Mono_Cecil_Inject_InjectValues_GetCombinedFlags_
+  commentId: Overload:Mono.Cecil.Inject.InjectValues.GetCombinedFlags
+  fullName: Mono.Cecil.Inject.InjectValues.GetCombinedFlags
+  nameWithType: InjectValues.GetCombinedFlags
+- uid: Mono.Cecil.Inject.InjectValues.ModifyReturn
+  name: ModifyReturn
+  href: api/Mono.Cecil.Inject.InjectValues.html#Mono_Cecil_Inject_InjectValues_ModifyReturn
+  commentId: F:Mono.Cecil.Inject.InjectValues.ModifyReturn
+  fullName: Mono.Cecil.Inject.InjectValues.ModifyReturn
+  nameWithType: InjectValues.ModifyReturn
+- uid: Mono.Cecil.Inject.InjectValues.ParameterType
+  name: ParameterType
+  href: api/Mono.Cecil.Inject.InjectValues.html#Mono_Cecil_Inject_InjectValues_ParameterType
+  commentId: F:Mono.Cecil.Inject.InjectValues.ParameterType
+  fullName: Mono.Cecil.Inject.InjectValues.ParameterType
+  nameWithType: InjectValues.ParameterType
+- uid: Mono.Cecil.Inject.InjectValues.PassFields
+  name: PassFields
+  href: api/Mono.Cecil.Inject.InjectValues.html#Mono_Cecil_Inject_InjectValues_PassFields
+  commentId: F:Mono.Cecil.Inject.InjectValues.PassFields
+  fullName: Mono.Cecil.Inject.InjectValues.PassFields
+  nameWithType: InjectValues.PassFields
+- uid: Mono.Cecil.Inject.InjectValues.PassInvokingInstance
+  name: PassInvokingInstance
+  href: api/Mono.Cecil.Inject.InjectValues.html#Mono_Cecil_Inject_InjectValues_PassInvokingInstance
+  commentId: F:Mono.Cecil.Inject.InjectValues.PassInvokingInstance
+  fullName: Mono.Cecil.Inject.InjectValues.PassInvokingInstance
+  nameWithType: InjectValues.PassInvokingInstance
+- uid: Mono.Cecil.Inject.InjectValues.PassLocals
+  name: PassLocals
+  href: api/Mono.Cecil.Inject.InjectValues.html#Mono_Cecil_Inject_InjectValues_PassLocals
+  commentId: F:Mono.Cecil.Inject.InjectValues.PassLocals
+  fullName: Mono.Cecil.Inject.InjectValues.PassLocals
+  nameWithType: InjectValues.PassLocals
+- uid: Mono.Cecil.Inject.InjectValues.PassParameters
+  name: PassParameters
+  href: api/Mono.Cecil.Inject.InjectValues.html#Mono_Cecil_Inject_InjectValues_PassParameters
+  commentId: P:Mono.Cecil.Inject.InjectValues.PassParameters
+  fullName: Mono.Cecil.Inject.InjectValues.PassParameters
+  nameWithType: InjectValues.PassParameters
+- uid: Mono.Cecil.Inject.InjectValues.PassParameters*
+  name: PassParameters
+  href: api/Mono.Cecil.Inject.InjectValues.html#Mono_Cecil_Inject_InjectValues_PassParameters_
+  commentId: Overload:Mono.Cecil.Inject.InjectValues.PassParameters
+  fullName: Mono.Cecil.Inject.InjectValues.PassParameters
+  nameWithType: InjectValues.PassParameters
+- uid: Mono.Cecil.Inject.InjectValues.PassParametersByRef
+  name: PassParametersByRef
+  href: api/Mono.Cecil.Inject.InjectValues.html#Mono_Cecil_Inject_InjectValues_PassParametersByRef
+  commentId: P:Mono.Cecil.Inject.InjectValues.PassParametersByRef
+  fullName: Mono.Cecil.Inject.InjectValues.PassParametersByRef
+  nameWithType: InjectValues.PassParametersByRef
+- uid: Mono.Cecil.Inject.InjectValues.PassParametersByRef*
+  name: PassParametersByRef
+  href: api/Mono.Cecil.Inject.InjectValues.html#Mono_Cecil_Inject_InjectValues_PassParametersByRef_
+  commentId: Overload:Mono.Cecil.Inject.InjectValues.PassParametersByRef
+  fullName: Mono.Cecil.Inject.InjectValues.PassParametersByRef
+  nameWithType: InjectValues.PassParametersByRef
+- uid: Mono.Cecil.Inject.InjectValues.PassParametersType
+  name: InjectValues.PassParametersType
+  href: api/Mono.Cecil.Inject.InjectValues.PassParametersType.html
+  commentId: T:Mono.Cecil.Inject.InjectValues.PassParametersType
+  fullName: Mono.Cecil.Inject.InjectValues.PassParametersType
+  nameWithType: InjectValues.PassParametersType
+- uid: Mono.Cecil.Inject.InjectValues.PassParametersType.ByReference
+  name: ByReference
+  href: api/Mono.Cecil.Inject.InjectValues.PassParametersType.html#Mono_Cecil_Inject_InjectValues_PassParametersType_ByReference
+  commentId: F:Mono.Cecil.Inject.InjectValues.PassParametersType.ByReference
+  fullName: Mono.Cecil.Inject.InjectValues.PassParametersType.ByReference
+  nameWithType: InjectValues.PassParametersType.ByReference
+- uid: Mono.Cecil.Inject.InjectValues.PassParametersType.ByValue
+  name: ByValue
+  href: api/Mono.Cecil.Inject.InjectValues.PassParametersType.html#Mono_Cecil_Inject_InjectValues_PassParametersType_ByValue
+  commentId: F:Mono.Cecil.Inject.InjectValues.PassParametersType.ByValue
+  fullName: Mono.Cecil.Inject.InjectValues.PassParametersType.ByValue
+  nameWithType: InjectValues.PassParametersType.ByValue
+- uid: Mono.Cecil.Inject.InjectValues.PassParametersType.Max
+  name: Max
+  href: api/Mono.Cecil.Inject.InjectValues.PassParametersType.html#Mono_Cecil_Inject_InjectValues_PassParametersType_Max
+  commentId: F:Mono.Cecil.Inject.InjectValues.PassParametersType.Max
+  fullName: Mono.Cecil.Inject.InjectValues.PassParametersType.Max
+  nameWithType: InjectValues.PassParametersType.Max
+- uid: Mono.Cecil.Inject.InjectValues.PassParametersType.None
+  name: None
+  href: api/Mono.Cecil.Inject.InjectValues.PassParametersType.html#Mono_Cecil_Inject_InjectValues_PassParametersType_None
+  commentId: F:Mono.Cecil.Inject.InjectValues.PassParametersType.None
+  fullName: Mono.Cecil.Inject.InjectValues.PassParametersType.None
+  nameWithType: InjectValues.PassParametersType.None
+- uid: Mono.Cecil.Inject.InjectValues.PassTag
+  name: PassTag
+  href: api/Mono.Cecil.Inject.InjectValues.html#Mono_Cecil_Inject_InjectValues_PassTag
+  commentId: P:Mono.Cecil.Inject.InjectValues.PassTag
+  fullName: Mono.Cecil.Inject.InjectValues.PassTag
+  nameWithType: InjectValues.PassTag
+- uid: Mono.Cecil.Inject.InjectValues.PassTag*
+  name: PassTag
+  href: api/Mono.Cecil.Inject.InjectValues.html#Mono_Cecil_Inject_InjectValues_PassTag_
+  commentId: Overload:Mono.Cecil.Inject.InjectValues.PassTag
+  fullName: Mono.Cecil.Inject.InjectValues.PassTag
+  nameWithType: InjectValues.PassTag
+- uid: Mono.Cecil.Inject.InjectValues.PassTagType
+  name: InjectValues.PassTagType
+  href: api/Mono.Cecil.Inject.InjectValues.PassTagType.html
+  commentId: T:Mono.Cecil.Inject.InjectValues.PassTagType
+  fullName: Mono.Cecil.Inject.InjectValues.PassTagType
+  nameWithType: InjectValues.PassTagType
+- uid: Mono.Cecil.Inject.InjectValues.PassTagType.Int32
+  name: Int32
+  href: api/Mono.Cecil.Inject.InjectValues.PassTagType.html#Mono_Cecil_Inject_InjectValues_PassTagType_Int32
+  commentId: F:Mono.Cecil.Inject.InjectValues.PassTagType.Int32
+  fullName: Mono.Cecil.Inject.InjectValues.PassTagType.Int32
+  nameWithType: InjectValues.PassTagType.Int32
+- uid: Mono.Cecil.Inject.InjectValues.PassTagType.Max
+  name: Max
+  href: api/Mono.Cecil.Inject.InjectValues.PassTagType.html#Mono_Cecil_Inject_InjectValues_PassTagType_Max
+  commentId: F:Mono.Cecil.Inject.InjectValues.PassTagType.Max
+  fullName: Mono.Cecil.Inject.InjectValues.PassTagType.Max
+  nameWithType: InjectValues.PassTagType.Max
+- uid: Mono.Cecil.Inject.InjectValues.PassTagType.None
+  name: None
+  href: api/Mono.Cecil.Inject.InjectValues.PassTagType.html#Mono_Cecil_Inject_InjectValues_PassTagType_None
+  commentId: F:Mono.Cecil.Inject.InjectValues.PassTagType.None
+  fullName: Mono.Cecil.Inject.InjectValues.PassTagType.None
+  nameWithType: InjectValues.PassTagType.None
+- uid: Mono.Cecil.Inject.InjectValues.PassTagType.String
+  name: String
+  href: api/Mono.Cecil.Inject.InjectValues.PassTagType.html#Mono_Cecil_Inject_InjectValues_PassTagType_String
+  commentId: F:Mono.Cecil.Inject.InjectValues.PassTagType.String
+  fullName: Mono.Cecil.Inject.InjectValues.PassTagType.String
+  nameWithType: InjectValues.PassTagType.String
+- uid: Mono.Cecil.Inject.InjectValues.TagType
+  name: TagType
+  href: api/Mono.Cecil.Inject.InjectValues.html#Mono_Cecil_Inject_InjectValues_TagType
+  commentId: F:Mono.Cecil.Inject.InjectValues.TagType
+  fullName: Mono.Cecil.Inject.InjectValues.TagType
+  nameWithType: InjectValues.TagType
+- uid: Mono.Cecil.Inject.Logger
+  name: Logger
+  href: api/Mono.Cecil.Inject.Logger.html
+  commentId: T:Mono.Cecil.Inject.Logger
+  fullName: Mono.Cecil.Inject.Logger
+  nameWithType: Logger
+- uid: Mono.Cecil.Inject.Logger.IsSet(System.UInt32)
+  name: IsSet(UInt32)
+  href: api/Mono.Cecil.Inject.Logger.html#Mono_Cecil_Inject_Logger_IsSet_System_UInt32_
+  commentId: M:Mono.Cecil.Inject.Logger.IsSet(System.UInt32)
+  fullName: Mono.Cecil.Inject.Logger.IsSet(System.UInt32)
+  nameWithType: Logger.IsSet(UInt32)
+- uid: Mono.Cecil.Inject.Logger.IsSet*
+  name: IsSet
+  href: api/Mono.Cecil.Inject.Logger.html#Mono_Cecil_Inject_Logger_IsSet_
+  commentId: Overload:Mono.Cecil.Inject.Logger.IsSet
+  fullName: Mono.Cecil.Inject.Logger.IsSet
+  nameWithType: Logger.IsSet
+- uid: Mono.Cecil.Inject.Logger.Log(System.UInt32,System.String)
+  name: Log(UInt32, String)
+  href: api/Mono.Cecil.Inject.Logger.html#Mono_Cecil_Inject_Logger_Log_System_UInt32_System_String_
+  commentId: M:Mono.Cecil.Inject.Logger.Log(System.UInt32,System.String)
+  fullName: Mono.Cecil.Inject.Logger.Log(System.UInt32, System.String)
+  nameWithType: Logger.Log(UInt32, String)
+- uid: Mono.Cecil.Inject.Logger.Log*
+  name: Log
+  href: api/Mono.Cecil.Inject.Logger.html#Mono_Cecil_Inject_Logger_Log_
+  commentId: Overload:Mono.Cecil.Inject.Logger.Log
+  fullName: Mono.Cecil.Inject.Logger.Log
+  nameWithType: Logger.Log
+- uid: Mono.Cecil.Inject.Logger.LogLine(System.UInt32)
+  name: LogLine(UInt32)
+  href: api/Mono.Cecil.Inject.Logger.html#Mono_Cecil_Inject_Logger_LogLine_System_UInt32_
+  commentId: M:Mono.Cecil.Inject.Logger.LogLine(System.UInt32)
+  fullName: Mono.Cecil.Inject.Logger.LogLine(System.UInt32)
+  nameWithType: Logger.LogLine(UInt32)
+- uid: Mono.Cecil.Inject.Logger.LogLine(System.UInt32,System.String)
+  name: LogLine(UInt32, String)
+  href: api/Mono.Cecil.Inject.Logger.html#Mono_Cecil_Inject_Logger_LogLine_System_UInt32_System_String_
+  commentId: M:Mono.Cecil.Inject.Logger.LogLine(System.UInt32,System.String)
+  fullName: Mono.Cecil.Inject.Logger.LogLine(System.UInt32, System.String)
+  nameWithType: Logger.LogLine(UInt32, String)
+- uid: Mono.Cecil.Inject.Logger.LogLine*
+  name: LogLine
+  href: api/Mono.Cecil.Inject.Logger.html#Mono_Cecil_Inject_Logger_LogLine_
+  commentId: Overload:Mono.Cecil.Inject.Logger.LogLine
+  fullName: Mono.Cecil.Inject.Logger.LogLine
+  nameWithType: Logger.LogLine
+- uid: Mono.Cecil.Inject.Logger.LogOutput
+  name: LogOutput
+  href: api/Mono.Cecil.Inject.Logger.html#Mono_Cecil_Inject_Logger_LogOutput
+  commentId: P:Mono.Cecil.Inject.Logger.LogOutput
+  fullName: Mono.Cecil.Inject.Logger.LogOutput
+  nameWithType: Logger.LogOutput
+- uid: Mono.Cecil.Inject.Logger.LogOutput*
+  name: LogOutput
+  href: api/Mono.Cecil.Inject.Logger.html#Mono_Cecil_Inject_Logger_LogOutput_
+  commentId: Overload:Mono.Cecil.Inject.Logger.LogOutput
+  fullName: Mono.Cecil.Inject.Logger.LogOutput
+  nameWithType: Logger.LogOutput
+- uid: Mono.Cecil.Inject.Logger.SetLogMask(System.UInt32)
+  name: SetLogMask(UInt32)
+  href: api/Mono.Cecil.Inject.Logger.html#Mono_Cecil_Inject_Logger_SetLogMask_System_UInt32_
+  commentId: M:Mono.Cecil.Inject.Logger.SetLogMask(System.UInt32)
+  fullName: Mono.Cecil.Inject.Logger.SetLogMask(System.UInt32)
+  nameWithType: Logger.SetLogMask(UInt32)
+- uid: Mono.Cecil.Inject.Logger.SetLogMask*
+  name: SetLogMask
+  href: api/Mono.Cecil.Inject.Logger.html#Mono_Cecil_Inject_Logger_SetLogMask_
+  commentId: Overload:Mono.Cecil.Inject.Logger.SetLogMask
+  fullName: Mono.Cecil.Inject.Logger.SetLogMask
+  nameWithType: Logger.SetLogMask
+- uid: Mono.Cecil.Inject.Logger.UnsetMask(System.UInt32)
+  name: UnsetMask(UInt32)
+  href: api/Mono.Cecil.Inject.Logger.html#Mono_Cecil_Inject_Logger_UnsetMask_System_UInt32_
+  commentId: M:Mono.Cecil.Inject.Logger.UnsetMask(System.UInt32)
+  fullName: Mono.Cecil.Inject.Logger.UnsetMask(System.UInt32)
+  nameWithType: Logger.UnsetMask(UInt32)
+- uid: Mono.Cecil.Inject.Logger.UnsetMask*
+  name: UnsetMask
+  href: api/Mono.Cecil.Inject.Logger.html#Mono_Cecil_Inject_Logger_UnsetMask_
+  commentId: Overload:Mono.Cecil.Inject.Logger.UnsetMask
+  fullName: Mono.Cecil.Inject.Logger.UnsetMask
+  nameWithType: Logger.UnsetMask
+- uid: Mono.Cecil.Inject.LogMask
+  name: LogMask
+  href: api/Mono.Cecil.Inject.LogMask.html
+  commentId: T:Mono.Cecil.Inject.LogMask
+  fullName: Mono.Cecil.Inject.LogMask
+  nameWithType: LogMask
+- uid: Mono.Cecil.Inject.LogMask.ChangeAccess
+  name: ChangeAccess
+  href: api/Mono.Cecil.Inject.LogMask.html#Mono_Cecil_Inject_LogMask_ChangeAccess
+  commentId: F:Mono.Cecil.Inject.LogMask.ChangeAccess
+  fullName: Mono.Cecil.Inject.LogMask.ChangeAccess
+  nameWithType: LogMask.ChangeAccess
+- uid: Mono.Cecil.Inject.LogMask.GetInjectionMethod
+  name: GetInjectionMethod
+  href: api/Mono.Cecil.Inject.LogMask.html#Mono_Cecil_Inject_LogMask_GetInjectionMethod
+  commentId: F:Mono.Cecil.Inject.LogMask.GetInjectionMethod
+  fullName: Mono.Cecil.Inject.LogMask.GetInjectionMethod
+  nameWithType: LogMask.GetInjectionMethod
+- uid: Mono.Cecil.Inject.LogMask.Inject
+  name: Inject
+  href: api/Mono.Cecil.Inject.LogMask.html#Mono_Cecil_Inject_LogMask_Inject
+  commentId: F:Mono.Cecil.Inject.LogMask.Inject
+  fullName: Mono.Cecil.Inject.LogMask.Inject
+  nameWithType: LogMask.Inject
+- uid: Mono.Cecil.Inject.LogMask.TypeCompare
+  name: TypeCompare
+  href: api/Mono.Cecil.Inject.LogMask.html#Mono_Cecil_Inject_LogMask_TypeCompare
+  commentId: F:Mono.Cecil.Inject.LogMask.TypeCompare
+  fullName: Mono.Cecil.Inject.LogMask.TypeCompare
+  nameWithType: LogMask.TypeCompare
+- uid: Mono.Cecil.Inject.MethodDefinitionExtensions
+  name: MethodDefinitionExtensions
+  href: api/Mono.Cecil.Inject.MethodDefinitionExtensions.html
+  commentId: T:Mono.Cecil.Inject.MethodDefinitionExtensions
+  fullName: Mono.Cecil.Inject.MethodDefinitionExtensions
+  nameWithType: MethodDefinitionExtensions
+- uid: Mono.Cecil.Inject.MethodDefinitionExtensions.GetInjector(MethodDefinition,TypeDefinition,System.String,Mono.Cecil.Inject.InjectFlags,System.Int32[],FieldDefinition[])
+  name: GetInjector(MethodDefinition, TypeDefinition, String, InjectFlags, Int32[], FieldDefinition[])
+  href: api/Mono.Cecil.Inject.MethodDefinitionExtensions.html#Mono_Cecil_Inject_MethodDefinitionExtensions_GetInjector_MethodDefinition_TypeDefinition_System_String_Mono_Cecil_Inject_InjectFlags_System_Int32___FieldDefinition___
+  commentId: M:Mono.Cecil.Inject.MethodDefinitionExtensions.GetInjector(MethodDefinition,TypeDefinition,System.String,Mono.Cecil.Inject.InjectFlags,System.Int32[],FieldDefinition[])
+  name.vb: GetInjector(MethodDefinition, TypeDefinition, String, InjectFlags, Int32(), FieldDefinition())
+  fullName: Mono.Cecil.Inject.MethodDefinitionExtensions.GetInjector(MethodDefinition, TypeDefinition, System.String, Mono.Cecil.Inject.InjectFlags, System.Int32[], FieldDefinition[])
+  fullName.vb: Mono.Cecil.Inject.MethodDefinitionExtensions.GetInjector(MethodDefinition, TypeDefinition, System.String, Mono.Cecil.Inject.InjectFlags, System.Int32(), FieldDefinition())
+  nameWithType: MethodDefinitionExtensions.GetInjector(MethodDefinition, TypeDefinition, String, InjectFlags, Int32[], FieldDefinition[])
+  nameWithType.vb: MethodDefinitionExtensions.GetInjector(MethodDefinition, TypeDefinition, String, InjectFlags, Int32(), FieldDefinition())
+- uid: Mono.Cecil.Inject.MethodDefinitionExtensions.GetInjector*
+  name: GetInjector
+  href: api/Mono.Cecil.Inject.MethodDefinitionExtensions.html#Mono_Cecil_Inject_MethodDefinitionExtensions_GetInjector_
+  commentId: Overload:Mono.Cecil.Inject.MethodDefinitionExtensions.GetInjector
+  fullName: Mono.Cecil.Inject.MethodDefinitionExtensions.GetInjector
+  nameWithType: MethodDefinitionExtensions.GetInjector
+- uid: Mono.Cecil.Inject.MethodDefinitionExtensions.InjectWith(MethodDefinition,MethodDefinition,System.Int32,System.Int32,Mono.Cecil.Inject.InjectFlags,Mono.Cecil.Inject.InjectDirection,System.Int32[],FieldDefinition[])
+  name: InjectWith(MethodDefinition, MethodDefinition, Int32, Int32, InjectFlags, InjectDirection, Int32[], FieldDefinition[])
+  href: api/Mono.Cecil.Inject.MethodDefinitionExtensions.html#Mono_Cecil_Inject_MethodDefinitionExtensions_InjectWith_MethodDefinition_MethodDefinition_System_Int32_System_Int32_Mono_Cecil_Inject_InjectFlags_Mono_Cecil_Inject_InjectDirection_System_Int32___FieldDefinition___
+  commentId: M:Mono.Cecil.Inject.MethodDefinitionExtensions.InjectWith(MethodDefinition,MethodDefinition,System.Int32,System.Int32,Mono.Cecil.Inject.InjectFlags,Mono.Cecil.Inject.InjectDirection,System.Int32[],FieldDefinition[])
+  name.vb: InjectWith(MethodDefinition, MethodDefinition, Int32, Int32, InjectFlags, InjectDirection, Int32(), FieldDefinition())
+  fullName: Mono.Cecil.Inject.MethodDefinitionExtensions.InjectWith(MethodDefinition, MethodDefinition, System.Int32, System.Int32, Mono.Cecil.Inject.InjectFlags, Mono.Cecil.Inject.InjectDirection, System.Int32[], FieldDefinition[])
+  fullName.vb: Mono.Cecil.Inject.MethodDefinitionExtensions.InjectWith(MethodDefinition, MethodDefinition, System.Int32, System.Int32, Mono.Cecil.Inject.InjectFlags, Mono.Cecil.Inject.InjectDirection, System.Int32(), FieldDefinition())
+  nameWithType: MethodDefinitionExtensions.InjectWith(MethodDefinition, MethodDefinition, Int32, Int32, InjectFlags, InjectDirection, Int32[], FieldDefinition[])
+  nameWithType.vb: MethodDefinitionExtensions.InjectWith(MethodDefinition, MethodDefinition, Int32, Int32, InjectFlags, InjectDirection, Int32(), FieldDefinition())
+- uid: Mono.Cecil.Inject.MethodDefinitionExtensions.InjectWith(MethodDefinition,MethodDefinition,System.Int32,System.Object,Mono.Cecil.Inject.InjectFlags,Mono.Cecil.Inject.InjectDirection,System.Int32[],FieldDefinition[])
+  name: InjectWith(MethodDefinition, MethodDefinition, Int32, Object, InjectFlags, InjectDirection, Int32[], FieldDefinition[])
+  href: api/Mono.Cecil.Inject.MethodDefinitionExtensions.html#Mono_Cecil_Inject_MethodDefinitionExtensions_InjectWith_MethodDefinition_MethodDefinition_System_Int32_System_Object_Mono_Cecil_Inject_InjectFlags_Mono_Cecil_Inject_InjectDirection_System_Int32___FieldDefinition___
+  commentId: M:Mono.Cecil.Inject.MethodDefinitionExtensions.InjectWith(MethodDefinition,MethodDefinition,System.Int32,System.Object,Mono.Cecil.Inject.InjectFlags,Mono.Cecil.Inject.InjectDirection,System.Int32[],FieldDefinition[])
+  name.vb: InjectWith(MethodDefinition, MethodDefinition, Int32, Object, InjectFlags, InjectDirection, Int32(), FieldDefinition())
+  fullName: Mono.Cecil.Inject.MethodDefinitionExtensions.InjectWith(MethodDefinition, MethodDefinition, System.Int32, System.Object, Mono.Cecil.Inject.InjectFlags, Mono.Cecil.Inject.InjectDirection, System.Int32[], FieldDefinition[])
+  fullName.vb: Mono.Cecil.Inject.MethodDefinitionExtensions.InjectWith(MethodDefinition, MethodDefinition, System.Int32, System.Object, Mono.Cecil.Inject.InjectFlags, Mono.Cecil.Inject.InjectDirection, System.Int32(), FieldDefinition())
+  nameWithType: MethodDefinitionExtensions.InjectWith(MethodDefinition, MethodDefinition, Int32, Object, InjectFlags, InjectDirection, Int32[], FieldDefinition[])
+  nameWithType.vb: MethodDefinitionExtensions.InjectWith(MethodDefinition, MethodDefinition, Int32, Object, InjectFlags, InjectDirection, Int32(), FieldDefinition())
+- uid: Mono.Cecil.Inject.MethodDefinitionExtensions.InjectWith*
+  name: InjectWith
+  href: api/Mono.Cecil.Inject.MethodDefinitionExtensions.html#Mono_Cecil_Inject_MethodDefinitionExtensions_InjectWith_
+  commentId: Overload:Mono.Cecil.Inject.MethodDefinitionExtensions.InjectWith
+  fullName: Mono.Cecil.Inject.MethodDefinitionExtensions.InjectWith
+  nameWithType: MethodDefinitionExtensions.InjectWith
+- uid: Mono.Cecil.Inject.ParamHelper
+  name: ParamHelper
+  href: api/Mono.Cecil.Inject.ParamHelper.html
+  commentId: T:Mono.Cecil.Inject.ParamHelper
+  fullName: Mono.Cecil.Inject.ParamHelper
+  nameWithType: ParamHelper
+- uid: Mono.Cecil.Inject.ParamHelper.CreateDummyType(System.String)
+  name: CreateDummyType(String)
+  href: api/Mono.Cecil.Inject.ParamHelper.html#Mono_Cecil_Inject_ParamHelper_CreateDummyType_System_String_
+  commentId: M:Mono.Cecil.Inject.ParamHelper.CreateDummyType(System.String)
+  fullName: Mono.Cecil.Inject.ParamHelper.CreateDummyType(System.String)
+  nameWithType: ParamHelper.CreateDummyType(String)
+- uid: Mono.Cecil.Inject.ParamHelper.CreateDummyType*
+  name: CreateDummyType
+  href: api/Mono.Cecil.Inject.ParamHelper.html#Mono_Cecil_Inject_ParamHelper_CreateDummyType_
+  commentId: Overload:Mono.Cecil.Inject.ParamHelper.CreateDummyType
+  fullName: Mono.Cecil.Inject.ParamHelper.CreateDummyType
+  nameWithType: ParamHelper.CreateDummyType
+- uid: Mono.Cecil.Inject.ParamHelper.CreateGeneric(System.String)
+  name: CreateGeneric(String)
+  href: api/Mono.Cecil.Inject.ParamHelper.html#Mono_Cecil_Inject_ParamHelper_CreateGeneric_System_String_
+  commentId: M:Mono.Cecil.Inject.ParamHelper.CreateGeneric(System.String)
+  fullName: Mono.Cecil.Inject.ParamHelper.CreateGeneric(System.String)
+  nameWithType: ParamHelper.CreateGeneric(String)
+- uid: Mono.Cecil.Inject.ParamHelper.CreateGeneric*
+  name: CreateGeneric
+  href: api/Mono.Cecil.Inject.ParamHelper.html#Mono_Cecil_Inject_ParamHelper_CreateGeneric_
+  commentId: Overload:Mono.Cecil.Inject.ParamHelper.CreateGeneric
+  fullName: Mono.Cecil.Inject.ParamHelper.CreateGeneric
+  nameWithType: ParamHelper.CreateGeneric
+- uid: Mono.Cecil.Inject.ParamHelper.FromType(System.Type)
+  name: FromType(Type)
+  href: api/Mono.Cecil.Inject.ParamHelper.html#Mono_Cecil_Inject_ParamHelper_FromType_System_Type_
+  commentId: M:Mono.Cecil.Inject.ParamHelper.FromType(System.Type)
+  fullName: Mono.Cecil.Inject.ParamHelper.FromType(System.Type)
+  nameWithType: ParamHelper.FromType(Type)
+- uid: Mono.Cecil.Inject.ParamHelper.FromType*
+  name: FromType
+  href: api/Mono.Cecil.Inject.ParamHelper.html#Mono_Cecil_Inject_ParamHelper_FromType_
+  commentId: Overload:Mono.Cecil.Inject.ParamHelper.FromType
+  fullName: Mono.Cecil.Inject.ParamHelper.FromType
+  nameWithType: ParamHelper.FromType
+- uid: Mono.Cecil.Inject.ParamHelper.FromType``1
+  name: FromType<T>()
+  href: api/Mono.Cecil.Inject.ParamHelper.html#Mono_Cecil_Inject_ParamHelper_FromType__1
+  commentId: M:Mono.Cecil.Inject.ParamHelper.FromType``1
+  name.vb: FromType(Of T)()
+  fullName: Mono.Cecil.Inject.ParamHelper.FromType<T>()
+  fullName.vb: Mono.Cecil.Inject.ParamHelper.FromType(Of T)()
+  nameWithType: ParamHelper.FromType<T>()
+  nameWithType.vb: ParamHelper.FromType(Of T)()
+- uid: Mono.Cecil.Inject.TypeDefinitionExtensions
+  name: TypeDefinitionExtensions
+  href: api/Mono.Cecil.Inject.TypeDefinitionExtensions.html
+  commentId: T:Mono.Cecil.Inject.TypeDefinitionExtensions
+  fullName: Mono.Cecil.Inject.TypeDefinitionExtensions
+  nameWithType: TypeDefinitionExtensions
+- uid: Mono.Cecil.Inject.TypeDefinitionExtensions.ChangeAccess(TypeDefinition,System.String,System.Boolean,System.Boolean,System.Boolean,System.Boolean)
+  name: ChangeAccess(TypeDefinition, String, Boolean, Boolean, Boolean, Boolean)
+  href: api/Mono.Cecil.Inject.TypeDefinitionExtensions.html#Mono_Cecil_Inject_TypeDefinitionExtensions_ChangeAccess_TypeDefinition_System_String_System_Boolean_System_Boolean_System_Boolean_System_Boolean_
+  commentId: M:Mono.Cecil.Inject.TypeDefinitionExtensions.ChangeAccess(TypeDefinition,System.String,System.Boolean,System.Boolean,System.Boolean,System.Boolean)
+  fullName: Mono.Cecil.Inject.TypeDefinitionExtensions.ChangeAccess(TypeDefinition, System.String, System.Boolean, System.Boolean, System.Boolean, System.Boolean)
+  nameWithType: TypeDefinitionExtensions.ChangeAccess(TypeDefinition, String, Boolean, Boolean, Boolean, Boolean)
+- uid: Mono.Cecil.Inject.TypeDefinitionExtensions.ChangeAccess*
+  name: ChangeAccess
+  href: api/Mono.Cecil.Inject.TypeDefinitionExtensions.html#Mono_Cecil_Inject_TypeDefinitionExtensions_ChangeAccess_
+  commentId: Overload:Mono.Cecil.Inject.TypeDefinitionExtensions.ChangeAccess
+  fullName: Mono.Cecil.Inject.TypeDefinitionExtensions.ChangeAccess
+  nameWithType: TypeDefinitionExtensions.ChangeAccess
+- uid: Mono.Cecil.Inject.TypeDefinitionExtensions.GetField(TypeDefinition,System.String)
+  name: GetField(TypeDefinition, String)
+  href: api/Mono.Cecil.Inject.TypeDefinitionExtensions.html#Mono_Cecil_Inject_TypeDefinitionExtensions_GetField_TypeDefinition_System_String_
+  commentId: M:Mono.Cecil.Inject.TypeDefinitionExtensions.GetField(TypeDefinition,System.String)
+  fullName: Mono.Cecil.Inject.TypeDefinitionExtensions.GetField(TypeDefinition, System.String)
+  nameWithType: TypeDefinitionExtensions.GetField(TypeDefinition, String)
+- uid: Mono.Cecil.Inject.TypeDefinitionExtensions.GetField*
+  name: GetField
+  href: api/Mono.Cecil.Inject.TypeDefinitionExtensions.html#Mono_Cecil_Inject_TypeDefinitionExtensions_GetField_
+  commentId: Overload:Mono.Cecil.Inject.TypeDefinitionExtensions.GetField
+  fullName: Mono.Cecil.Inject.TypeDefinitionExtensions.GetField
+  nameWithType: TypeDefinitionExtensions.GetField
+- uid: Mono.Cecil.Inject.TypeDefinitionExtensions.GetInjectionMethod(TypeDefinition,System.String,MethodDefinition,Mono.Cecil.Inject.InjectFlags,System.Int32[],FieldDefinition[])
+  name: GetInjectionMethod(TypeDefinition, String, MethodDefinition, InjectFlags, Int32[], FieldDefinition[])
+  href: api/Mono.Cecil.Inject.TypeDefinitionExtensions.html#Mono_Cecil_Inject_TypeDefinitionExtensions_GetInjectionMethod_TypeDefinition_System_String_MethodDefinition_Mono_Cecil_Inject_InjectFlags_System_Int32___FieldDefinition___
+  commentId: M:Mono.Cecil.Inject.TypeDefinitionExtensions.GetInjectionMethod(TypeDefinition,System.String,MethodDefinition,Mono.Cecil.Inject.InjectFlags,System.Int32[],FieldDefinition[])
+  name.vb: GetInjectionMethod(TypeDefinition, String, MethodDefinition, InjectFlags, Int32(), FieldDefinition())
+  fullName: Mono.Cecil.Inject.TypeDefinitionExtensions.GetInjectionMethod(TypeDefinition, System.String, MethodDefinition, Mono.Cecil.Inject.InjectFlags, System.Int32[], FieldDefinition[])
+  fullName.vb: Mono.Cecil.Inject.TypeDefinitionExtensions.GetInjectionMethod(TypeDefinition, System.String, MethodDefinition, Mono.Cecil.Inject.InjectFlags, System.Int32(), FieldDefinition())
+  nameWithType: TypeDefinitionExtensions.GetInjectionMethod(TypeDefinition, String, MethodDefinition, InjectFlags, Int32[], FieldDefinition[])
+  nameWithType.vb: TypeDefinitionExtensions.GetInjectionMethod(TypeDefinition, String, MethodDefinition, InjectFlags, Int32(), FieldDefinition())
+- uid: Mono.Cecil.Inject.TypeDefinitionExtensions.GetInjectionMethod*
+  name: GetInjectionMethod
+  href: api/Mono.Cecil.Inject.TypeDefinitionExtensions.html#Mono_Cecil_Inject_TypeDefinitionExtensions_GetInjectionMethod_
+  commentId: Overload:Mono.Cecil.Inject.TypeDefinitionExtensions.GetInjectionMethod
+  fullName: Mono.Cecil.Inject.TypeDefinitionExtensions.GetInjectionMethod
+  nameWithType: TypeDefinitionExtensions.GetInjectionMethod
+- uid: Mono.Cecil.Inject.TypeDefinitionExtensions.GetMethod(TypeDefinition,System.String)
+  name: GetMethod(TypeDefinition, String)
+  href: api/Mono.Cecil.Inject.TypeDefinitionExtensions.html#Mono_Cecil_Inject_TypeDefinitionExtensions_GetMethod_TypeDefinition_System_String_
+  commentId: M:Mono.Cecil.Inject.TypeDefinitionExtensions.GetMethod(TypeDefinition,System.String)
+  fullName: Mono.Cecil.Inject.TypeDefinitionExtensions.GetMethod(TypeDefinition, System.String)
+  nameWithType: TypeDefinitionExtensions.GetMethod(TypeDefinition, String)
+- uid: Mono.Cecil.Inject.TypeDefinitionExtensions.GetMethod(TypeDefinition,System.String,System.String[])
+  name: GetMethod(TypeDefinition, String, String[])
+  href: api/Mono.Cecil.Inject.TypeDefinitionExtensions.html#Mono_Cecil_Inject_TypeDefinitionExtensions_GetMethod_TypeDefinition_System_String_System_String___
+  commentId: M:Mono.Cecil.Inject.TypeDefinitionExtensions.GetMethod(TypeDefinition,System.String,System.String[])
+  name.vb: GetMethod(TypeDefinition, String, String())
+  fullName: Mono.Cecil.Inject.TypeDefinitionExtensions.GetMethod(TypeDefinition, System.String, System.String[])
+  fullName.vb: Mono.Cecil.Inject.TypeDefinitionExtensions.GetMethod(TypeDefinition, System.String, System.String())
+  nameWithType: TypeDefinitionExtensions.GetMethod(TypeDefinition, String, String[])
+  nameWithType.vb: TypeDefinitionExtensions.GetMethod(TypeDefinition, String, String())
+- uid: Mono.Cecil.Inject.TypeDefinitionExtensions.GetMethod(TypeDefinition,System.String,System.Type[])
+  name: GetMethod(TypeDefinition, String, Type[])
+  href: api/Mono.Cecil.Inject.TypeDefinitionExtensions.html#Mono_Cecil_Inject_TypeDefinitionExtensions_GetMethod_TypeDefinition_System_String_System_Type___
+  commentId: M:Mono.Cecil.Inject.TypeDefinitionExtensions.GetMethod(TypeDefinition,System.String,System.Type[])
+  name.vb: GetMethod(TypeDefinition, String, Type())
+  fullName: Mono.Cecil.Inject.TypeDefinitionExtensions.GetMethod(TypeDefinition, System.String, System.Type[])
+  fullName.vb: Mono.Cecil.Inject.TypeDefinitionExtensions.GetMethod(TypeDefinition, System.String, System.Type())
+  nameWithType: TypeDefinitionExtensions.GetMethod(TypeDefinition, String, Type[])
+  nameWithType.vb: TypeDefinitionExtensions.GetMethod(TypeDefinition, String, Type())
+- uid: Mono.Cecil.Inject.TypeDefinitionExtensions.GetMethod(TypeDefinition,System.String,TypeReference[])
+  name: GetMethod(TypeDefinition, String, TypeReference[])
+  href: api/Mono.Cecil.Inject.TypeDefinitionExtensions.html#Mono_Cecil_Inject_TypeDefinitionExtensions_GetMethod_TypeDefinition_System_String_TypeReference___
+  commentId: M:Mono.Cecil.Inject.TypeDefinitionExtensions.GetMethod(TypeDefinition,System.String,TypeReference[])
+  name.vb: GetMethod(TypeDefinition, String, TypeReference())
+  fullName: Mono.Cecil.Inject.TypeDefinitionExtensions.GetMethod(TypeDefinition, System.String, TypeReference[])
+  fullName.vb: Mono.Cecil.Inject.TypeDefinitionExtensions.GetMethod(TypeDefinition, System.String, TypeReference())
+  nameWithType: TypeDefinitionExtensions.GetMethod(TypeDefinition, String, TypeReference[])
+  nameWithType.vb: TypeDefinitionExtensions.GetMethod(TypeDefinition, String, TypeReference())
+- uid: Mono.Cecil.Inject.TypeDefinitionExtensions.GetMethod*
+  name: GetMethod
+  href: api/Mono.Cecil.Inject.TypeDefinitionExtensions.html#Mono_Cecil_Inject_TypeDefinitionExtensions_GetMethod_
+  commentId: Overload:Mono.Cecil.Inject.TypeDefinitionExtensions.GetMethod
+  fullName: Mono.Cecil.Inject.TypeDefinitionExtensions.GetMethod
+  nameWithType: TypeDefinitionExtensions.GetMethod
+- uid: Mono.Cecil.Inject.TypeDefinitionExtensions.GetMethods(TypeDefinition,System.String)
+  name: GetMethods(TypeDefinition, String)
+  href: api/Mono.Cecil.Inject.TypeDefinitionExtensions.html#Mono_Cecil_Inject_TypeDefinitionExtensions_GetMethods_TypeDefinition_System_String_
+  commentId: M:Mono.Cecil.Inject.TypeDefinitionExtensions.GetMethods(TypeDefinition,System.String)
+  fullName: Mono.Cecil.Inject.TypeDefinitionExtensions.GetMethods(TypeDefinition, System.String)
+  nameWithType: TypeDefinitionExtensions.GetMethods(TypeDefinition, String)
+- uid: Mono.Cecil.Inject.TypeDefinitionExtensions.GetMethods*
+  name: GetMethods
+  href: api/Mono.Cecil.Inject.TypeDefinitionExtensions.html#Mono_Cecil_Inject_TypeDefinitionExtensions_GetMethods_
+  commentId: Overload:Mono.Cecil.Inject.TypeDefinitionExtensions.GetMethods
+  fullName: Mono.Cecil.Inject.TypeDefinitionExtensions.GetMethods
+  nameWithType: TypeDefinitionExtensions.GetMethods
+- uid: Mono.Cecil.Inject.TypeDefinitionExtensions.MatchMethod(TypeDefinition,System.String,System.String[])
+  name: MatchMethod(TypeDefinition, String, String[])
+  href: api/Mono.Cecil.Inject.TypeDefinitionExtensions.html#Mono_Cecil_Inject_TypeDefinitionExtensions_MatchMethod_TypeDefinition_System_String_System_String___
+  commentId: M:Mono.Cecil.Inject.TypeDefinitionExtensions.MatchMethod(TypeDefinition,System.String,System.String[])
+  name.vb: MatchMethod(TypeDefinition, String, String())
+  fullName: Mono.Cecil.Inject.TypeDefinitionExtensions.MatchMethod(TypeDefinition, System.String, System.String[])
+  fullName.vb: Mono.Cecil.Inject.TypeDefinitionExtensions.MatchMethod(TypeDefinition, System.String, System.String())
+  nameWithType: TypeDefinitionExtensions.MatchMethod(TypeDefinition, String, String[])
+  nameWithType.vb: TypeDefinitionExtensions.MatchMethod(TypeDefinition, String, String())
+- uid: Mono.Cecil.Inject.TypeDefinitionExtensions.MatchMethod(TypeDefinition,System.String,System.Type[])
+  name: MatchMethod(TypeDefinition, String, Type[])
+  href: api/Mono.Cecil.Inject.TypeDefinitionExtensions.html#Mono_Cecil_Inject_TypeDefinitionExtensions_MatchMethod_TypeDefinition_System_String_System_Type___
+  commentId: M:Mono.Cecil.Inject.TypeDefinitionExtensions.MatchMethod(TypeDefinition,System.String,System.Type[])
+  name.vb: MatchMethod(TypeDefinition, String, Type())
+  fullName: Mono.Cecil.Inject.TypeDefinitionExtensions.MatchMethod(TypeDefinition, System.String, System.Type[])
+  fullName.vb: Mono.Cecil.Inject.TypeDefinitionExtensions.MatchMethod(TypeDefinition, System.String, System.Type())
+  nameWithType: TypeDefinitionExtensions.MatchMethod(TypeDefinition, String, Type[])
+  nameWithType.vb: TypeDefinitionExtensions.MatchMethod(TypeDefinition, String, Type())
+- uid: Mono.Cecil.Inject.TypeDefinitionExtensions.MatchMethod(TypeDefinition,System.String,TypeReference[])
+  name: MatchMethod(TypeDefinition, String, TypeReference[])
+  href: api/Mono.Cecil.Inject.TypeDefinitionExtensions.html#Mono_Cecil_Inject_TypeDefinitionExtensions_MatchMethod_TypeDefinition_System_String_TypeReference___
+  commentId: M:Mono.Cecil.Inject.TypeDefinitionExtensions.MatchMethod(TypeDefinition,System.String,TypeReference[])
+  name.vb: MatchMethod(TypeDefinition, String, TypeReference())
+  fullName: Mono.Cecil.Inject.TypeDefinitionExtensions.MatchMethod(TypeDefinition, System.String, TypeReference[])
+  fullName.vb: Mono.Cecil.Inject.TypeDefinitionExtensions.MatchMethod(TypeDefinition, System.String, TypeReference())
+  nameWithType: TypeDefinitionExtensions.MatchMethod(TypeDefinition, String, TypeReference[])
+  nameWithType.vb: TypeDefinitionExtensions.MatchMethod(TypeDefinition, String, TypeReference())
+- uid: Mono.Cecil.Inject.TypeDefinitionExtensions.MatchMethod*
+  name: MatchMethod
+  href: api/Mono.Cecil.Inject.TypeDefinitionExtensions.html#Mono_Cecil_Inject_TypeDefinitionExtensions_MatchMethod_
+  commentId: Overload:Mono.Cecil.Inject.TypeDefinitionExtensions.MatchMethod
+  fullName: Mono.Cecil.Inject.TypeDefinitionExtensions.MatchMethod
+  nameWithType: TypeDefinitionExtensions.MatchMethod
