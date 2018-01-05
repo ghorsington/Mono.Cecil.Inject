@@ -208,18 +208,6 @@
       "version": ""
     },
     {
-      "type": "Conceptual",
-      "source_relative_path": "api/index.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/index.html",
-          "hash": "TELyxfyu32Db44kRgVuHlg=="
-        }
-      },
-      "is_incremental": true,
-      "version": ""
-    },
-    {
       "type": "Toc",
       "source_relative_path": "api/toc.yml",
       "output": {
@@ -300,7 +288,7 @@
           "hash": "7PROL2Wy1ctjNyqm5IbSSA=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -309,7 +297,7 @@
       "output": {
         ".html": {
           "relative_path": "toc.html",
-          "hash": "A4vb9E9kubT14pkZ1t9EKg=="
+          "hash": "7T50+brmbz5sE8dS+IkwMg=="
         }
       },
       "is_incremental": false,
