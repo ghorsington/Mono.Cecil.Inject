@@ -235,3 +235,4 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+/Mono.Cecil.Inject/.vs/Mono.Cecil.Inject/v15/Server/sqlite3
